@@ -3,74 +3,14 @@ import './App.css';
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 
+import Menu from '@components/Menu';
+
 function App() {
 	const [count, setCount] = useState(0);
 
 	return (
 		<div className="overflow-hidden flex-col min-h-[100vh] flex">
-			<header className="w-full z-30 absolute">
-				<div className="max-w-6xl mx-auto">
-					<div className="text-center flex h-16">
-						<div className="shrink-0 mr-4">
-							<a href="/" className="block" aria-label="Titanes RC">
-								reactLogo
-							</a>
-						</div>
-						<nav className="md:flex-grow md:flex hidden">
-							<ul className="justify-start items-center flex-wrap grow flex">
-								<li>
-									<a
-										href="/"
-										className="opacity-100 lg:px-5 ease-in duration-150 transition-colors font-medium py-2 items-center flex"
-									>
-										News
-									</a>
-								</li>
-								<li>
-									<a
-										href="/"
-										className="opacity-100 lg:px-5 ease-in duration-150 transition-colors font-medium py-2 items-center flex"
-									>
-										About
-									</a>
-								</li>
-								<li>
-									<a
-										href="/"
-										className="opacity-100 lg:px-5 ease-in duration-150 transition-colors font-medium py-2 items-center flex"
-									>
-										Videos
-									</a>
-								</li>
-								<li>
-									<a
-										href="/"
-										className="opacity-100 lg:px-5 ease-in duration-150 transition-colors font-medium py-2 items-center flex"
-									>
-										Fixture
-									</a>
-								</li>
-								<li>
-									<a
-										href="/"
-										className="opacity-100 lg:px-5 ease-in duration-150 transition-colors font-medium py-2 items-center flex"
-									>
-										Matchs
-									</a>
-								</li>
-								<li>
-									<a
-										href="/"
-										className="opacity-100 lg:px-5 ease-in duration-150 transition-colors font-medium py-2 items-center flex"
-									>
-										Contact
-									</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-			</header>
+			<Menu />
 			<div className="w-full max-w-xl my-0 mx-auto p-2 text-center">
 				<div className="flex justify-center">
 					<a href="https://vitejs.dev" target="_blank" rel="noreferrer">
