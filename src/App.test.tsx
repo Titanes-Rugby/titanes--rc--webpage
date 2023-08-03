@@ -8,6 +8,8 @@ describe('<App />', () => {
 		it('Should render without throwing', () => {
 			render(<App />);
 			expect(screen.getByText('Vite + React')).toBeInTheDocument();
+
+			expect(screen.getByText('About')).toBeInTheDocument();
 		});
 	});
 });

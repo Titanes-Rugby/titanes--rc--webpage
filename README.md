@@ -14,6 +14,8 @@ A ViteJS template for React projects, with ESLint, Prettier, Vitest, Testing Lib
 - vitest
 - eslint
 
+- render
+
 ## Running
 
 Just run `yarn` to install the dependencies and then `yarn dev` to run the app, or `yarn storybook` to run Storybook.

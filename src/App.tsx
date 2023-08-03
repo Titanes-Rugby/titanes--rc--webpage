@@ -3,7 +3,7 @@ import './App.css';
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 
-const App = () => {
+function App() {
 	const [count, setCount] = useState(0);
 
 	return (
@@ -91,6 +91,6 @@ const App = () => {
 			</div>
 		</div>
 	);
-};
+}
 
 export default App;
