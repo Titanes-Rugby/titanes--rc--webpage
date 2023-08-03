@@ -3,29 +3,94 @@ import './App.css';
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 
-function App() {
+const App = () => {
 	const [count, setCount] = useState(0);
 
 	return (
-		<div className="w-full max-w-xl my-0 mx-auto p-2 text-center">
-			<div className="flex justify-center">
-				<a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-					<img src="/vite.svg" className="h-24 p-6 hover:drop-shadow-[0_0_1em_#646cffaa]" alt="Vite logo" />
-				</a>
-				<a href="https://reactjs.org" target="_blank" rel="noreferrer">
-					<img src={reactLogo} className="h-24 p-6 hover:drop-shadow-[0_0_1em_#61dafbaa]" alt="React logo" />
-				</a>
+		<div className="overflow-hidden flex-col min-h-[100vh] flex">
+			<header className="w-full z-30 absolute">
+				<div className="max-w-6xl mx-auto">
+					<div className="text-center flex h-16">
+						<div className="shrink-0 mr-4">
+							<a href="/" className="block" aria-label="Titanes RC">
+								reactLogo
+							</a>
+						</div>
+						<nav className="md:flex-grow md:flex hidden">
+							<ul className="justify-start items-center flex-wrap grow flex">
+								<li>
+									<a
+										href="/"
+										className="opacity-100 lg:px-5 ease-in duration-150 transition-colors font-medium py-2 items-center flex"
+									>
+										News
+									</a>
+								</li>
+								<li>
+									<a
+										href="/"
+										className="opacity-100 lg:px-5 ease-in duration-150 transition-colors font-medium py-2 items-center flex"
+									>
+										About
+									</a>
+								</li>
+								<li>
+									<a
+										href="/"
+										className="opacity-100 lg:px-5 ease-in duration-150 transition-colors font-medium py-2 items-center flex"
+									>
+										Videos
+									</a>
+								</li>
+								<li>
+									<a
+										href="/"
+										className="opacity-100 lg:px-5 ease-in duration-150 transition-colors font-medium py-2 items-center flex"
+									>
+										Fixture
+									</a>
+								</li>
+								<li>
+									<a
+										href="/"
+										className="opacity-100 lg:px-5 ease-in duration-150 transition-colors font-medium py-2 items-center flex"
+									>
+										Matchs
+									</a>
+								</li>
+								<li>
+									<a
+										href="/"
+										className="opacity-100 lg:px-5 ease-in duration-150 transition-colors font-medium py-2 items-center flex"
+									>
+										Contact
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</header>
+			<div className="w-full max-w-xl my-0 mx-auto p-2 text-center">
+				<div className="flex justify-center">
+					<a href="https://vitejs.dev" target="_blank" rel="noreferrer">
+						<img src="/vite.svg" className="h-24 p-6 hover:drop-shadow-[0_0_1em_#646cffaa]" alt="Vite logo" />
+					</a>
+					<a href="https://reactjs.org" target="_blank" rel="noreferrer">
+						<img src={reactLogo} className="h-24 p-6 hover:drop-shadow-[0_0_1em_#61dafbaa]" alt="React logo" />
+					</a>
+				</div>
+				<h1>Vite + React</h1>
+				<div className="flex flex-col items-center gap-2 p-8">
+					<button onClick={() => setCount((c) => c + 1)}>count is {count}</button>
+					<p>
+						Edit <code>src/App.tsx</code> and save to test HMR
+					</p>
+				</div>
+				<p className="text-slate-400">Click on the Vite and React logos to learn more</p>
 			</div>
-			<h1>Vite + React</h1>
-			<div className="flex flex-col items-center gap-2 p-8">
-				<button onClick={() => setCount((c) => c + 1)}>count is {count}</button>
-				<p>
-					Edit <code>src/App.tsx</code> and save to test HMR
-				</p>
-			</div>
-			<p className="text-slate-400">Click on the Vite and React logos to learn more</p>
 		</div>
 	);
-}
+};
 
 export default App;
