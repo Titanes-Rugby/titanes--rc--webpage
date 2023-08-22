@@ -17,8 +17,8 @@ export default {
 				},
 			},
 			backgroundImage: {
-				try: 'url(images/background/1103840.jpg)',
-				rhino: 'url(images/background/1103841.jpg)',
+				try: 'url(/images/background/1103840.jpg)',
+				rhino: 'url(/images/background/1103841.jpg)',
 			},
 		},
 	},
