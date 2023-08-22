@@ -16,6 +16,10 @@ export default {
 					900: '#051F1F',
 				},
 			},
+			backgroundImage: {
+				try: 'url(images/background/1103840.jpg)',
+				rhino: 'url(images/background/1103841.jpg)',
+			},
 		},
 	},
 	plugins: [require('daisyui'), require('@tailwindcss/typography')],

@@ -1,10 +1,11 @@
 import './App.css';
 
 import Header from '@components/Header';
+import Parallax, { WithBackground } from '@components/Parallax';
 
 function App() {
 	return (
-		<div className="bg-white">
+		<main>
 			<Header />
 
 			<div className="relative isolate px-6 pt-14 lg:px-8 sr-only">
@@ -64,7 +65,32 @@ function App() {
 					/>
 				</div>
 			</div>
-		</div>
+			<Parallax backgroundImage="images/background/1103840.jpg">
+				<>
+					<div>
+						<div className="p-5 text-2xl text-titanes-200">
+							<h1>
+								<span className="text-white font-medium">Titanes</span>
+								Rugby Club
+							</h1>
+						</div>
+					</div>
+				</>
+			</Parallax>
+
+			<WithBackground backgroundImage="images/background/1103841.jpg">
+				<>
+					<div>
+						<div className="p-5 text-2xl text-titanes-200">
+							<h1>
+								<span className="text-titanes-700 font-medium">Titanes</span>
+								Rugby Club
+							</h1>
+						</div>
+					</div>
+				</>
+			</WithBackground>
+		</main>
 	);
 }
 
