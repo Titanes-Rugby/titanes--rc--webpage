@@ -30,8 +30,7 @@ export const WithBackground = ({ children, backgroundImage }: Props) => {
 			className={clsx(
 				'relative w-full bg-titanes-600',
 				'pt-16 pb-8',
-				`bg-rhino`,
-				'bg-fixed bg-center bg-cover',
+				'bg-rhino bg-fixed bg-center bg-cover',
 				// "before:absolute before:content-[''] before:top-0 before:left-0 before:bottom-0 before:w-full",
 				// `before:bg-rhino`,
 				// 'before:bg-fixed before:bg-center before:bg-cover',
