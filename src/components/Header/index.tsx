@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
-import { ReactComponent as Logo } from '@/assets/logo.svg';
+import Logo from '@/assets/logo.svg?react';
 
 interface Props {
 	label: string;
