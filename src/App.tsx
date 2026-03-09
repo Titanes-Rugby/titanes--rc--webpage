@@ -71,7 +71,7 @@ function App() {
 						<div className="p-5 text-2xl text-titanes-200">
 							<h1>
 								<span className="text-white font-medium">Titanes</span>
-								Rugby Club
+								titanes
 							</h1>
 						</div>
 					</div>
