@@ -35,3 +35,5 @@ Mantener la organización principal bajo estas carpetas:
 2. Evitar duplicación; extraer utilidades compartidas.
 3. Mantener nombres explícitos y consistentes con dominio y carpeta.
 4. Antes de crear nuevos archivos, verificar si ya existe uno reutilizable.
+5. Para clases condicionales en componentes, usar `cn` desde `@/utils/cn`.
+6. Evitar importar `clsx` directamente en componentes salvo justificación técnica.

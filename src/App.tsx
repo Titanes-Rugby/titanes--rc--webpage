@@ -1,16 +1,7 @@
-import './App.css';
+import { RouterProvider } from 'react-router-dom';
 
-import Menu from '@components/Menu';
+import { router } from '@/routers';
 
-import LandingPage from '@/pages/landing';
-
-function App() {
-	return (
-		<main>
-			<Menu />
-			<LandingPage />
-		</main>
-	);
-}
+const App = () => <RouterProvider router={router} />;
 
 export default App;

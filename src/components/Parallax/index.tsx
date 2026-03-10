@@ -1,43 +1,70 @@
-import { ReactNode } from 'react';
-import clsx from 'clsx';
+import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
-interface Props {
+import { cn } from '@/utils/cn';
+
+interface ParallaxProps extends ComponentPropsWithoutRef<'section'> {
 	backgroundImage: string;
 	children: ReactNode;
+	contentClassName?: string;
+	overlayClassName?: string;
 }
 
-const Parallax = ({ children, backgroundImage }: Props) => {
+interface WithBackgroundProps extends ComponentPropsWithoutRef<'section'> {
+	children: ReactNode;
+	backgroundImage?: string;
+	backgroundClassName?: string;
+	contentClassName?: string;
+	overlayClassName?: string;
+}
+
+const toBackgroundUrl = (value: string) =>
+	value.startsWith('url(') ? value : `url(${value.startsWith('/') ? value : `/${value}`})`;
+
+const Parallax = ({
+	children,
+	backgroundImage,
+	className,
+	contentClassName,
+	overlayClassName = 'bg-titanes-900/75',
+	...props
+}: ParallaxProps) => {
 	return (
-		<section className="relative w-full">
-			<div
-				className={clsx(
-					'h-screen flex items-center justify-center',
-					"before:absolute before:content-[''] before:top-0 before:left-0 before:w-full before:h-screen",
-					`before:bg-try`,
-					'before:bg-fixed before:bg-center before:bg-cover',
-					"after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-screen after:bg-titanes-900 after:opacity-80 after:z-0",
-				)}
-			>
-				<div className="z-[3]">{children}</div>
+		<section className={cn('relative isolate w-full overflow-hidden', className)} {...props}>
+			<div className="relative flex min-h-screen items-center justify-center">
+				<div
+					className="absolute inset-0 bg-cover bg-center md:bg-fixed"
+					style={{ backgroundImage: toBackgroundUrl(backgroundImage) }}
+					aria-hidden
+				/>
+				<div className={cn('absolute inset-0', overlayClassName)} aria-hidden />
+				<div className={cn('relative z-10 w-full', contentClassName)}>{children}</div>
 			</div>
 		</section>
 	);
 };
 
-export const WithBackground = ({ children, backgroundImage }: Props) => {
+export const WithBackground = ({
+	children,
+	backgroundImage,
+	backgroundClassName = 'bg-white',
+	className,
+	contentClassName,
+	overlayClassName = 'bg-white/92',
+	...props
+}: WithBackgroundProps) => {
 	return (
-		<section
-			className={clsx(
-				'relative w-full bg-titanes-600',
-				'pt-16 pb-8',
-				'bg-rhino bg-fixed bg-center bg-cover',
-				// "before:absolute before:content-[''] before:top-0 before:left-0 before:bottom-0 before:w-full",
-				// `before:bg-rhino`,
-				// 'before:bg-fixed before:bg-center before:bg-cover',
+		<section className={cn('relative isolate w-full overflow-hidden', className)} {...props}>
+			{backgroundImage ? (
+				<div
+					className="absolute inset-0 bg-cover bg-center md:bg-fixed"
+					style={{ backgroundImage: toBackgroundUrl(backgroundImage) }}
+					aria-hidden
+				/>
+			) : (
+				<div className={cn('absolute inset-0', backgroundClassName)} aria-hidden />
 			)}
-		>
-			<div className={clsx('bg-white opacity-95 transition-all top-0 left-0 absolute h-full w-full')} />
-			<div className="relative">{children}</div>
+			<div className={cn('absolute inset-0', overlayClassName)} aria-hidden />
+			<div className={cn('relative z-10', contentClassName)}>{children}</div>
 		</section>
 	);
 };

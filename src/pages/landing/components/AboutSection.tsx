@@ -1,3 +1,5 @@
+import { Blockquote, Logo } from '@components/ui';
+
 const AboutSection = () => {
 	return (
 		<section id="club" className="bg-white py-20">
@@ -14,6 +16,17 @@ const AboutSection = () => {
 						lobortis. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo
 						cursus magna, vel scelerisque nisl consectetur et.
 					</p>
+					<div className="mt-6 inline-flex items-center gap-3 rounded-xl border border-titanes-100 bg-titanes-50 px-4 py-3">
+						<Logo size="sm" />
+						<div>
+							<p className="text-xs font-semibold uppercase tracking-[0.12em] text-titanes-500">Fundado por la comunidad</p>
+							<p className="text-sm text-titanes-700">Titanes Rugby Club</p>
+						</div>
+					</div>
+					<Blockquote className="mt-6" variant="accent" size="md" cite="Grito de guerra">
+						Y Hermandad, Honor y Disciplina... Quienes somos TITANES, quienes somos Titanes...
+						Auuuuu... Auuuuu... Auuuuu. (Grito de guerra)
+					</Blockquote>
 				</div>
 				<div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
 					{['Hermandad', 'Homor', 'Disciplina'].map((pillar) => (

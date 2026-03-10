@@ -10,7 +10,7 @@ const JoinSection = () => {
 					</p>
 				</div>
 				<a
-					href="#contacto"
+					href="/contacto"
 					className="rounded-xl bg-white px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-titanes-800 transition-colors hover:bg-titanes-100"
 				>
 					Inscribirme

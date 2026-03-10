@@ -3,6 +3,7 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
+	--color-titanes-50: #ecfaf0;
 	--color-titanes-100: #daf5df;
 	--color-titanes-200: #b8ecc7;
 	--color-titanes-300: #85c69e;
@@ -12,6 +13,31 @@
 	--color-titanes-700: #0f2f28;
 	--color-titanes-800: #092622;
 	--color-titanes-900: #051f1f;
+	--color-titanes-950: #031515;
+
+	--color-secondary-50: #f2f6fb;
+	--color-secondary-100: #e6eef6;
+	--color-secondary-200: #c9dbec;
+	--color-secondary-300: #9fbdd8;
+	--color-secondary-400: #6f97bc;
+	--color-secondary-500: #2f5d8a;
+	--color-secondary-600: #254a6e;
+	--color-secondary-700: #1d3b58;
+	--color-secondary-800: #162d44;
+	--color-secondary-900: #101f2f;
+	--color-secondary-950: #0a141f;
+
+	--color-accent-50: #fffaee;
+	--color-accent-100: #fff5df;
+	--color-accent-200: #ffe7b4;
+	--color-accent-300: #ffd680;
+	--color-accent-400: #f7c355;
+	--color-accent-500: #f2b544;
+	--color-accent-600: #da9528;
+	--color-accent-700: #b7781d;
+	--color-accent-800: #8f5d1c;
+	--color-accent-900: #654215;
+	--color-accent-950: #41290f;
 
 	--background-image-try: url("/images/background/1103840.jpg");
 	--background-image-rhino: url("/images/background/1103841.jpg");

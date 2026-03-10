@@ -1,9 +1,12 @@
 import CountUpStat from '@components/CountUpStat';
 import { Button } from '@components/ui';
+import { useNavigate } from 'react-router-dom';
 
 import Parallax from '@components/Parallax';
 
 const HeroSection = () => {
+	const navigate = useNavigate();
+
 	return (
 		<Parallax backgroundImage="images/background/1103840.jpg">
 			<section className="mx-auto w-full max-w-6xl px-6 pt-20 md:pt-28">
@@ -24,7 +27,7 @@ const HeroSection = () => {
 							variant="light"
 							appearance="filled"
 							size="lg"
-							onClick={() => (window.location.hash = 'fixture')}
+							onClick={() => navigate('/fixture')}
 						>
 							Ver Fixture
 						</Button>
@@ -32,7 +35,7 @@ const HeroSection = () => {
 							variant="light"
 							appearance="outline"
 							size="lg"
-							onClick={() => (window.location.hash = 'contacto')}
+							onClick={() => navigate('/contacto')}
 						>
 							Unirme al Club
 						</Button>
