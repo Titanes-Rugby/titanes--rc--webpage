@@ -1,13 +1,18 @@
-import { SVGProps, useMemo, useState } from 'react';
+import { type ComponentType, type FocusEvent, SVGProps, useEffect, useMemo, useRef, useState } from 'react';
+
 import { Dialog } from '@headlessui/react';
 import {
 	Bars3Icon,
+	BookOpenIcon,
 	BuildingOffice2Icon,
 	CalendarDaysIcon,
+	CameraIcon,
 	ChevronDownIcon,
-	EnvelopeIcon,
-	PlayCircleIcon,
-	ShoppingBagIcon,
+	CodeBracketIcon,
+	NewspaperIcon,
+	PhoneIcon,
+	PlayIcon,
+	ShieldCheckIcon,
 	SparklesIcon,
 	UserGroupIcon,
 	XMarkIcon,
@@ -21,99 +26,116 @@ type MenuEntry = {
 	label: string;
 	href?: string;
 	description?: string;
-	icon?: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 	children?: MenuEntry[];
 };
+
+type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 
 const MENU_ENTRIES: MenuEntry[] = [
 	{
 		label: 'Club',
-		icon: BuildingOffice2Icon,
 		children: [
 			{
 				label: 'Historia',
-				href: '/club/historia',
+				href: '#',
 				description: 'Origen, valores y crecimiento del club.',
 			},
 			{
 				label: 'Staff Técnico',
-				href: '/club/staff-tecnico',
+				href: '#',
 				description: 'Entrenadores, preparación física y soporte.',
 			},
 			{
 				label: 'Instalaciones',
-				href: '/club/instalaciones',
+				href: '#',
 				description: 'Canchas, gimnasio y espacios de entrenamiento.',
 			},
 		],
 	},
 	{
 		label: 'Equipos',
-		icon: UserGroupIcon,
 		children: [
 			{
 				label: 'Primera División',
-				href: '/equipos/primera-division',
+				href: '#',
 				description: 'Plantilla principal, calendario y resultados.',
 			},
 			{
 				label: 'Juveniles',
-				href: '/equipos/juveniles',
+				href: '#',
 				description: 'Desarrollo competitivo y formativo por categorías.',
 			},
 			{
 				label: 'Femenino',
-				href: '/equipos/femenino',
+				href: '#',
 				description: 'Programa femenino, staff y próximos partidos.',
 			},
 		],
 	},
 	{
 		label: 'Media',
-		icon: PlayCircleIcon,
 		children: [
 			{
 				label: 'Noticias',
-				href: '/media/noticias',
+				href: '#',
 				description: 'Actualizaciones del club y comunicados.',
 			},
 			{
 				label: 'Galería',
-				href: '/media/galeria',
+				href: '#',
 				description: 'Fotos destacadas de entrenamientos y partidos.',
 			},
 			{
 				label: 'Videos',
-				href: '/media/videos',
+				href: '#',
 				description: 'Highlights, entrevistas y contenido semanal.',
 			},
 		],
 	},
-	{
-		label: 'Tienda',
-		icon: ShoppingBagIcon,
-		children: [
-			{
-				label: 'Merchandising',
-				href: '/tienda/merchandising',
-				description: 'Coleccion oficial y productos del club.',
-			},
-			{
-				label: 'Jerseys',
-				href: '/tienda/jerseys',
-				description: 'Camisetas de partido y entrenamiento.',
-			},
-			{
-				label: 'Accesorios',
-				href: '/tienda/accesorios',
-				description: 'Gorras, bolsos y articulos de apoyo.',
-			},
-		],
-	},
-	{ label: 'Fixture', href: '/fixture', icon: CalendarDaysIcon },
-	{ label: 'Patrocinadores', href: '/patrocinadores', icon: SparklesIcon },
-	{ label: 'Contacto', href: '/contacto', icon: EnvelopeIcon },
+	{ label: 'Fixture', href: '#' },
+	{ label: 'Patrocinadores', href: '#' },
+	{ label: 'Contacto', href: '#' },
 ];
+
+const menuIconByLabel: Record<string, IconComponent> = {
+	Club: ShieldCheckIcon,
+	Equipos: UserGroupIcon,
+	Media: SparklesIcon,
+	Fixture: CalendarDaysIcon,
+	Patrocinadores: BuildingOffice2Icon,
+	Contacto: PhoneIcon,
+	Historia: BookOpenIcon,
+	'Staff Técnico': UserGroupIcon,
+	Instalaciones: BuildingOffice2Icon,
+	'Primera División': ShieldCheckIcon,
+	Juveniles: UserGroupIcon,
+	Femenino: UserGroupIcon,
+	Noticias: NewspaperIcon,
+	Galería: CameraIcon,
+	Videos: PlayIcon,
+};
+
+const topMenuIconVariants = {
+	rest: { opacity: 0, width: 0, x: -6 },
+	hover: { opacity: 1, width: 16, x: 0 },
+};
+
+const topMenuItemVariants = {
+	rest: { y: 0 },
+	hover: { y: -2 },
+};
+
+const dropdownIconVariants = {
+	rest: { opacity: 0, x: -4, scale: 0.9 },
+	hover: { opacity: 1, x: 0, scale: 1 },
+};
+
+const dropdownItemVariants = {
+	rest: { x: 0 },
+	hover: { x: 3 },
+};
+
+const getMenuIcon = (label: string) => menuIconByLabel[label] ?? CodeBracketIcon;
 
 const overlayVariants = {
 	hidden: { opacity: 0 },
@@ -153,7 +175,7 @@ const mobileItemVariants = {
 
 const Brand = () => (
 	<div className="flex lg:flex-1">
-		<a href="/" className="-m-1.5 p-1.5">
+		<a href="#" className="-m-1.5 p-1.5">
 			<span className="sr-only">Titanes Rugby Club</span>
 			<Logo size="md" tone="light" />
 		</a>
@@ -167,85 +189,95 @@ type DesktopMenuItemProps = {
 	onClose: () => void;
 };
 
-const DesktopItemLabel = ({
-	label,
-	icon: Icon,
-	showIcon,
-}: {
-	label: string;
-	icon?: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-	showIcon: boolean;
-}) => (
-	<span className="inline-flex items-center">
-		{Icon ? (
-			<motion.span
-				className="inline-flex items-center overflow-hidden"
-				initial={false}
-				animate={{
-					width: showIcon ? 16 : 0,
-					opacity: showIcon ? 1 : 0,
-					x: showIcon ? 0 : -4,
-				}}
-				transition={{ duration: 0.2, ease: 'easeInOut' }}
-			>
-				<Icon className="h-4 w-4" />
-			</motion.span>
-		) : null}
-		<span className={cn(Icon && 'ml-1.5')}>{label}</span>
-	</span>
-);
-
 const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProps) => {
-	const [isHovered, setIsHovered] = useState(false);
-	const showIcon = isHovered || isOpen;
+	const EntryIcon = getMenuIcon(entry.label);
+	const closeTimeoutRef = useRef<number | null>(null);
+	const clearCloseTimeout = () => {
+		if (closeTimeoutRef.current === null) return;
+		window.clearTimeout(closeTimeoutRef.current);
+		closeTimeoutRef.current = null;
+	};
+	const handleOpen = () => {
+		clearCloseTimeout();
+		onOpen();
+	};
+	const handleCloseWithDelay = () => {
+		clearCloseTimeout();
+		closeTimeoutRef.current = window.setTimeout(() => onClose(), 140);
+	};
+	const handleBlurWithin = (event: FocusEvent<HTMLDivElement>) => {
+		const currentTarget = event.currentTarget;
+		window.requestAnimationFrame(() => {
+			if (!currentTarget.contains(document.activeElement)) onClose();
+		});
+	};
 
 	if (!entry.children?.length) {
 		return (
 			<motion.a
-				href={entry.href ?? '/'}
-				className="rounded-md px-1 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/85 transition-colors hover:text-white"
-				onHoverStart={() => setIsHovered(true)}
-				onHoverEnd={() => setIsHovered(false)}
-				whileHover={{ y: -2 }}
+				href={entry.href ?? '#'}
+				className="inline-flex items-center gap-1.5 rounded-md px-1 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/85 transition-colors hover:text-white"
+				initial="rest"
+				animate="rest"
+				whileHover="hover"
+				variants={topMenuItemVariants}
 			>
-				<DesktopItemLabel label={entry.label} icon={entry.icon} showIcon={showIcon} />
+				<motion.span className="overflow-hidden text-white/90" variants={topMenuIconVariants} transition={{ duration: 0.2 }}>
+					<EntryIcon className="h-4 w-4" />
+				</motion.span>
+				{entry.label}
 			</motion.a>
 		);
 	}
 
 	return (
-		<div className="relative" onMouseEnter={onOpen} onMouseLeave={onClose}>
+		<div className="relative" onMouseEnter={handleOpen} onMouseLeave={handleCloseWithDelay} onFocusCapture={handleOpen} onBlur={handleBlurWithin}>
 			<motion.button
 				type="button"
-				className="inline-flex items-center gap-1 rounded-md border-0 bg-transparent px-1 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/85 transition-colors hover:text-white"
-				onFocus={onOpen}
-				onBlur={onClose}
-				onHoverStart={() => setIsHovered(true)}
-				onHoverEnd={() => setIsHovered(false)}
-				whileHover={{ y: -2 }}
+				className="inline-flex items-center gap-1.5 rounded-md border-0 bg-transparent px-1 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/85 transition-colors hover:text-white"
+				initial="rest"
+				animate="rest"
+				whileHover="hover"
+				variants={topMenuItemVariants}
 			>
-				<DesktopItemLabel label={entry.label} icon={entry.icon} showIcon={showIcon} />
+				<motion.span className="overflow-hidden text-white/90" variants={topMenuIconVariants} transition={{ duration: 0.2 }}>
+					<EntryIcon className="h-4 w-4" />
+				</motion.span>
+				{entry.label}
 				<ChevronDownIcon className="h-4 w-4" />
 			</motion.button>
 			<AnimatePresence>
 				{isOpen ? (
 					<motion.div
 						className="absolute left-1/2 z-50 mt-3 w-[23rem] -translate-x-1/2 rounded-2xl border border-white/20 bg-white/95 p-3 text-titanes-900 shadow-2xl backdrop-blur"
-						variants={dropdownVariants}
 						initial="hidden"
 						animate="visible"
 						exit="exit"
+						variants={dropdownVariants}
+						onMouseEnter={handleOpen}
+						onMouseLeave={handleCloseWithDelay}
 					>
 						<div className="space-y-1">
 							{entry.children.map((child) => (
 								<motion.a
 									key={child.label}
-									href={child.href ?? '/'}
-									className="block rounded-xl px-3 py-2 transition-colors hover:bg-titanes-100/70"
-									whileHover={{ x: 3 }}
+									href={child.href ?? '#'}
+									className="flex items-start gap-2 rounded-xl px-3 py-2 transition-colors hover:bg-titanes-100/70"
+									initial="rest"
+									animate="rest"
+									whileHover="hover"
+									variants={dropdownItemVariants}
 								>
-									<p className="text-sm font-semibold text-titanes-900">{child.label}</p>
-									{child.description ? <p className="mt-0.5 text-xs text-titanes-700/80">{child.description}</p> : null}
+									<motion.span className="mt-0.5 text-titanes-600" variants={dropdownIconVariants} transition={{ duration: 0.18 }}>
+										{(() => {
+											const ChildIcon = getMenuIcon(child.label);
+											return <ChildIcon className="h-4 w-4" />;
+										})()}
+									</motion.span>
+									<div>
+										<p className="text-sm font-semibold text-titanes-900">{child.label}</p>
+										{child.description ? <p className="mt-0.5 text-xs text-titanes-700/80">{child.description}</p> : null}
+									</div>
 								</motion.a>
 							))}
 						</div>
@@ -302,13 +334,12 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 					<Dialog.Panel
 						as={motion.div}
 						className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 shadow-2xl sm:max-w-sm"
-						variants={panelVariants}
 						initial="hidden"
 						animate="visible"
 						exit="exit"
 					>
 						<div className="flex items-center justify-between border-b border-titanes-100 pb-4">
-							<a href="/" className="-m-1.5 p-1.5">
+							<a href="#" className="-m-1.5 p-1.5">
 								<span className="sr-only">Titanes Rugby Club</span>
 								<Logo className="h-14 w-auto fill-titanes-500" />
 							</a>
@@ -325,26 +356,24 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 
 						<motion.div className="mt-6 space-y-2" variants={mobileGroupVariants} initial="hidden" animate="visible">
 							{MENU_ENTRIES.map((entry) => {
+								const EntryIcon = getMenuIcon(entry.label);
+
 								if (!entry.children?.length) {
-									const Icon = entry.icon;
 									return (
 										<motion.a
 											key={entry.label}
-											href={entry.href ?? '/'}
-											className="block rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-titanes-900 transition-colors hover:bg-titanes-100"
+											href={entry.href ?? '#'}
+											className="flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-titanes-900 transition-colors hover:bg-titanes-100"
 											variants={mobileItemVariants}
 											whileTap={{ scale: 0.98 }}
 										>
-											<span className="inline-flex items-center gap-2">
-												{Icon ? <Icon className="h-4 w-4" /> : null}
-												{entry.label}
-											</span>
+											<EntryIcon className="h-4 w-4 text-titanes-600" />
+											{entry.label}
 										</motion.a>
 									);
 								}
 
 								const isExpanded = expandedSection === entry.label;
-								const Icon = entry.icon;
 
 								return (
 									<motion.div
@@ -359,7 +388,7 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 											aria-expanded={isExpanded}
 										>
 											<span className="inline-flex items-center gap-2">
-												{Icon ? <Icon className="h-4 w-4" /> : null}
+												<EntryIcon className="h-4 w-4 text-titanes-600" />
 												{entry.label}
 											</span>
 											<motion.span animate={{ rotate: isExpanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
@@ -375,15 +404,20 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 													exit={{ height: 0, opacity: 0 }}
 													transition={{ duration: 0.2 }}
 												>
-													{entry.children.map((child) => (
-														<a
-															key={child.label}
-															href={child.href ?? '/'}
-															className="block rounded-lg px-3 py-2 text-sm text-titanes-700 transition-colors hover:bg-titanes-50 hover:text-titanes-900"
-														>
-															{child.label}
-														</a>
-													))}
+														{entry.children.map((child) => {
+															const ChildIcon = getMenuIcon(child.label);
+
+															return (
+																<a
+																	key={child.label}
+																	href={child.href ?? '#'}
+																	className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-titanes-700 transition-colors hover:bg-titanes-50 hover:text-titanes-900"
+																>
+																	<ChildIcon className="h-4 w-4 text-titanes-500" />
+																	{child.label}
+																</a>
+															);
+														})}
 												</motion.div>
 											) : null}
 										</AnimatePresence>
@@ -401,14 +435,49 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 const Header = () => {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	const [openKey, setOpenKey] = useState<string | null>(null);
+	const [isVisible, setIsVisible] = useState(true);
+	const lastScrollY = useRef(0);
 
 	const headerClasses = useMemo(
 		() => ['fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8', 'text-white'].join(' '),
 		[],
 	);
 
+	useEffect(() => {
+		const handleScroll = () => {
+			const currentY = window.scrollY;
+			if (currentY <= 0) {
+				setIsVisible(true);
+				lastScrollY.current = 0;
+				return;
+			}
+
+			if (currentY > lastScrollY.current && currentY > 64) {
+				setIsVisible(false);
+			} else {
+				setIsVisible(true);
+			}
+
+			lastScrollY.current = currentY;
+		};
+
+		window.addEventListener('scroll', handleScroll, { passive: true });
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, []);
+
+	useEffect(() => {
+		if (mobileMenuOpen) {
+			setIsVisible(true);
+		}
+	}, [mobileMenuOpen]);
+
 	return (
-		<header className={headerClasses}>
+		<motion.header
+			className={headerClasses}
+			initial={{ y: 0, opacity: 1 }}
+			animate={isVisible ? { y: 0, opacity: 1 } : { y: -120, opacity: 0 }}
+			transition={{ type: 'tween', duration: 0.32 }}
+		>
 			<div className="mx-auto max-w-7xl rounded-2xl border border-white/25 bg-gradient-to-r from-titanes-600/95 via-titanes-500/95 to-titanes-700/95 px-5 shadow-[0_20px_40px_-22px_rgba(5,31,31,0.9)] backdrop-blur-md lg:px-8">
 				<nav className="flex items-center justify-between py-3.5" aria-label="Global">
 					<Brand />
@@ -427,7 +496,7 @@ const Header = () => {
 				</nav>
 			</div>
 			<MobileMenu setMobileMenuOpen={setMobileMenuOpen} mobileMenuOpen={mobileMenuOpen} />
-		</header>
+		</motion.header>
 	);
 };
 
