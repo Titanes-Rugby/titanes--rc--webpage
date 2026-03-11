@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 import type { TeamTab } from '../types';
 
@@ -11,18 +12,17 @@ const tabs: { id: TeamTab; label: string }[] = [
 
 type TeamsTabsProps = {
 	activeTab: TeamTab;
-	onTabChange: (tab: TeamTab) => void;
+	basePath: string;
 };
 
-const TeamsTabs = ({ activeTab, onTabChange }: TeamsTabsProps) => {
+const TeamsTabs = ({ activeTab, basePath }: TeamsTabsProps) => {
 	return (
 		<div className="sticky top-0 z-20 border-b border-titanes-100 bg-white/95 backdrop-blur-sm">
 			<div className="mx-auto flex w-full max-w-6xl gap-2 overflow-x-auto px-6 py-3">
 				{tabs.map((tab) => (
-					<button
+					<Link
 						key={tab.id}
-						type="button"
-						onClick={() => onTabChange(tab.id)}
+						to={`${basePath}/${tab.id}`}
 						className="relative rounded-lg px-4 py-2 text-xs font-semibold tracking-[0.12em] text-titanes-700 uppercase"
 					>
 						{activeTab === tab.id ? (
@@ -35,7 +35,7 @@ const TeamsTabs = ({ activeTab, onTabChange }: TeamsTabsProps) => {
 						<span className="relative z-10 text-inherit" style={{ color: activeTab === tab.id ? '#fff' : undefined }}>
 							{tab.label}
 						</span>
-					</button>
+					</Link>
 				))}
 			</div>
 		</div>

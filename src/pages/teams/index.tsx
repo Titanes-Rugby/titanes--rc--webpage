@@ -1,7 +1,5 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
-
-import Menu from '@components/Menu';
 
 import CoachesPanel from './components/CoachesPanel';
 import FixturesPanel from './components/FixturesPanel';
@@ -10,25 +8,25 @@ import StatsPanel from './components/StatsPanel';
 import TeamsHero from './components/TeamsHero';
 import TeamsTabs from './components/TeamsTabs';
 import { findTeamBySlug, teamProfiles } from './teams.data';
-import type { TeamTab } from './types';
+import { isTeamTab } from './types';
 
 const TeamsPage = () => {
-  const { slug } = useParams<{ slug?: string }>();
-  const [activeTab, setActiveTab] = useState<TeamTab>('players');
+  const { slug, tab } = useParams<{ slug?: string; tab?: string }>();
   const team = useMemo(() => findTeamBySlug(slug), [slug]);
+  const activeTab = isTeamTab(tab) ? tab : 'players';
+  const tabBasePath = `/equipos/${team.slug}`;
 
   return (
     <main className="bg-titanes-50 min-h-screen">
-      <Menu />
       <TeamsHero team={team} />
-      <TeamsTabs activeTab={activeTab} onTabChange={setActiveTab} />
+      <TeamsTabs activeTab={activeTab} basePath={tabBasePath} />
 
       <section className="mx-auto w-full max-w-6xl space-y-8 px-6 py-8">
         <div className="flex flex-wrap gap-2">
           {teamProfiles.map((profile) => (
             <Link
               key={profile.slug}
-              to={`/equipos/${profile.slug}`}
+              to={`/equipos/${profile.slug}/${activeTab}`}
               className={`rounded-full border px-3 py-1.5 text-[11px] font-semibold tracking-[0.12em] uppercase ${
                 profile.slug === team.slug ? 'border-titanes-700 bg-titanes-700 text-white' : 'border-titanes-200 text-titanes-700'
               }`}

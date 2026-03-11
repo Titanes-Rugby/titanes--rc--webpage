@@ -37,17 +37,17 @@ const MENU_ENTRIES: MenuEntry[] = [
 		children: [
 			{
 				label: 'Historia',
-				href: '#',
+				href: '/club/historia',
 				description: 'Origen, valores y crecimiento del club.',
 			},
 			{
 				label: 'Staff Técnico',
-				href: '#',
+				href: '/club/staff-tecnico',
 				description: 'Entrenadores, preparación física y soporte.',
 			},
 			{
 				label: 'Instalaciones',
-				href: '#',
+				href: '/club/instalaciones',
 				description: 'Canchas, gimnasio y espacios de entrenamiento.',
 			},
 		],
@@ -222,7 +222,11 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 				whileHover="hover"
 				variants={topMenuItemVariants}
 			>
-				<motion.span className="overflow-hidden text-white/90" variants={topMenuIconVariants} transition={{ duration: 0.2 }}>
+				<motion.span
+					className="overflow-hidden text-white/90"
+					variants={topMenuIconVariants}
+					transition={{ duration: 0.2 }}
+				>
 					<EntryIcon className="h-4 w-4" />
 				</motion.span>
 				{entry.label}
@@ -231,7 +235,13 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 	}
 
 	return (
-		<div className="relative" onMouseEnter={handleOpen} onMouseLeave={handleCloseWithDelay} onFocusCapture={handleOpen} onBlur={handleBlurWithin}>
+		<div
+			className="relative"
+			onMouseEnter={handleOpen}
+			onMouseLeave={handleCloseWithDelay}
+			onFocusCapture={handleOpen}
+			onBlur={handleBlurWithin}
+		>
 			<motion.button
 				type="button"
 				className="inline-flex items-center gap-1.5 rounded-md border-0 bg-transparent px-1 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/85 transition-colors hover:text-white"
@@ -240,7 +250,11 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 				whileHover="hover"
 				variants={topMenuItemVariants}
 			>
-				<motion.span className="overflow-hidden text-white/90" variants={topMenuIconVariants} transition={{ duration: 0.2 }}>
+				<motion.span
+					className="overflow-hidden text-white/90"
+					variants={topMenuIconVariants}
+					transition={{ duration: 0.2 }}
+				>
 					<EntryIcon className="h-4 w-4" />
 				</motion.span>
 				{entry.label}
@@ -268,7 +282,11 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 									whileHover="hover"
 									variants={dropdownItemVariants}
 								>
-									<motion.span className="mt-0.5 text-titanes-600" variants={dropdownIconVariants} transition={{ duration: 0.18 }}>
+									<motion.span
+										className="mt-0.5 text-titanes-600"
+										variants={dropdownIconVariants}
+										transition={{ duration: 0.18 }}
+									>
 										{(() => {
 											const ChildIcon = getMenuIcon(child.label);
 											return <ChildIcon className="h-4 w-4" />;
@@ -276,7 +294,9 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 									</motion.span>
 									<div>
 										<p className="text-sm font-semibold text-titanes-900">{child.label}</p>
-										{child.description ? <p className="mt-0.5 text-xs text-titanes-700/80">{child.description}</p> : null}
+										{child.description ? (
+											<p className="mt-0.5 text-xs text-titanes-700/80">{child.description}</p>
+										) : null}
 									</div>
 								</motion.a>
 							))}
@@ -339,7 +359,7 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 						exit="exit"
 					>
 						<div className="flex items-center justify-between border-b border-titanes-100 pb-4">
-							<a href="#" className="-m-1.5 p-1.5">
+							<a href="/" className="-m-1.5 p-1.5">
 								<span className="sr-only">Titanes Rugby Club</span>
 								<Logo className="h-14 w-auto fill-titanes-500" />
 							</a>
@@ -404,20 +424,20 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 													exit={{ height: 0, opacity: 0 }}
 													transition={{ duration: 0.2 }}
 												>
-														{entry.children.map((child) => {
-															const ChildIcon = getMenuIcon(child.label);
+													{entry.children.map((child) => {
+														const ChildIcon = getMenuIcon(child.label);
 
-															return (
-																<a
-																	key={child.label}
-																	href={child.href ?? '#'}
-																	className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-titanes-700 transition-colors hover:bg-titanes-50 hover:text-titanes-900"
-																>
-																	<ChildIcon className="h-4 w-4 text-titanes-500" />
-																	{child.label}
-																</a>
-															);
-														})}
+														return (
+															<a
+																key={child.label}
+																href={child.href ?? '#'}
+																className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-titanes-700 transition-colors hover:bg-titanes-50 hover:text-titanes-900"
+															>
+																<ChildIcon className="h-4 w-4 text-titanes-500" />
+																{child.label}
+															</a>
+														);
+													})}
 												</motion.div>
 											) : null}
 										</AnimatePresence>

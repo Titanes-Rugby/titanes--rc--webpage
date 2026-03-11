@@ -16,11 +16,27 @@ export const router = createBrowserRouter([
 				lazy: () => import('@/pages/ui-components/route'),
 			},
 			{
+				path: '/club',
+				lazy: () => import('@/pages/club/route'),
+			},
+			{
+				path: '/club/:slug',
+				lazy: () => import('@/pages/club/route'),
+			},
+			{
+				path: '/club/:slug/:section',
+				lazy: () => import('@/pages/club/route'),
+			},
+			{
 				path: '/equipos',
 				lazy: () => import('@/pages/teams/route'),
 			},
 			{
 				path: '/equipos/:slug',
+				lazy: () => import('@/pages/teams/route'),
+			},
+			{
+				path: '/equipos/:slug/:tab',
 				lazy: () => import('@/pages/teams/route'),
 			},
 			{

@@ -2,6 +2,7 @@ import { Blockquote, Button, Loader, Logo, Marquee, UiPreview } from '@component
 
 import AnimatedTiltCardPreview from './AnimatedTiltCardPreview';
 import PlayerCardPreview from './PlayerCardPreview';
+import PlayerPortraitPreview from './PlayerPortraitPreview';
 
 const variants = ['primary', 'secondary', 'accent', 'danger'] as const;
 const appearances = ['filled', 'outline', 'gosht'] as const;
@@ -132,6 +133,10 @@ const UiShowcaseSection = () => {
 
 				<UiPreview title="Player Card" className="mt-6">
 					<PlayerCardPreview />
+				</UiPreview>
+
+				<UiPreview title="Player Portrait" className="mt-6">
+					<PlayerPortraitPreview />
 				</UiPreview>
 			</div>
 		</section>
