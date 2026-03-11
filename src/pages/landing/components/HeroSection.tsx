@@ -10,7 +10,7 @@ const HeroSection = () => {
 	return (
 		<Parallax backgroundImage="images/background/1103840.jpg">
 			<section className="mx-auto w-full max-w-6xl px-6 pt-20 md:pt-28">
-				<div className="max-w-3xl rounded-2xl border border-white/20 bg-black/25 p-6 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.8)] backdrop-blur-sm md:p-9">
+				<div className="rounded-2xl border border-white/20 bg-black/25 p-6 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.8)] backdrop-blur-sm md:p-9">
 					<p className="mb-5 inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-titanes-100">
 						Titanes Rugby Club
 					</p>
@@ -23,20 +23,10 @@ const HeroSection = () => {
 						nuestros equipos, calendario y noticias del club.
 					</p>
 					<div className="mt-8 flex flex-wrap items-center gap-3">
-						<Button
-							variant="light"
-							appearance="filled"
-							size="lg"
-							onClick={() => navigate('/fixture')}
-						>
+						<Button variant="light" appearance="filled" size="lg" onClick={() => navigate('/fixture')}>
 							Ver Fixture
 						</Button>
-						<Button
-							variant="light"
-							appearance="outline"
-							size="lg"
-							onClick={() => navigate('/contacto')}
-						>
+						<Button variant="light" appearance="outline" size="lg" onClick={() => navigate('/contacto')}>
 							Unirme al Club
 						</Button>
 					</div>

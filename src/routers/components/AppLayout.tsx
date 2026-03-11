@@ -1,5 +1,7 @@
 import { Outlet } from 'react-router-dom';
 
+import { ScrollToTopFab } from '@components/ui';
+
 import DevFloatingMenu from './DevFloatingMenu';
 
 const AppLayout = () => {
@@ -7,6 +9,7 @@ const AppLayout = () => {
 		<>
 			<Outlet />
 			<DevFloatingMenu />
+			<ScrollToTopFab />
 		</>
 	);
 };

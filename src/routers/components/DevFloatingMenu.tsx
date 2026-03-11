@@ -1,4 +1,5 @@
 import { CodeBracketIcon, HomeIcon } from '@heroicons/react/24/outline';
+import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 
 import withDevOnly from '@/hocs/withDevOnly';
@@ -8,7 +9,12 @@ const baseLinkClassName =
 
 const DevFloatingMenu = () => {
 	return (
-		<aside className="fixed right-4 top-1/2 z-[70] hidden -translate-y-1/2 md:block">
+		<motion.aside
+			className="fixed right-4 top-1/2 z-[70] hidden -translate-y-1/2 md:block"
+			initial={{ opacity: 0, x: 16 }}
+			animate={{ opacity: 1, x: 0 }}
+			transition={{ duration: 0.28, ease: 'easeOut' }}
+		>
 			<div className="rounded-2xl border border-titanes-200 bg-white/90 p-2 shadow-lg backdrop-blur-sm">
 				<p className="px-2 pb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-titanes-500">
 					Dev
@@ -22,7 +28,7 @@ const DevFloatingMenu = () => {
 					</NavLink>
 				</div>
 			</div>
-		</aside>
+		</motion.aside>
 	);
 };
 

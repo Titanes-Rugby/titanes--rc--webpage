@@ -8,6 +8,7 @@ import LandingFooter from './components/LandingFooter';
 import NewsSection from './components/NewsSection';
 import SponsorsSection from './components/SponsorsSection';
 import TeamsSection from './components/TeamsSection';
+import { PlayerCardsSection } from './components/PlayerCards';
 
 const LandingPage = () => {
 	return (
@@ -15,6 +16,7 @@ const LandingPage = () => {
 			<Menu />
 			<HeroSection />
 			<AboutSection />
+			<PlayerCardsSection />
 			<TeamsSection />
 			<FixtureSection />
 			<NewsSection />

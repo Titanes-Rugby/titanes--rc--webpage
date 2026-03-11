@@ -1,16 +1,10 @@
-import Logo from '@/assets/logo.svg?react';
+import Logo from '../Logo';
 
 interface LoaderProps {
 	label?: string;
 	size?: 'sm' | 'md' | 'lg';
 	fullScreen?: boolean;
 }
-
-const sizeClasses = {
-	sm: 'h-10 w-10',
-	md: 'h-14 w-14',
-	lg: 'h-20 w-20',
-} as const;
 
 const Loader = ({ label = 'Cargando...', size = 'md', fullScreen = false }: LoaderProps) => {
 	const containerClassName = fullScreen
@@ -23,12 +17,10 @@ const Loader = ({ label = 'Cargando...', size = 'md', fullScreen = false }: Load
 				<div className="relative">
 					<div className="absolute inset-0 animate-ping rounded-full bg-titanes-200/60" />
 					<div className="relative rounded-full border border-titanes-100 bg-white p-2 shadow-sm">
-						<Logo className={`${sizeClasses[size]} animate-pulse fill-titanes-500`} />
+						<Logo size={size} tone="primary" className="animate-pulse" />
 					</div>
 				</div>
-				<p className="text-xs font-semibold uppercase tracking-[0.12em] text-titanes-500">
-					{label}
-				</p>
+				<p className="text-xs font-semibold uppercase tracking-[0.12em] text-titanes-500">{label}</p>
 			</div>
 		</div>
 	);
