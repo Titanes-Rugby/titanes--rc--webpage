@@ -1,0 +1,57 @@
+import { useMemo, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+
+import Menu from '@components/Menu';
+
+import CoachesPanel from './components/CoachesPanel';
+import FixturesPanel from './components/FixturesPanel';
+import PlayersPanel from './components/PlayersPanel';
+import StatsPanel from './components/StatsPanel';
+import TeamsHero from './components/TeamsHero';
+import TeamsTabs from './components/TeamsTabs';
+import { findTeamBySlug, teamProfiles } from './teams.data';
+import type { TeamTab } from './types';
+
+const TeamsPage = () => {
+  const { slug } = useParams<{ slug?: string }>();
+  const [activeTab, setActiveTab] = useState<TeamTab>('players');
+  const team = useMemo(() => findTeamBySlug(slug), [slug]);
+
+  return (
+    <main className="bg-titanes-50 min-h-screen">
+      <Menu />
+      <TeamsHero team={team} />
+      <TeamsTabs activeTab={activeTab} onTabChange={setActiveTab} />
+
+      <section className="mx-auto w-full max-w-6xl space-y-8 px-6 py-8">
+        <div className="flex flex-wrap gap-2">
+          {teamProfiles.map((profile) => (
+            <Link
+              key={profile.slug}
+              to={`/equipos/${profile.slug}`}
+              className={`rounded-full border px-3 py-1.5 text-[11px] font-semibold tracking-[0.12em] uppercase ${
+                profile.slug === team.slug ? 'border-titanes-700 bg-titanes-700 text-white' : 'border-titanes-200 text-titanes-700'
+              }`}
+            >
+              {profile.title}
+            </Link>
+          ))}
+        </div>
+
+        {activeTab === 'players' ? <PlayersPanel players={team.players} /> : null}
+        {activeTab === 'coaches' ? <CoachesPanel coaches={team.coaches} /> : null}
+        {activeTab === 'stats' ? <StatsPanel stats={team.stats} /> : null}
+        {activeTab === 'fixtures' ? <FixturesPanel fixtures={team.fixtures} /> : null}
+
+        <article className="rounded-2xl bg-titanes-800 p-7 text-white">
+          <p className="text-xs font-semibold tracking-[0.12em] text-titanes-100 uppercase">Club CTA</p>
+          <h2 className="mt-2 text-2xl font-bold">Quieres formar parte del roster de Titanes?</h2>
+          <p className="mt-2 max-w-2xl text-sm text-titanes-100/90">Escribe al staff tecnico y agenda una sesion de evaluacion para la proxima temporada.</p>
+          <a href="/contacto" className="mt-5 inline-flex rounded-xl bg-white px-4 py-2 text-xs font-semibold tracking-[0.12em] text-titanes-900 uppercase">Contactar al club</a>
+        </article>
+      </section>
+    </main>
+  );
+};
+
+export default TeamsPage;

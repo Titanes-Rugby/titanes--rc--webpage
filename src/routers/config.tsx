@@ -16,6 +16,14 @@ export const router = createBrowserRouter([
 				lazy: () => import('@/pages/ui-components/route'),
 			},
 			{
+				path: '/equipos',
+				lazy: () => import('@/pages/teams/route'),
+			},
+			{
+				path: '/equipos/:slug',
+				lazy: () => import('@/pages/teams/route'),
+			},
+			{
 				path: '/:slug',
 				lazy: () => import('@/pages/placeholder/route'),
 			},

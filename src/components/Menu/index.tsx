@@ -57,17 +57,17 @@ const MENU_ENTRIES: MenuEntry[] = [
 		children: [
 			{
 				label: 'Primera División',
-				href: '#',
+				href: '/equipos/primera-division',
 				description: 'Plantilla principal, calendario y resultados.',
 			},
 			{
 				label: 'Juveniles',
-				href: '#',
+				href: '/equipos/juveniles',
 				description: 'Desarrollo competitivo y formativo por categorías.',
 			},
 			{
 				label: 'Femenino',
-				href: '#',
+				href: '/equipos/femenino',
 				description: 'Programa femenino, staff y próximos partidos.',
 			},
 		],
