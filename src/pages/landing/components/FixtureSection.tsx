@@ -19,6 +19,12 @@ const FixtureSection = () => {
 						</article>
 					))}
 				</div>
+				<a
+					href="/fixture"
+					className="mt-8 inline-flex rounded-xl bg-titanes-700 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-titanes-800"
+				>
+					Ver fixture completo
+				</a>
 			</div>
 		</section>
 	);

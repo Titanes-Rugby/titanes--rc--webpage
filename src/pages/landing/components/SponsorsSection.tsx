@@ -18,6 +18,12 @@ const SponsorsSection = () => {
 					Patrocinadores
 				</p>
 				<Marquee items={SPONSORS} renderItem={(sponsor) => <SponsorPill name={sponsor} />} />
+				<a
+					href="/patrocinadores"
+					className="mt-6 inline-flex rounded-xl bg-titanes-700 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-titanes-800"
+				>
+					Ver patrocinadores
+				</a>
 			</div>
 		</section>
 	);

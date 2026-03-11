@@ -3,7 +3,7 @@ import { playerCards } from '@/pages/landing/components/PlayerCards/playerCards.
 
 const PlayerPortraitPreview = () => {
   const [firstPlayer, secondPlayer] = playerCards;
-  if (!firstPlayer || !secondPlayer) return null;
+  if (!firstPlayer?.imageSrc || !secondPlayer?.imageSrc) return null;
 
   return (
     <div className="grid gap-4 sm:grid-cols-2">

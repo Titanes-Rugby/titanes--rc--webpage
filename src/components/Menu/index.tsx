@@ -15,6 +15,7 @@ import {
 	ShieldCheckIcon,
 	SparklesIcon,
 	UserGroupIcon,
+	WrenchScrewdriverIcon,
 	XMarkIcon,
 } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -77,30 +78,41 @@ const MENU_ENTRIES: MenuEntry[] = [
 		children: [
 			{
 				label: 'Noticias',
-				href: '#',
+				href: '/media/noticias',
 				description: 'Actualizaciones del club y comunicados.',
 			},
 			{
 				label: 'Galería',
-				href: '#',
+				href: '/media/galeria',
 				description: 'Fotos destacadas de entrenamientos y partidos.',
 			},
 			{
 				label: 'Videos',
-				href: '#',
+				href: '/media/videos',
 				description: 'Highlights, entrevistas y contenido semanal.',
 			},
 		],
 	},
-	{ label: 'Fixture', href: '#' },
-	{ label: 'Patrocinadores', href: '#' },
-	{ label: 'Contacto', href: '#' },
+	{
+		label: 'Tools',
+		children: [
+			{
+				label: 'Player Card',
+				href: '/tools/player-card',
+				description: 'Crea y exporta tarjetas de jugadores en PNG.',
+			},
+		],
+	},
+	{ label: 'Fixture', href: '/fixture' },
+	{ label: 'Patrocinadores', href: '/patrocinadores' },
+	{ label: 'Contacto', href: '/contacto' },
 ];
 
 const menuIconByLabel: Record<string, IconComponent> = {
 	Club: ShieldCheckIcon,
 	Equipos: UserGroupIcon,
 	Media: SparklesIcon,
+	Tools: WrenchScrewdriverIcon,
 	Fixture: CalendarDaysIcon,
 	Patrocinadores: BuildingOffice2Icon,
 	Contacto: PhoneIcon,
@@ -113,6 +125,7 @@ const menuIconByLabel: Record<string, IconComponent> = {
 	Noticias: NewspaperIcon,
 	Galería: CameraIcon,
 	Videos: PlayIcon,
+	'Player Card': CodeBracketIcon,
 };
 
 const topMenuIconVariants = {
@@ -154,12 +167,12 @@ const panelVariants = {
 
 const dropdownVariants = {
 	hidden: { opacity: 0, y: 8, scale: 0.98 },
-	visible: {
-		opacity: 1,
-		y: 0,
-		scale: 1,
-		transition: { duration: 0.18, ease: 'easeOut' },
-	},
+		visible: {
+			opacity: 1,
+			y: 0,
+			scale: 1,
+			transition: { duration: 0.18, ease: 'easeOut' as const },
+		},
 	exit: { opacity: 0, y: 6, scale: 0.98, transition: { duration: 0.14 } },
 };
 
@@ -175,7 +188,7 @@ const mobileItemVariants = {
 
 const Brand = () => (
 	<div className="flex lg:flex-1">
-		<a href="#" className="-m-1.5 p-1.5">
+		<a href="/" className="-m-1.5 p-1.5">
 			<span className="sr-only">Titanes Rugby Club</span>
 			<Logo size="md" tone="light" />
 		</a>
