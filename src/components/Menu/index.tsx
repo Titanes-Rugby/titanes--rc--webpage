@@ -44,9 +44,9 @@ const MENU_ENTRIES: MenuEntry[] = [
 				description: 'Origen, valores y crecimiento del club.',
 			},
 			{
-				label: 'Staff Técnico',
+				label: 'Staff Tcnico',
 				href: '/club/staff-tecnico',
-				description: 'Entrenadores, preparación física y soporte.',
+				description: 'Entrenadores, preparacin fsica y soporte.',
 			},
 			{
 				label: 'Instalaciones',
@@ -59,19 +59,19 @@ const MENU_ENTRIES: MenuEntry[] = [
 		label: 'Equipos',
 		children: [
 			{
-				label: 'Primera División',
+				label: 'Primera Divisin',
 				href: '/equipos/primera-division',
 				description: 'Plantilla principal, calendario y resultados.',
 			},
 			{
 				label: 'Juveniles',
 				href: '/equipos/juveniles',
-				description: 'Desarrollo competitivo y formativo por categorías.',
+				description: 'Desarrollo competitivo y formativo por categoras.',
 			},
 			{
 				label: 'Femenino',
 				href: '/equipos/femenino',
-				description: 'Programa femenino, staff y próximos partidos.',
+				description: 'Programa femenino, staff y prximos partidos.',
 			},
 		],
 	},
@@ -84,7 +84,7 @@ const MENU_ENTRIES: MenuEntry[] = [
 				description: 'Actualizaciones del club y comunicados.',
 			},
 			{
-				label: 'Galería',
+				label: 'Galera',
 				href: '/media/galeria',
 				description: 'Fotos destacadas de entrenamientos y partidos.',
 			},
@@ -119,13 +119,13 @@ const menuIconByLabel: Record<string, IconComponent> = {
 	Patrocinadores: BuildingOffice2Icon,
 	Contacto: PhoneIcon,
 	Historia: BookOpenIcon,
-	'Staff Técnico': UserGroupIcon,
+	'Staff Tcnico': UserGroupIcon,
 	Instalaciones: BuildingOffice2Icon,
-	'Primera División': ShieldCheckIcon,
+	'Primera Divisin': ShieldCheckIcon,
 	Juveniles: UserGroupIcon,
 	Femenino: UserGroupIcon,
 	Noticias: NewspaperIcon,
-	Galería: CameraIcon,
+	Galera: CameraIcon,
 	Videos: PlayIcon,
 	'Player Card': CodeBracketIcon,
 };
@@ -444,15 +444,7 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 														const ChildIcon = getMenuIcon(child.label);
 
 														return (
-															<a
-																key={child.label}
-																href={child.href ?? '#'}
-																className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-titanes-700 transition-colors hover:bg-titanes-50 hover:text-titanes-900"
-															>
-																<ChildIcon className="h-4 w-4 text-titanes-500" />
-																{child.label}
-															</a>
-															<Link
+																														<Link
 																key={child.label}
 																to={child.href ?? '/'}
 																className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-titanes-700 transition-colors hover:bg-titanes-50 hover:text-titanes-900"
