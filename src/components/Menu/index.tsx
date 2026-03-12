@@ -444,6 +444,14 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 														const ChildIcon = getMenuIcon(child.label);
 
 														return (
+															<a
+																key={child.label}
+																href={child.href ?? '#'}
+																className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-titanes-700 transition-colors hover:bg-titanes-50 hover:text-titanes-900"
+															>
+																<ChildIcon className="h-4 w-4 text-titanes-500" />
+																{child.label}
+															</a>
 															<Link
 																key={child.label}
 																to={child.href ?? '/'}

@@ -10,9 +10,9 @@ const AboutSection = () => {
 						Un club construido desde la identidad y la entrega.
 					</h2>
 					<p className="mt-5 text-base leading-relaxed text-titanes-700">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis. Cras justo
-						odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl
-						consectetur et.
+						Titanes Rugby Club es una organización deportiva de alto impacto con sede en la Universidad Tecnológica de
+						Panamá (UTP). Fundado por entusiastas del deporte, hoy nos consolidamos como un pilar del rugby panameño,
+						ofreciendo un espacio de formación integral para hombres, mujeres y categorías infantiles.
 					</p>
 					<div className="mt-6 inline-flex items-center gap-3 rounded-xl border border-titanes-100 bg-titanes-50 px-4 py-3">
 						<Logo size="sm" />
