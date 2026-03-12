@@ -8,13 +8,11 @@ const breakpoints = [
 ];
 
 export const ResponsiveDebug: React.FC = () => {
-	if (!import.meta.env.DEV) {
-		return null;
-	}
+	const visibilityClass = ['hidden', 'block'][Number(import.meta.env.DEV)];
 
 	return (
 		<div
-			className="fixed bottom-0 left-0 z-[9999] rounded-md rounded-l-none bg-gray-900 px-4 py-2 font-mono text-xs text-white uppercase shadow-lg select-none"
+			className={`fixed bottom-0 left-0 z-[9999] rounded-md rounded-l-none bg-gray-900 px-4 py-2 font-mono text-xs text-white uppercase shadow-lg select-none ${visibilityClass}`}
 			aria-hidden="true"
 		>
 			{breakpoints.map(({ name, class: className }) => (

@@ -1,4 +1,5 @@
 import type { FixtureItem } from '../types';
+import TeamBadge from './TeamBadge';
 
 type FixtureListProps = {
   items: FixtureItem[];
@@ -20,7 +21,11 @@ const FixtureList = ({ items }: FixtureListProps) => {
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <p className="text-xs font-semibold tracking-[0.12em] text-titanes-500 uppercase">{item.competition} · {item.round}</p>
-              <h3 className="mt-1 text-xl font-bold text-titanes-900">{item.home} vs {item.away}</h3>
+              <div className="mt-2 flex flex-wrap items-center gap-2">
+                <TeamBadge name={item.home} logoSrc={item.homeLogoSrc} />
+                <span className="text-xs font-semibold tracking-[0.12em] text-titanes-500 uppercase">vs</span>
+                <TeamBadge name={item.away} logoSrc={item.awayLogoSrc} />
+              </div>
               <p className="mt-1 text-sm text-titanes-700">{item.date} · {item.time} · {item.venue}</p>
             </div>
             {item.status === 'result' ? (

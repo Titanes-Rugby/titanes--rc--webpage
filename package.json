@@ -13,6 +13,7 @@
 		"lint": "tsc --noEmit && eslint src/**/*.ts{,x} --cache --max-warnings=0",
 		"lint:fix": "eslint src/**/*.ts{,x} --fix",
 		"test": "vitest",
+		"test:coverage": "vitest run --coverage",
 		"prepare": "husky install"
 	},
 	"dependencies": {
@@ -45,6 +46,7 @@
 		"@typescript-eslint/eslint-plugin": "^8.57.0",
 		"@typescript-eslint/parser": "^8.57.0",
 		"@vitejs/plugin-react": "^5.1.4",
+		"@vitest/coverage-v8": "4.0.18",
 		"@vitest/ui": "^4.0.18",
 		"autoprefixer": "^10.4.27",
 		"daisyui": "^5.5.19",

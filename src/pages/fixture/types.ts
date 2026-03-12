@@ -12,6 +12,8 @@ export type FixtureItem = {
   venue: string;
   home: string;
   away: string;
+  homeLogoSrc?: string;
+  awayLogoSrc?: string;
   status: FixtureStatus;
   homeScore?: number;
   awayScore?: number;

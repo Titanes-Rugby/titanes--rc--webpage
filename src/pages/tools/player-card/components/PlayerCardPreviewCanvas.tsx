@@ -38,13 +38,11 @@ const PlayerCardPreviewCanvas = ({ player }: PlayerCardPreviewCanvasProps) => {
   };
 
   const handleExportNormal = () => {
-    if (!exportRef.current) return;
-    exportFromRef(exportRef.current, 'normal');
+    exportFromRef(exportRef.current as HTMLDivElement, 'normal');
   };
 
   const handleExportSquare = () => {
-    if (!squareExportRef.current) return;
-    exportFromRef(squareExportRef.current, 'square');
+    exportFromRef(squareExportRef.current as HTMLDivElement, 'square');
   };
 
   return (

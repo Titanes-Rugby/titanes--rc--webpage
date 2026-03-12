@@ -150,7 +150,7 @@ const dropdownItemVariants = {
 	hover: { x: 3 },
 };
 
-const getMenuIcon = (label: string) => menuIconByLabel[label] ?? CodeBracketIcon;
+const getMenuIcon = (label: string) => menuIconByLabel[label as keyof typeof menuIconByLabel];
 
 const overlayVariants = {
 	hidden: { opacity: 0 },
@@ -230,7 +230,7 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 	if (!entry.children?.length) {
 		return (
 			<MotionLink
-				to={entry.href ?? '/'}
+				to={entry.href as string}
 				className="inline-flex items-center gap-1.5 rounded-md px-1 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/85 transition-colors hover:text-white"
 				initial="rest"
 				animate="rest"
@@ -290,7 +290,7 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 							{entry.children.map((child) => (
 								<MotionLink
 									key={child.label}
-									to={child.href ?? '/'}
+									to={child.href as string}
 									className="flex items-start gap-2 rounded-xl px-3 py-2 transition-colors hover:bg-titanes-100/70"
 									initial="rest"
 									animate="rest"
@@ -306,15 +306,13 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 											const ChildIcon = getMenuIcon(child.label);
 											return <ChildIcon className="h-4 w-4" />;
 										})()}
-									</motion.span>
-									<div>
-										<p className="text-sm font-semibold text-titanes-900">{child.label}</p>
-										{child.description ? (
+										</motion.span>
+										<div>
+											<p className="text-sm font-semibold text-titanes-900">{child.label}</p>
 											<p className="mt-0.5 text-xs text-titanes-700/80">{child.description}</p>
-										) : null}
-									</div>
-								</MotionLink>
-							))}
+										</div>
+									</MotionLink>
+								))}
 						</div>
 					</motion.div>
 				) : null}
@@ -397,7 +395,7 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 									return (
 										<MotionLink
 											key={entry.label}
-											to={entry.href ?? '/'}
+											to={entry.href as string}
 											className="flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-titanes-900 transition-colors hover:bg-titanes-100"
 											variants={mobileItemVariants}
 											whileTap={{ scale: 0.98 }}
@@ -446,7 +444,7 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 														return (
 															<Link
 																key={child.label}
-																to={child.href ?? '/'}
+																to={child.href as string}
 																className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-titanes-700 transition-colors hover:bg-titanes-50 hover:text-titanes-900"
 																onClick={() => setMobileMenuOpen(false)}
 															>
