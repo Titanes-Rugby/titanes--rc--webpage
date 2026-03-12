@@ -45,7 +45,7 @@ const TeamsPage = () => {
           <p className="text-xs font-semibold tracking-[0.12em] text-titanes-100 uppercase">Club CTA</p>
           <h2 className="mt-2 text-2xl font-bold">Quieres formar parte del roster de Titanes?</h2>
           <p className="mt-2 max-w-2xl text-sm text-titanes-100/90">Escribe al staff tecnico y agenda una sesion de evaluacion para la proxima temporada.</p>
-          <a href="/contacto" className="mt-5 inline-flex rounded-xl bg-white px-4 py-2 text-xs font-semibold tracking-[0.12em] text-titanes-900 uppercase">Contactar al club</a>
+          <Link to="/contacto" className="mt-5 inline-flex rounded-xl bg-white px-4 py-2 text-xs font-semibold tracking-[0.12em] text-titanes-900 uppercase">Contactar al club</Link>
         </article>
       </section>
     </main>

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { facilityItems } from '../club.data';
 
 const FacilitiesSection = () => {
@@ -19,7 +21,7 @@ const FacilitiesSection = () => {
         <p className="text-xs font-semibold tracking-[0.12em] text-titanes-100 uppercase">Visita Guiada</p>
         <h3 className="mt-2 text-2xl font-bold">Conoce las instalaciones del club</h3>
         <p className="mt-2 text-sm text-titanes-100/90">Coordina una visita para academias, jugadores prospecto y patrocinadores.</p>
-        <a href="/contacto" className="mt-4 inline-flex rounded-xl bg-white px-4 py-2 text-xs font-semibold tracking-[0.12em] text-titanes-900 uppercase">Solicitar visita</a>
+        <Link to="/contacto" className="mt-4 inline-flex rounded-xl bg-white px-4 py-2 text-xs font-semibold tracking-[0.12em] text-titanes-900 uppercase">Solicitar visita</Link>
       </article>
     </section>
   );

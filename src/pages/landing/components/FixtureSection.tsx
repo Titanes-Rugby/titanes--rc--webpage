@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const MATCHES = [
 	{ rival: 'Lobos RFC', date: 'Sabado 14 - 16:00', place: 'Cancha Titanes' },
 	{ rival: 'Jaguares RC', date: 'Domingo 22 - 15:30', place: 'Estadio Nacional' },
@@ -19,12 +21,12 @@ const FixtureSection = () => {
 						</article>
 					))}
 				</div>
-				<a
-					href="/fixture"
+				<Link
+					to="/fixture"
 					className="mt-8 inline-flex rounded-xl bg-titanes-700 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-titanes-800"
 				>
 					Ver fixture completo
-				</a>
+				</Link>
 			</div>
 		</section>
 	);

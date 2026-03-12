@@ -1,4 +1,5 @@
 import { Marquee } from '@components/ui';
+import { Link } from 'react-router-dom';
 
 const SPONSORS = ['Sponsor A', 'Sponsor B', 'Sponsor C', 'Sponsor D', 'Sponsor E', 'Sponsor F'];
 
@@ -18,12 +19,12 @@ const SponsorsSection = () => {
 					Patrocinadores
 				</p>
 				<Marquee items={SPONSORS} renderItem={(sponsor) => <SponsorPill name={sponsor} />} />
-				<a
-					href="/patrocinadores"
+				<Link
+					to="/patrocinadores"
 					className="mt-6 inline-flex rounded-xl bg-titanes-700 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-titanes-800"
 				>
 					Ver patrocinadores
-				</a>
+				</Link>
 			</div>
 		</section>
 	);
