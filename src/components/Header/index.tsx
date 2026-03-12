@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
-import Logo from '@/assets/logo.svg?react';
+import Logo from '@ui/Logo';
 
 interface Props {
 	label: string;
@@ -128,3 +128,4 @@ const Header = () => {
 };
 
 export default Header;
+
