@@ -1,31 +1,122 @@
-import { Blockquote, Logo } from '@components/ui';
+﻿import { Blockquote, Logo } from '@components/ui';
+import { EyeIcon, HandRaisedIcon, ShieldCheckIcon, TrophyIcon } from '@heroicons/react/20/solid';
+
+const PILLARS = [
+	{
+		title: 'Hermandad',
+		description: 'Somos una comunidad que se apoya dentro y fuera de la cancha; el vínculo inquebrantable que nos une.',
+		Icon: HandRaisedIcon,
+	},
+	{
+		title: 'Honor',
+		description: 'Jugamos con integridad y respeto hacia árbitros y rivales. La dignidad está por encima del marcador.',
+		Icon: ShieldCheckIcon,
+	},
+	{
+		title: 'Disciplina',
+		description: 'El rigor diario forma atletas íntegros; la constancia y el esfuerzo son nuestra ruta al éxito.',
+		Icon: TrophyIcon,
+	},
+];
 
 const HistorySection = () => {
-  return (
-    <section className="grid gap-8 lg:grid-cols-2">
-      <div className="space-y-4">
-        <h2 className="text-3xl font-bold text-titanes-900">Un club construido desde identidad y entrega</h2>
-        <p className="text-sm leading-relaxed text-titanes-700">Titanes nace desde la comunidad para competir con disciplina, sentido de pertenencia y trabajo colectivo. La historia del club se ha consolidado con procesos deportivos estables y una cultura de mejora continua.</p>
-        <p className="text-sm leading-relaxed text-titanes-700">Cada temporada fortalece la estructura de cantera y alto rendimiento, manteniendo el foco en valores: hermandad, honor y disciplina.</p>
-        <div className="inline-flex items-center gap-3 rounded-xl border border-titanes-100 bg-titanes-50 px-4 py-3">
-          <Logo size="sm" />
-          <p className="text-sm text-titanes-700">Fundado por la comunidad de Titanes Rugby Club</p>
-        </div>
-      </div>
+	return (
+		<section className="space-y-8">
+			<div className="grid items-start gap-6 lg:grid-cols-[1.15fr,1fr]">
+				<header className="space-y-2">
+					<p className="text-xs font-semibold uppercase tracking-[0.18em] text-titanes-600">Titanes Rugby Club</p>
+					<h2 className="text-3xl font-bold text-titanes-900 sm:text-4xl">
+						Nuestra <span className="text-titanes-600">Esencia</span> y Visión
+					</h2>
+					<p className="max-w-3xl text-sm leading-relaxed text-titanes-700">
+						Más que un equipo, somos una hermandad formada por estudiantes y profesionales que comparten la pasión por el rugby y el crecimiento personal.
+					</p>
+				</header>
 
-      <div className="space-y-3">
-        {['Hermandad', 'Honor', 'Disciplina'].map((pillar) => (
-          <article key={pillar} className="rounded-2xl border border-titanes-100 bg-white p-5 shadow-sm">
-            <h3 className="text-lg font-semibold text-titanes-900">{pillar}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-titanes-700">Base cultural del club aplicada en entrenamiento, competencia y convivencia institucional.</p>
-          </article>
-        ))}
-        <Blockquote variant="accent" size="md" cite="Grito de guerra">
-          Y Hermandad, Honor y Disciplina... Quienes somos TITANES...
-        </Blockquote>
-      </div>
-    </section>
-  );
+				<div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+					{PILLARS.map(({ title, description, Icon }) => (
+						<article
+							key={title}
+							className="flex h-full flex-col items-center rounded-2xl border border-titanes-100 bg-white p-4 text-center shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+						>
+							<div className="flex h-10 w-10 items-center justify-center rounded-full bg-titanes-50">
+								<Icon className="h-6 w-6 text-titanes-600" />
+							</div>
+							<h3 className="mt-2 text-base font-semibold text-titanes-900">{title}</h3>
+							<p className="mt-2 text-sm leading-relaxed text-titanes-700">{description}</p>
+						</article>
+					))}
+				</div>
+			</div>
+
+			<div className="grid items-start gap-6 lg:grid-cols-[1fr,1.05fr]">
+				<div className="rounded-2xl border border-titanes-100 bg-white p-5 shadow-sm">
+					<h3 className="text-xl font-semibold text-titanes-900">¿Quiénes somos?</h3>
+					<p className="mt-2 text-sm leading-relaxed text-titanes-700">
+						Titanes Rugby Club no es solo un equipo; nació del sueño de ocho entusiastas y hoy se alza como uno de los pilares del rugby en el istmo. Nuestra sede principal es la UTP, donde estudiantes y profesionales desafían sus límites.
+					</p>
+					<p className="mt-3 text-sm leading-relaxed text-titanes-700">
+						Somos una brotherhood que trasciende ideologías y trasfondos. Formamos personas íntegras que llevan disciplina y respeto a cada aspecto de su vida.
+					</p>
+				</div>
+
+				<div className="space-y-4">
+					<article className="rounded-2xl border border-titanes-600 bg-gradient-to-r from-titanes-700 to-titanes-500 p-5 text-white shadow-md">
+						<h3 className="text-lg font-semibold">Nuestra Misión</h3>
+						<p className="mt-2 text-sm leading-relaxed">
+							Cultivar el crecimiento del rugby en Panamá a través de una estructura inclusiva y competitiva, formando personas integrales que entiendan que la verdadera fuerza reside en la solidaridad y el apoyo mutuo.
+						</p>
+						<p className="mt-2 text-sm leading-relaxed">
+							El éxito se mide por la calidad de nuestros vínculos y la pasión que entregamos en cada training session.
+						</p>
+					</article>
+
+					<article className="grid gap-4 rounded-2xl border border-titanes-100 bg-white p-5 shadow-sm lg:grid-cols-[1.1fr,0.9fr]">
+						<div>
+							<h3 className="flex items-center gap-2 text-lg font-semibold text-titanes-900">
+								<EyeIcon className="h-5 w-5 text-titanes-600" /> Nuestra Visión
+							</h3>
+							<p className="mt-2 text-sm leading-relaxed text-titanes-700">
+								Ser el principal referente del rugby nacional, consolidando la integración con la comunidad universitaria y expandiendo el impacto de todas nuestras ramas.
+							</p>
+							<div className="mt-3 flex flex-wrap gap-2">
+								<span className="inline-flex items-center gap-2 rounded-full bg-titanes-50 px-3 py-1 text-xs font-semibold text-titanes-700">
+									<HandRaisedIcon className="h-4 w-4 text-titanes-600" /> Titánides
+								</span>
+								<span className="inline-flex items-center gap-2 rounded-full bg-titanes-50 px-3 py-1 text-xs font-semibold text-titanes-700">
+									<ShieldCheckIcon className="h-4 w-4 text-titanes-600" /> Titanes Juveniles
+								</span>
+								<span className="inline-flex items-center gap-2 rounded-full bg-titanes-50 px-3 py-1 text-xs font-semibold text-titanes-700">
+									<TrophyIcon className="h-4 w-4 text-titanes-600" /> Competencia en la UPR
+								</span>
+							</div>
+						</div>
+						<div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-titanes-200 to-titanes-400">
+							<div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.35),transparent_45%)]" />
+							<div className="relative flex h-full min-h-[140px] items-center justify-center text-sm font-semibold text-titanes-800">
+								Foto equipo
+							</div>
+						</div>
+					</article>
+				</div>
+			</div>
+
+			<div className="rounded-2xl border border-titanes-100 bg-titanes-50/60 p-5 shadow-inner">
+				<h3 className="text-lg font-semibold text-titanes-900">Historia del Club</h3>
+				<p className="mt-2 text-sm leading-relaxed text-titanes-700">
+					Nacimos en la UTP como un grupo reducido y hoy somos una organización robusta con múltiples ramas en competencia. Cada temporada reforzamos la cantera y el alto rendimiento, siempre con hermandad, honor y disciplina como base cultural aplicada al entrenamiento, la competencia y la convivencia institucional.
+				</p>
+				<div className="mt-4 inline-flex items-center gap-3 rounded-xl border border-titanes-200 bg-white px-4 py-3">
+					<Logo size="sm" />
+					<p className="text-sm text-titanes-700">Fundado por la comunidad de Titanes Rugby Club</p>
+				</div>
+			</div>
+
+			<Blockquote variant="accent" size="md" cite="Grito de guerra">
+				Y Hermandad, Honor y Disciplina... Quienes somos TITANES... Auuuuu...
+			</Blockquote>
+		</section>
+	);
 };
 
 export default HistorySection;

@@ -1,4 +1,21 @@
 import { Blockquote, Logo } from '@components/ui';
+const PILLARS = [
+	{
+		title: 'Hermandad',
+		description:
+			'En Titanes, no solo compartimos un campo de juego; construimos una verdadera familia. Es el vínculo inquebrantable que nos une y donde el apoyo mutuo trasciende el deporte con cada miembro.',
+	},
+	{
+		title: 'Honor',
+		description:
+			'El honor es nuestra brújula moral dentro y fuera del campo. Jugamos con integridad y respeto hacia árbitros y rivales. Para un Titán, ganar es importante, pero nuestra dignidad y honestidad es lo que realmente nos define como rugbiers.',
+	},
+	{
+		title: 'Disciplina',
+		description:
+			'La disciplina es el motor de nuestra excelencia. Es el rigor que nos permite formar atletas íntegros con cada titán enseñándonos que la constancia y el esfuerzo son las rutas hacia el éxito.',
+	},
+];
 
 const AboutSection = () => {
 	return (
@@ -29,13 +46,10 @@ const AboutSection = () => {
 					</Blockquote>
 				</div>
 				<div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-					{['Hermandad', 'Homor', 'Disciplina'].map((pillar) => (
-						<article key={pillar} className="rounded-2xl border border-titanes-100 bg-titanes-50/70 p-5">
-							<h3 className="text-lg font-semibold text-titanes-900">{pillar}</h3>
-							<p className="mt-2 text-sm leading-relaxed text-titanes-700">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula porta felis euismod
-								semper.
-							</p>
+					{PILLARS.map((pillar) => (
+						<article key={pillar.title} className="rounded-2xl border border-titanes-100 bg-titanes-50/70 p-5">
+							<h3 className="text-lg font-semibold text-titanes-900">{pillar.title}</h3>
+							<p className="mt-2 text-sm leading-relaxed text-titanes-700">{pillar.description}</p>
 						</article>
 					))}
 				</div>
