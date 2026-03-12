@@ -1,0 +1,45 @@
+import type { TeamProfile } from './types';
+
+const basePlayers = [
+  { id: 'p1', name: 'Christhoval Barba', position: 'Second Row', number: '04', imageSrc: '/images/players/player_1.png', age: '31', height: "6'1\"", weight: '102 KG', bio: 'Lider del lineout, fuerte en el contacto y lectura defensiva.' },
+  { id: 'p2', name: 'Alberto Cortez', position: 'First Row', number: '01', imageSrc: '/images/players/player_1.png', age: '28', height: "5'11\"", weight: '95 KG', bio: 'Scrum estable y alto volumen de tackles por partido.' },
+  { id: 'p3', name: 'Victor Mendez', position: 'Hooker', number: '02', imageSrc: '/images/players/player_1.png', age: '27', height: "5'10\"", weight: '98 KG', bio: 'Preciso en lanzamiento y agresivo en zonas de ruck.' },
+  { id: 'p4', name: 'Luis Navarro', position: 'Back Row', number: '07', imageSrc: '/images/players/player_1.png', age: '25', height: "6'0\"", weight: '94 KG', bio: 'Especialista en breakdown y cobertura lateral.' },
+  { id: 'p5', name: 'Carlos Ruiz', position: 'Fly Half', number: '10', imageSrc: '/images/players/player_1.png', age: '24', height: "5'9\"", weight: '83 KG', bio: 'Conductor tactico del equipo y gran vision de juego.' },
+  { id: 'p6', name: 'Mateo Reyes', position: 'Wing', number: '11', imageSrc: '/images/players/player_1.png', age: '22', height: "5'10\"", weight: '80 KG', bio: 'Velocidad de quiebre y finalizacion en espacios amplios.' },
+];
+
+const coaches = [
+  { id: 'c1', name: 'Diego Alvarado', role: 'Head Coach', bio: 'Planificacion tactica, gestion de partido y desarrollo de liderazgo.' },
+  { id: 'c2', name: 'Jorge Salinas', role: 'Forwards Coach', bio: 'Scrum, lineout y contacto con foco en tecnica avanzada.' },
+  { id: 'c3', name: 'Marco Bernal', role: 'Performance Coach', bio: 'Fuerza, potencia y recuperacion para alta competencia.' },
+];
+
+const fixtures = [
+  { id: 'f1', rival: 'Panama Sharks', date: '17 Apr 2026', place: 'Estadio Nacional' },
+  { id: 'f2', rival: 'Canal Bulls', date: '24 Apr 2026', place: 'Titanes Field' },
+  { id: 'f3', rival: 'Pacific RFC', date: '02 May 2026', place: 'Ciudad Deportiva' },
+];
+
+export const teamProfiles: TeamProfile[] = [
+  { slug: 'primera-division', title: 'Titanes Primera', subtitle: 'Plantel principal de competencia nacional', season: '2026', record: '8W - 2L', ranking: '#2 Liga Nacional', players: basePlayers, coaches, fixtures, stats: [
+    { id: 's1', label: 'Tries', value: '31', change: '+14%' },
+    { id: 's2', label: 'Tackle Success', value: '89%', change: '+3.2%' },
+    { id: 's3', label: 'Possession', value: '56%', change: '+2.1%' },
+    { id: 's4', label: 'Penalties', value: '9.2', change: '-1.8' },
+  ] },
+  { slug: 'juveniles', title: 'Titanes Juveniles', subtitle: 'Desarrollo competitivo U18-U20', season: '2026', record: '6W - 3L', ranking: '#3 Liga Juvenil', players: basePlayers, coaches, fixtures, stats: [
+    { id: 's1', label: 'Tries', value: '24', change: '+9%' },
+    { id: 's2', label: 'Tackle Success', value: '84%', change: '+2.6%' },
+    { id: 's3', label: 'Possession', value: '52%', change: '+1.4%' },
+    { id: 's4', label: 'Penalties', value: '11.1', change: '-1.1' },
+  ] },
+  { slug: 'femenino', title: 'Titanes Femenino', subtitle: 'Rendimiento y proyeccion de alto nivel', season: '2026', record: '7W - 1L', ranking: '#1 Conferencia', players: basePlayers, coaches, fixtures, stats: [
+    { id: 's1', label: 'Tries', value: '29', change: '+16%' },
+    { id: 's2', label: 'Tackle Success', value: '91%', change: '+4.1%' },
+    { id: 's3', label: 'Possession', value: '58%', change: '+2.8%' },
+    { id: 's4', label: 'Penalties', value: '8.4', change: '-2.2' },
+  ] },
+];
+
+export const findTeamBySlug = (slug?: string) => teamProfiles.find((team) => team.slug === slug) ?? teamProfiles[0];

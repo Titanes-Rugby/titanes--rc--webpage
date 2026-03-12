@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const JoinSection = () => {
 	return (
 		<section className="bg-titanes-700 py-16">
@@ -9,12 +11,12 @@ const JoinSection = () => {
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu leo quam.
 					</p>
 				</div>
-				<a
-					href="/contacto"
+				<Link
+					to="/contacto"
 					className="rounded-xl bg-white px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-titanes-800 transition-colors hover:bg-titanes-100"
 				>
 					Inscribirme
-				</a>
+				</Link>
 			</div>
 		</section>
 	);

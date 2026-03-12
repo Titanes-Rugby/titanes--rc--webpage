@@ -5,5 +5,6 @@ export { default as Logo } from './Logo';
 export { default as Marquee } from './Marquee';
 export { default as AnimatedTiltCard } from './AnimatedTiltCard';
 export { default as PlayerCard } from './PlayerCard';
+export { default as PlayerPortrait } from './PlayerPortrait';
 export { default as ScrollToTopFab } from './ScrollToTopFab';
 export { UiPreview } from './Showcase';

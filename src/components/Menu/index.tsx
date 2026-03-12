@@ -15,9 +15,11 @@ import {
 	ShieldCheckIcon,
 	SparklesIcon,
 	UserGroupIcon,
+	WrenchScrewdriverIcon,
 	XMarkIcon,
 } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 import Logo from '@ui/Logo';
 import { cn } from '@/utils/cn';
@@ -30,6 +32,7 @@ type MenuEntry = {
 };
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
+const MotionLink = motion(Link);
 
 const MENU_ENTRIES: MenuEntry[] = [
 	{
@@ -37,17 +40,17 @@ const MENU_ENTRIES: MenuEntry[] = [
 		children: [
 			{
 				label: 'Historia',
-				href: '#',
+				href: '/club/historia',
 				description: 'Origen, valores y crecimiento del club.',
 			},
 			{
 				label: 'Staff Técnico',
-				href: '#',
+				href: '/club/staff-tecnico',
 				description: 'Entrenadores, preparación física y soporte.',
 			},
 			{
 				label: 'Instalaciones',
-				href: '#',
+				href: '/club/instalaciones',
 				description: 'Canchas, gimnasio y espacios de entrenamiento.',
 			},
 		],
@@ -57,17 +60,17 @@ const MENU_ENTRIES: MenuEntry[] = [
 		children: [
 			{
 				label: 'Primera División',
-				href: '#',
+				href: '/equipos/primera-division',
 				description: 'Plantilla principal, calendario y resultados.',
 			},
 			{
 				label: 'Juveniles',
-				href: '#',
+				href: '/equipos/juveniles',
 				description: 'Desarrollo competitivo y formativo por categorías.',
 			},
 			{
 				label: 'Femenino',
-				href: '#',
+				href: '/equipos/femenino',
 				description: 'Programa femenino, staff y próximos partidos.',
 			},
 		],
@@ -77,30 +80,41 @@ const MENU_ENTRIES: MenuEntry[] = [
 		children: [
 			{
 				label: 'Noticias',
-				href: '#',
+				href: '/media/noticias',
 				description: 'Actualizaciones del club y comunicados.',
 			},
 			{
 				label: 'Galería',
-				href: '#',
+				href: '/media/galeria',
 				description: 'Fotos destacadas de entrenamientos y partidos.',
 			},
 			{
 				label: 'Videos',
-				href: '#',
+				href: '/media/videos',
 				description: 'Highlights, entrevistas y contenido semanal.',
 			},
 		],
 	},
-	{ label: 'Fixture', href: '#' },
-	{ label: 'Patrocinadores', href: '#' },
-	{ label: 'Contacto', href: '#' },
+	{
+		label: 'Tools',
+		children: [
+			{
+				label: 'Player Card',
+				href: '/tools/player-card',
+				description: 'Crea y exporta tarjetas de jugadores en PNG.',
+			},
+		],
+	},
+	{ label: 'Fixture', href: '/fixture' },
+	{ label: 'Patrocinadores', href: '/patrocinadores' },
+	{ label: 'Contacto', href: '/contacto' },
 ];
 
 const menuIconByLabel: Record<string, IconComponent> = {
 	Club: ShieldCheckIcon,
 	Equipos: UserGroupIcon,
 	Media: SparklesIcon,
+	Tools: WrenchScrewdriverIcon,
 	Fixture: CalendarDaysIcon,
 	Patrocinadores: BuildingOffice2Icon,
 	Contacto: PhoneIcon,
@@ -113,6 +127,7 @@ const menuIconByLabel: Record<string, IconComponent> = {
 	Noticias: NewspaperIcon,
 	Galería: CameraIcon,
 	Videos: PlayIcon,
+	'Player Card': CodeBracketIcon,
 };
 
 const topMenuIconVariants = {
@@ -154,12 +169,12 @@ const panelVariants = {
 
 const dropdownVariants = {
 	hidden: { opacity: 0, y: 8, scale: 0.98 },
-	visible: {
-		opacity: 1,
-		y: 0,
-		scale: 1,
-		transition: { duration: 0.18, ease: 'easeOut' },
-	},
+		visible: {
+			opacity: 1,
+			y: 0,
+			scale: 1,
+			transition: { duration: 0.18, ease: 'easeOut' as const },
+		},
 	exit: { opacity: 0, y: 6, scale: 0.98, transition: { duration: 0.14 } },
 };
 
@@ -175,10 +190,10 @@ const mobileItemVariants = {
 
 const Brand = () => (
 	<div className="flex lg:flex-1">
-		<a href="#" className="-m-1.5 p-1.5">
+		<Link to="/" className="-m-1.5 p-1.5">
 			<span className="sr-only">Titanes Rugby Club</span>
 			<Logo size="md" tone="light" />
-		</a>
+		</Link>
 	</div>
 );
 
@@ -214,8 +229,8 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 
 	if (!entry.children?.length) {
 		return (
-			<motion.a
-				href={entry.href ?? '#'}
+			<MotionLink
+				to={entry.href ?? '/'}
 				className="inline-flex items-center gap-1.5 rounded-md px-1 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/85 transition-colors hover:text-white"
 				initial="rest"
 				animate="rest"
@@ -230,7 +245,7 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 					<EntryIcon className="h-4 w-4" />
 				</motion.span>
 				{entry.label}
-			</motion.a>
+			</MotionLink>
 		);
 	}
 
@@ -273,9 +288,9 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 					>
 						<div className="space-y-1">
 							{entry.children.map((child) => (
-								<motion.a
+								<MotionLink
 									key={child.label}
-									href={child.href ?? '#'}
+									to={child.href ?? '/'}
 									className="flex items-start gap-2 rounded-xl px-3 py-2 transition-colors hover:bg-titanes-100/70"
 									initial="rest"
 									animate="rest"
@@ -298,7 +313,7 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 											<p className="mt-0.5 text-xs text-titanes-700/80">{child.description}</p>
 										) : null}
 									</div>
-								</motion.a>
+								</MotionLink>
 							))}
 						</div>
 					</motion.div>
@@ -359,10 +374,10 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 						exit="exit"
 					>
 						<div className="flex items-center justify-between border-b border-titanes-100 pb-4">
-							<a href="#" className="-m-1.5 p-1.5">
+							<Link to="/" className="-m-1.5 p-1.5">
 								<span className="sr-only">Titanes Rugby Club</span>
 								<Logo className="h-14 w-auto fill-titanes-500" />
-							</a>
+							</Link>
 							<motion.button
 								type="button"
 								className="rounded-full border border-titanes-200 bg-transparent p-2 text-titanes-700"
@@ -380,16 +395,17 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 
 								if (!entry.children?.length) {
 									return (
-										<motion.a
+										<MotionLink
 											key={entry.label}
-											href={entry.href ?? '#'}
+											to={entry.href ?? '/'}
 											className="flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-titanes-900 transition-colors hover:bg-titanes-100"
 											variants={mobileItemVariants}
 											whileTap={{ scale: 0.98 }}
+											onClick={() => setMobileMenuOpen(false)}
 										>
 											<EntryIcon className="h-4 w-4 text-titanes-600" />
 											{entry.label}
-										</motion.a>
+										</MotionLink>
 									);
 								}
 
@@ -436,6 +452,15 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 																<ChildIcon className="h-4 w-4 text-titanes-500" />
 																{child.label}
 															</a>
+															<Link
+																key={child.label}
+																to={child.href ?? '/'}
+																className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-titanes-700 transition-colors hover:bg-titanes-50 hover:text-titanes-900"
+																onClick={() => setMobileMenuOpen(false)}
+															>
+																<ChildIcon className="h-4 w-4 text-titanes-500" />
+																{child.label}
+															</Link>
 														);
 													})}
 												</motion.div>

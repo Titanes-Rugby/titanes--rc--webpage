@@ -1,5 +1,3 @@
-import Menu from '@components/Menu';
-
 import AboutSection from './components/AboutSection';
 import FixtureSection from './components/FixtureSection';
 import HeroSection from './components/HeroSection';
@@ -13,7 +11,6 @@ import { PlayerCardsSection } from './components/PlayerCards';
 const LandingPage = () => {
 	return (
 		<main>
-			<Menu />
 			<HeroSection />
 			<AboutSection />
 			<PlayerCardsSection />

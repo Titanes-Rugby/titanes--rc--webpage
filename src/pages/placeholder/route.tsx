@@ -1,4 +1,3 @@
-import Menu from '@components/Menu';
 import { useLoaderData } from 'react-router-dom';
 import RouteErrorBoundary from '@/routers/components/RouteErrorBoundary';
 
@@ -33,7 +32,6 @@ export const Component = () => {
 
 	return (
 		<main>
-			<Menu />
 			<section className="flex min-h-screen items-center justify-center bg-titanes-50 px-6 pb-20 pt-36">
 				<div className="w-full max-w-3xl rounded-2xl border border-titanes-200 bg-white p-8 text-left shadow-sm">
 					<p className="text-xs font-semibold uppercase tracking-[0.2em] text-titanes-500">Placeholder</p>
