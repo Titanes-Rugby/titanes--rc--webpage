@@ -1,5 +1,6 @@
 ﻿import { Blockquote, Logo } from '@components/ui';
 import { EyeIcon, HandRaisedIcon, ShieldCheckIcon, TrophyIcon } from '@heroicons/react/20/solid';
+import { Link } from 'react-router-dom';
 
 const PILLARS = [
 	{
@@ -49,7 +50,7 @@ const HistorySection = () => {
 				</div>
 			</div>
 
-			<div className="grid items-start gap-6 lg:grid-cols-[1fr,1.05fr]">
+			<div className="grid items-start gap-4 lg:grid-cols-2">
 				<div className="rounded-2xl border border-titanes-100 bg-white p-5 shadow-sm">
 					<h3 className="text-xl font-semibold text-titanes-900">¿Quiénes somos?</h3>
 					<p className="mt-2 text-sm leading-relaxed text-titanes-700">
@@ -60,57 +61,58 @@ const HistorySection = () => {
 					</p>
 				</div>
 
-				<div className="space-y-4">
-					<article className="rounded-2xl border border-titanes-600 bg-gradient-to-r from-titanes-700 to-titanes-500 p-5 text-white shadow-md">
-						<h3 className="text-lg font-semibold">Nuestra Misión</h3>
-						<p className="mt-2 text-sm leading-relaxed">
-							Cultivar el crecimiento del rugby en Panamá a través de una estructura inclusiva y competitiva, formando personas integrales que entiendan que la verdadera fuerza reside en la solidaridad y el apoyo mutuo.
-						</p>
-						<p className="mt-2 text-sm leading-relaxed">
-							El éxito se mide por la calidad de nuestros vínculos y la pasión que entregamos en cada training session.
-						</p>
-					</article>
-
-					<article className="grid gap-4 rounded-2xl border border-titanes-100 bg-white p-5 shadow-sm lg:grid-cols-[1.1fr,0.9fr]">
-						<div>
-							<h3 className="flex items-center gap-2 text-lg font-semibold text-titanes-900">
-								<EyeIcon className="h-5 w-5 text-titanes-600" /> Nuestra Visión
-							</h3>
-							<p className="mt-2 text-sm leading-relaxed text-titanes-700">
-								Ser el principal referente del rugby nacional, consolidando la integración con la comunidad universitaria y expandiendo el impacto de todas nuestras ramas.
-							</p>
-							<div className="mt-3 flex flex-wrap gap-2">
-								<span className="inline-flex items-center gap-2 rounded-full bg-titanes-50 px-3 py-1 text-xs font-semibold text-titanes-700">
-									<HandRaisedIcon className="h-4 w-4 text-titanes-600" /> Titánides
-								</span>
-								<span className="inline-flex items-center gap-2 rounded-full bg-titanes-50 px-3 py-1 text-xs font-semibold text-titanes-700">
-									<ShieldCheckIcon className="h-4 w-4 text-titanes-600" /> Titanes Juveniles
-								</span>
-								<span className="inline-flex items-center gap-2 rounded-full bg-titanes-50 px-3 py-1 text-xs font-semibold text-titanes-700">
-									<TrophyIcon className="h-4 w-4 text-titanes-600" /> Competencia en la UPR
-								</span>
-							</div>
-						</div>
-						<div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-titanes-200 to-titanes-400">
-							<div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.35),transparent_45%)]" />
-							<div className="relative flex h-full min-h-[140px] items-center justify-center text-sm font-semibold text-titanes-800">
-								Foto equipo
-							</div>
-						</div>
-					</article>
-				</div>
+				<article className="rounded-2xl border border-titanes-600 bg-gradient-to-r from-titanes-700 to-titanes-500 p-5 text-white shadow-md">
+					<h3 className="text-lg font-semibold">Nuestra Misión</h3>
+					<p className="mt-2 text-sm leading-relaxed">
+						Cultivar el crecimiento del rugby en Panamá a través de una estructura inclusiva y competitiva, formando personas integrales que entiendan que la verdadera fuerza reside en la solidaridad y el apoyo mutuo.
+					</p>
+					<p className="mt-2 text-sm leading-relaxed">
+						El éxito se mide por la calidad de nuestros vínculos y la pasión que entregamos en cada training session.
+					</p>
+				</article>
 			</div>
 
-			<div className="rounded-2xl border border-titanes-100 bg-titanes-50/60 p-5 shadow-inner">
-				<h3 className="text-lg font-semibold text-titanes-900">Historia del Club</h3>
-				<p className="mt-2 text-sm leading-relaxed text-titanes-700">
-					Nacimos en la UTP como un grupo reducido y hoy somos una organización robusta con múltiples ramas en competencia. Cada temporada reforzamos la cantera y el alto rendimiento, siempre con hermandad, honor y disciplina como base cultural aplicada al entrenamiento, la competencia y la convivencia institucional.
-				</p>
-				<div className="mt-4 inline-flex items-center gap-3 rounded-xl border border-titanes-200 bg-white px-4 py-3">
-					<Logo size="sm" />
-					<p className="text-sm text-titanes-700">Fundado por la comunidad de Titanes Rugby Club</p>
+			<article className="grid gap-4 rounded-2xl border border-titanes-100 bg-white p-5 shadow-sm lg:grid-cols-[1.1fr,0.9fr]">
+				<div>
+					<h3 className="flex items-center gap-2 text-lg font-semibold text-titanes-900">
+						<EyeIcon className="h-5 w-5 text-titanes-600" /> Nuestra Visión
+					</h3>
+					<p className="mt-2 text-sm leading-relaxed text-titanes-700">
+						Ser el principal referente del rugby nacional, consolidando la integración con la comunidad universitaria y expandiendo el impacto de todas nuestras ramas.
+					</p>
+					<div className="mt-3 flex flex-wrap gap-2">
+						<span className="inline-flex items-center gap-2 rounded-full bg-titanes-50 px-3 py-1 text-xs font-semibold text-titanes-700">
+							<ShieldCheckIcon className="h-4 w-4 text-titanes-600" /> Titanes
+						</span>
+						<span className="inline-flex items-center gap-2 rounded-full bg-titanes-50 px-3 py-1 text-xs font-semibold text-titanes-700">
+							<HandRaisedIcon className="h-4 w-4 text-titanes-600" /> Titánides
+						</span>
+						<span className="inline-flex items-center gap-2 rounded-full bg-titanes-50 px-3 py-1 text-xs font-semibold text-titanes-700">
+							<ShieldCheckIcon className="h-4 w-4 text-titanes-600" /> Titanes Juveniles
+						</span>
+						<span className="inline-flex items-center gap-2 rounded-full bg-titanes-50 px-3 py-1 text-xs font-semibold text-titanes-700">
+							<TrophyIcon className="h-4 w-4 text-titanes-600" /> Competencia en la UPR
+						</span>
+					</div>
 				</div>
-			</div>
+				<div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-titanes-200 to-titanes-400">
+					<div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.35),transparent_45%)]" />
+					<div className="relative flex h-full min-h-[140px] items-center justify-center text-sm font-semibold text-titanes-800">
+						Foto equipo
+					</div>
+				</div>
+			</article>
+
+			<Link
+				to="/club/historia"
+				className="flex items-center justify-between gap-3 rounded-2xl bg-gradient-to-r from-titanes-600 to-titanes-500 px-5 py-4 text-white shadow-md transition hover:-translate-y-0.5"
+			>
+				<div>
+					<p className="text-xs uppercase tracking-[0.2em] text-white/80">Historia</p>
+					<p className="text-lg font-semibold">Conoce nuestra historia</p>
+				</div>
+				<span className="text-sm font-semibold">Ver más →</span>
+			</Link>
 
 			<Blockquote variant="accent" size="md" cite="Grito de guerra">
 				Y Hermandad, Honor y Disciplina... Quienes somos TITANES... Auuuuu...

@@ -1,6 +1,7 @@
-import type { ClubSection, ClubSectionId, FacilityItem, StaffMember } from './types';
+﻿import type { ClubSection, ClubSectionId, FacilityItem, StaffMember } from './types';
 
 export const clubSections: ClubSection[] = [
+  { id: 'que-somos', label: '¿Qué somos?', title: '¿Qué Somos?', description: 'Identidad, misión y visión del club.' },
   { id: 'historia', label: 'Historia', title: 'Historia Del Club', description: 'Origen, identidad y crecimiento competitivo de Titanes Rugby Club.' },
   { id: 'staff-tecnico', label: 'Staff Tecnico', title: 'Staff Tecnico', description: 'Equipo de trabajo multidisciplinario para alto rendimiento.' },
   { id: 'instalaciones', label: 'Instalaciones', title: 'Instalaciones', description: 'Infraestructura para formacion, recuperacion y competencia.' },
