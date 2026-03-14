@@ -324,3 +324,4 @@ const FullHistorySection = () => {
 };
 
 export default FullHistorySection;
+//12:03
