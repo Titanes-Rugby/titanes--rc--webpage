@@ -26,7 +26,8 @@ const EVENTS = [
 		title: 'Crecimiento y Expansión',
 		subtitle: 'El Nacimiento de Titanes',
 		body: 'A medida que el deporte ganaba popularidad y se sumaban exjugadores extranjeros que aportaban su experiencia desinteresadamente, el equipo creció tanto que en 2007 se tomó una decisión estratégica. Decidimos separarnos por afinidades laborales y universitarias para poder expandirnos y buscar más gente. Esta transición dio paso a la modalidad de Sevens (Rugby 7), y el 21 de octubre de 2007 se oficializaron nuevos equipos, entre ellos Cuervos, Dragones y, por supuesto, Titanes. Con la fundación oficial, logramos establecernos en la Universidad Tecnológica de Panamá (UTP), donde iniciamos nuestros primeros reclutamientos.',
-		highlight: "Dato curioso: por votación casi nos llamamos 'Tecno Barbies', pero prevaleció Titanes.",
+		highlight:
+			"Dato curioso: Por votación casi unanime nos llamamos 'Tecno Barbies', pero al final prevaleció Titanes.",
 		icon: ShieldCheckIcon,
 		image: 'https://images.unsplash.com/photo-1641176912780-3fa33fd20a15?auto=format&fit=crop&w=1400&q=80&sat=-18',
 		gradient: 'from-lime-600/50 via-green-600/50 to-emerald-600/50',
@@ -324,4 +325,3 @@ const FullHistorySection = () => {
 };
 
 export default FullHistorySection;
-//12:03
