@@ -39,6 +39,11 @@ const MENU_ENTRIES: MenuEntry[] = [
 		label: 'Club',
 		children: [
 			{
+				label: '¿Qué somos?',
+				href: '/club/que-somos',
+				description: 'Identidad, misión y visión del club.',
+			},
+			{
 				label: 'Historia',
 				href: '/club/historia',
 				description: 'Origen, valores y crecimiento del club.',
