@@ -8,6 +8,7 @@ const renderClubRoute = (path: string) => {
   return render(
     <MemoryRouter initialEntries={[path]}>
       <Routes>
+        <Route path="/club" element={<ClubPage />} />
         <Route path="/club/:slug" element={<ClubPage />} />
         <Route path="/club/:slug/:section" element={<ClubPage />} />
       </Routes>
@@ -16,6 +17,11 @@ const renderClubRoute = (path: string) => {
 };
 
 describe('<ClubPage />', () => {
+  it('uses quienes-somos as default section on /club route', () => {
+    renderClubRoute('/club');
+    expect(screen.getByRole('heading', { name: /Nuestra Esencia y Visión/i, level: 2 })).toBeInTheDocument();
+  });
+
   it('falls back to quienes-somos for invalid section', () => {
     renderClubRoute('/club/academia/nope');
     expect(screen.getByRole('heading', { name: /Nuestra Esencia y Visión/i, level: 2 })).toBeInTheDocument();

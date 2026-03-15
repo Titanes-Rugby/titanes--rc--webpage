@@ -13,7 +13,9 @@ describe('number utils', () => {
   it('converts numeric values and decimals', () => {
     expect(toPrecision(1.23456, 2)).toBe('1.23');
     expect(toPrecision(1.2)).toBe('1.2');
+    expect(toPrecision(Number.NaN, 2)).toBe('0.00');
     expect(countDecimalPlaces(1.23)).toBe(2);
+    expect(countDecimalPlaces(2)).toBe(0);
     expect(countDecimalPlaces(Number.POSITIVE_INFINITY)).toBe(0);
   });
 
@@ -28,6 +30,7 @@ describe('number utils', () => {
 
     expect(clampValue(12, 0, 10)).toBe(10);
     expect(clampValue(-1, 0, 10)).toBe(0);
+    expect(clampValue(8, 0, 10)).toBe(8);
     expect(clampValue(null as unknown as number, 0, 10)).toBeNull();
     expect(clampValue(5, 10, 1)).toBe(1);
     expect(warnSpy).toHaveBeenCalled();

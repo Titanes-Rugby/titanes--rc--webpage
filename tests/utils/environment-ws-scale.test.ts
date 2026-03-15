@@ -9,6 +9,7 @@ describe('environment dependent utils', () => {
 
   afterEach(() => {
     vi.unstubAllEnvs();
+    delete process.env.VITE_API_HOST;
     Object.defineProperty(window, 'innerHeight', { configurable: true, value: originalHeight });
   });
 
@@ -55,5 +56,15 @@ describe('environment dependent utils', () => {
     Object.defineProperty(window, 'innerHeight', { configurable: true, value: 491 });
     const scale = await import('@/utils/scale');
     expect(scale.scaleRatio).toBe(491 / 982);
+  });
+
+  it('falls back to process.env host when VITE_API_HOST is not in import meta env', async () => {
+    vi.unstubAllEnvs();
+    process.env.VITE_API_HOST = 'http://localhost:4567';
+    vi.resetModules();
+
+    const envFromProcess = await import('@/utils/environment');
+    expect(envFromProcess.CURRENT_ENV).toBe('local');
+    expect(envFromProcess.IS_NON_PRODUCTION).toBe(true);
   });
 });

@@ -17,4 +17,12 @@ describe('<TeamBadge />', () => {
     expect(screen.getByText('CB')).toBeInTheDocument();
     expect(screen.getByText('Canal Bulls')).toBeInTheDocument();
   });
+
+  it('handles irregular spacing and single-word names for initials', () => {
+    const { rerender } = render(<TeamBadge name="   Titanes   " />);
+    expect(screen.getByText('T')).toBeInTheDocument();
+
+    rerender(<TeamBadge name="  Canal   Bulls  " />);
+    expect(screen.getByText('CB')).toBeInTheDocument();
+  });
 });

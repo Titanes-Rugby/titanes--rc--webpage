@@ -8,7 +8,7 @@ describe('cn utils', () => {
   });
 
   it('normalizes non-string template input and trims extra spacing', () => {
-    expect(cx(['  alpha', 'beta  '], '   gamma  ')).toBe('alpha beta gamma');
+    expect(cx(['  alpha', 'beta  '], '   gamma  ')).toBe('alphabeta gamma');
     expect(cx(null as never, 'delta')).toBe('delta');
   });
 

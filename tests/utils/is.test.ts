@@ -22,13 +22,21 @@ import {
 describe('is utils', () => {
   it('checks numeric and primitive conditions', () => {
     expect(isNumber(1)).toBe(true);
+    expect(isNumber('1')).toBe(false);
     expect(isNotNumber(NaN)).toBe(true);
+    expect(isNotNumber(3)).toBe(false);
     expect(isNumeric('12.5')).toBe(true);
+    expect(isNumeric('not-a-number')).toBe(false);
     expect(isDefined(0)).toBe(true);
+    expect(isDefined(undefined)).toBe(false);
     expect(isUndefined(undefined)).toBe(true);
+    expect(isUndefined(0)).toBe(false);
     expect(isNull(null)).toBe(true);
+    expect(isNull('value')).toBe(false);
     expect(isString('ok')).toBe(true);
+    expect(isString(123)).toBe(false);
     expect(isCssVar('var(--token)')).toBe(true);
+    expect(isCssVar('--token')).toBe(false);
   });
 
   it('checks arrays, objects and function types', () => {
@@ -47,6 +55,7 @@ describe('is utils', () => {
     expect(isEmpty('value')).toBe(false);
     expect(isRefObject({ current: 1 })).toBe(true);
     expect(isInputEvent({ target: { value: 'x' } })).toBe(true);
+    expect(isInputEvent({ target: 'x' })).toBe(false);
     expect(isInputEvent(null)).toBeFalsy();
   });
 });
