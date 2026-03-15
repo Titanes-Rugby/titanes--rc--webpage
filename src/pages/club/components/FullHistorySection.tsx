@@ -63,7 +63,7 @@ const LEGACY = [
 
 const FullHistorySection = () => {
 	const containerRef = useRef<HTMLDivElement>(null);
-	const cardRefs = useRef<HTMLDivElement[]>([]);
+	const cardRefs = useRef<HTMLElement[]>([]);
 	const [activeIndex, setActiveIndex] = useState(0);
 	const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end end'] });
 	const timelineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
