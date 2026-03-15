@@ -48,7 +48,7 @@ const PlayerCardPreviewCanvas = ({ player }: PlayerCardPreviewCanvasProps) => {
   return (
     <section className="space-y-3">
       <div className="flex items-center justify-between gap-3">
-        <h2 className="text-sm font-semibold tracking-[0.12em] text-titanes-600 uppercase">Preview</h2>
+        <h2 className="text-sm font-semibold tracking-[0.12em] text-primary-600 uppercase">Preview</h2>
         <div className="flex items-center gap-2">
           <Button onClick={handleExportNormal} loading={exportMode === 'normal'}>
             Exportar PNG
@@ -58,7 +58,7 @@ const PlayerCardPreviewCanvas = ({ player }: PlayerCardPreviewCanvasProps) => {
           </Button>
         </div>
       </div>
-      <div className="rounded-2xl border border-titanes-100 bg-titanes-900/40 p-3">
+      <div className="rounded-2xl border border-primary-100 bg-primary-900/40 p-3">
         <div ref={exportRef} className="mx-auto max-w-[1300px] [perspective:1800px]">
           <PlayerCard player={player} />
         </div>

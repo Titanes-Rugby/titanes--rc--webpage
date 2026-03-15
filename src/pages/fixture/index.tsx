@@ -19,7 +19,7 @@ const FixturePage = () => {
   }, [status, team]);
 
   return (
-    <main className="bg-titanes-50 min-h-screen">
+    <main className="bg-primary-50 min-h-screen">
       <FixtureHero />
       <section className="mx-auto w-full max-w-6xl space-y-6 px-6 py-10">
         <FixtureFilters

@@ -18,6 +18,6 @@ describe('club route and data', () => {
     expect(isClubSection('instalaciones')).toBe(true);
     expect(isClubSection('otro')).toBe(false);
     expect(getClubSection('staff-tecnico').title).toBe('Staff Tecnico');
-    expect(getClubSection('invalid').id).toBe('historia');
+    expect(getClubSection('invalid').id).toBe('quienes-somos');
   });
 });

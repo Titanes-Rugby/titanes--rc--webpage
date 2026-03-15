@@ -32,18 +32,18 @@ export const Component = () => {
 
 	return (
 		<main>
-			<section className="flex min-h-screen items-center justify-center bg-titanes-50 px-6 pb-20 pt-36">
-				<div className="w-full max-w-3xl rounded-2xl border border-titanes-200 bg-white p-8 text-left shadow-sm">
-					<p className="text-xs font-semibold uppercase tracking-[0.2em] text-titanes-500">Placeholder</p>
-					<h1 className="mt-3 text-3xl font-semibold text-titanes-900">{data.title}</h1>
-					<p className="mt-1 text-xs uppercase tracking-[0.12em] text-titanes-500">{data.path}</p>
-					<p className="mt-4 text-sm leading-relaxed text-titanes-700">
+			<section className="flex min-h-screen items-center justify-center bg-primary-50 px-6 pb-20 pt-36">
+				<div className="w-full max-w-3xl rounded-2xl border border-primary-200 bg-white p-8 text-left shadow-sm">
+					<p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-500">Placeholder</p>
+					<h1 className="mt-3 text-3xl font-semibold text-primary-900">{data.title}</h1>
+					<p className="mt-1 text-xs uppercase tracking-[0.12em] text-primary-500">{data.path}</p>
+					<p className="mt-4 text-sm leading-relaxed text-primary-700">
 						Esta pagina es temporal mientras se define el contenido oficial. Aqui integraremos layout,
 						copy real, medios y llamadas a la accion finales.
 					</p>
 					<a
 						href="/"
-						className="mt-6 inline-flex rounded-xl bg-titanes-600 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-titanes-700"
+						className="mt-6 inline-flex rounded-xl bg-primary-600 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-primary-700"
 					>
 						Volver al inicio
 					</a>

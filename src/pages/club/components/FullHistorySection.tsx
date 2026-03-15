@@ -86,7 +86,7 @@ const FullHistorySection = () => {
 
 	return (
 		<section className="space-y-12" ref={containerRef}>
-			<div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-titanes-900 via-titanes-800 to-titanes-700 p-8 md:p-12 text-white shadow-2xl">
+			<div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary-900 via-primary-800 to-primary-700 p-8 md:p-12 text-white shadow-2xl">
 				<p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
 					<BookOpenIcon className="h-4 w-4" /> Nuestra historia
 				</p>
@@ -100,7 +100,7 @@ const FullHistorySection = () => {
 			<div className="relative">
 				<div className="absolute left-0 top-0 bottom-0 hidden lg:block" style={{ left: 'calc(540px + 32px)' }}>
 					<div className="sticky top-20 h-screen flex items-center">
-						<div className="relative w-1 h-[60vh] bg-titanes-200/30 rounded-full overflow-hidden">
+						<div className="relative w-1 h-[60vh] bg-primary-200/30 rounded-full overflow-hidden">
 							<motion.div
 								className="absolute top-0 left-0 right-0 bg-gradient-to-b from-lime-400 via-green-500 to-emerald-600 rounded-full"
 								style={{ height: timelineHeight }}
@@ -135,7 +135,7 @@ const FullHistorySection = () => {
 								whileInView={{ opacity: 1, x: 0 }}
 								viewport={{ once: true, margin: '-100px' }}
 								transition={{ duration: 0.5, delay: index * 0.1 }}
-								className="relative rounded-3xl bg-white shadow-xl ring-1 ring-titanes-900/5 overflow-hidden group"
+								className="relative rounded-3xl bg-white shadow-xl ring-1 ring-primary-900/5 overflow-hidden group"
 							>
 								<div className="overflow-hidden">
 									<div className="relative h-72 overflow-hidden">
@@ -172,7 +172,7 @@ const FullHistorySection = () => {
 										)}
 									</div>
 								</div>
-								<div className="space-y-4 bg-gradient-to-br from-titanes-700 via-titanes-600 to-titanes-500 p-8 text-white">
+								<div className="space-y-4 bg-gradient-to-br from-primary-700 via-primary-600 to-primary-500 p-8 text-white">
 									<motion.h3
 										className="text-3xl font-bold leading-tight"
 										initial={{ opacity: 0, y: 10 }}
@@ -221,8 +221,8 @@ const FullHistorySection = () => {
 					</div>
 
 					<div className="hidden lg:block">
-						<div className="sticky top-24 space-y-6 rounded-3xl bg-gradient-to-br from-titanes-900/30 via-titanes-800/20 to-titanes-900/30 backdrop-blur-sm p-8 border border-titanes-700/30">
-							<h3 className="text-2xl font-bold text-titanes-900 mb-4">Linea de tiempo</h3>
+						<div className="sticky top-24 space-y-6 rounded-3xl bg-gradient-to-br from-primary-900/30 via-primary-800/20 to-primary-900/30 backdrop-blur-sm p-8 border border-primary-700/30">
+							<h3 className="text-2xl font-bold text-primary-900 mb-4">Linea de tiempo</h3>
 							<div className="space-y-3">
 								{EVENTS.map((event, idx) => (
 									<button
@@ -234,11 +234,11 @@ const FullHistorySection = () => {
 										className={`w-full text-left p-3 rounded-xl transition ${
 											activeIndex === idx
 												? 'bg-gradient-to-r from-lime-400/20 to-green-400/20 border-l-4 border-lime-500'
-												: 'bg-titanes-50/50 border-l-4 border-transparent hover:border-titanes-300 cursor-pointer'
+												: 'bg-primary-50/50 border-l-4 border-transparent hover:border-primary-300 cursor-pointer'
 										}`}
 									>
-										<p className="text-sm font-bold text-titanes-900">{event.year}</p>
-										<p className="text-xs text-titanes-700">{event.title}</p>
+										<p className="text-sm font-bold text-primary-900">{event.year}</p>
+										<p className="text-xs text-primary-700">{event.title}</p>
 									</button>
 								))}
 							</div>
@@ -251,15 +251,15 @@ const FullHistorySection = () => {
 				initial={{ opacity: 0, y: 20 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
-				className="rounded-3xl border-2 border-titanes-200 bg-gradient-to-br from-white via-lime-50/30 to-green-50/30 p-8 shadow-lg"
+				className="rounded-3xl border-2 border-primary-200 bg-gradient-to-br from-white via-lime-50/30 to-green-50/30 p-8 shadow-lg"
 			>
 				<div className="flex items-center gap-3 mb-4">
 					<div className="p-3 bg-gradient-to-br from-lime-400 to-green-500 rounded-2xl">
 						<HeartIcon className="h-6 w-6 text-white" />
 					</div>
-					<h3 className="text-2xl font-bold text-titanes-900">Legado que se multiplica</h3>
+					<h3 className="text-2xl font-bold text-primary-900">Legado que se multiplica</h3>
 				</div>
-				<p className="mt-3 text-base leading-relaxed text-titanes-700 mb-6">
+				<p className="mt-3 text-base leading-relaxed text-primary-700 mb-6">
 					Titanides impulsó nuevas ramas del rugby nacional. Estas son las huellas directas de nuestra hermandad:
 				</p>
 				<div className="grid md:grid-cols-2 gap-4">
@@ -271,7 +271,7 @@ const FullHistorySection = () => {
 							viewport={{ once: true }}
 							transition={{ delay: index * 0.1 }}
 							whileHover={{ scale: 1.02, y: -2 }}
-							className="rounded-2xl bg-gradient-to-br from-titanes-700 to-titanes-600 p-5 text-white shadow-md border border-titanes-500 cursor-pointer"
+							className="rounded-2xl bg-gradient-to-br from-primary-700 to-primary-600 p-5 text-white shadow-md border border-primary-500 cursor-pointer"
 						>
 							<div className="flex items-center gap-3">
 								<ShieldCheckIcon className="h-8 w-8 text-lime-300" />
@@ -289,22 +289,22 @@ const FullHistorySection = () => {
 				initial={{ opacity: 0, y: 20 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
-				className="grid gap-6 rounded-3xl border-2 border-titanes-200 bg-gradient-to-br from-titanes-50/80 via-lime-50/50 to-green-50/50 p-8 shadow-lg lg:grid-cols-[1.2fr,0.8fr]"
+				className="grid gap-6 rounded-3xl border-2 border-primary-200 bg-gradient-to-br from-primary-50/80 via-lime-50/50 to-green-50/50 p-8 shadow-lg lg:grid-cols-[1.2fr,0.8fr]"
 			>
 				<div className="space-y-3">
-					<div className="inline-flex items-center gap-2 rounded-full bg-titanes-900 px-4 py-1.5 text-xs font-semibold text-white">
+					<div className="inline-flex items-center gap-2 rounded-full bg-primary-900 px-4 py-1.5 text-xs font-semibold text-white">
 						<SparklesIcon className="h-4 w-4" />
 						NUESTRA CASA
 					</div>
-					<h3 className="text-3xl font-bold text-titanes-900">Universidad Tecnológica de Panamá</h3>
-					<p className="text-base leading-relaxed text-titanes-700">
+					<h3 className="text-3xl font-bold text-primary-900">Universidad Tecnológica de Panamá</h3>
+					<p className="text-base leading-relaxed text-primary-700">
 						La UTP sigue siendo nuestro hogar de entrenamiento. En pretemporada nos trasladamos a las escalinatas del
 						Canal para forjar el carácter que nos define como Titanes.
 					</p>
 				</div>
 				<Link
 					to="/contacto"
-					className="group relative overflow-hidden flex items-center justify-between gap-4 rounded-2xl bg-gradient-to-r from-titanes-700 to-titanes-500 px-8 py-6 text-white shadow-xl transition-all hover:shadow-2xl hover:scale-[1.02]"
+					className="group relative overflow-hidden flex items-center justify-between gap-4 rounded-2xl bg-gradient-to-r from-primary-700 to-primary-500 px-8 py-6 text-white shadow-xl transition-all hover:shadow-2xl hover:scale-[1.02]"
 				>
 					<div className="relative z-10">
 						<p className="text-xs uppercase tracking-[0.2em] text-white/90 mb-1">Hermandad</p>

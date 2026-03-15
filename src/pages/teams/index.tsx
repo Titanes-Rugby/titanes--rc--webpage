@@ -17,7 +17,7 @@ const TeamsPage = () => {
   const tabBasePath = `/equipos/${team.slug}`;
 
   return (
-    <main className="bg-titanes-50 min-h-screen">
+    <main className="bg-primary-50 min-h-screen">
       <TeamsHero team={team} />
       <TeamsTabs activeTab={activeTab} basePath={tabBasePath} />
 
@@ -28,7 +28,7 @@ const TeamsPage = () => {
               key={profile.slug}
               to={`/equipos/${profile.slug}/${activeTab}`}
               className={`rounded-full border px-3 py-1.5 text-[11px] font-semibold tracking-[0.12em] uppercase ${
-                profile.slug === team.slug ? 'border-titanes-700 bg-titanes-700 text-white' : 'border-titanes-200 text-titanes-700'
+                profile.slug === team.slug ? 'border-primary-700 bg-primary-700 text-white' : 'border-primary-200 text-primary-700'
               }`}
             >
               {profile.title}
@@ -41,11 +41,11 @@ const TeamsPage = () => {
         {activeTab === 'stats' ? <StatsPanel stats={team.stats} /> : null}
         {activeTab === 'fixtures' ? <FixturesPanel fixtures={team.fixtures} /> : null}
 
-        <article className="rounded-2xl bg-titanes-800 p-7 text-white">
-          <p className="text-xs font-semibold tracking-[0.12em] text-titanes-100 uppercase">Club CTA</p>
+        <article className="rounded-2xl bg-primary-800 p-7 text-white">
+          <p className="text-xs font-semibold tracking-[0.12em] text-primary-100 uppercase">Club CTA</p>
           <h2 className="mt-2 text-2xl font-bold">Quieres formar parte del roster de Titanes?</h2>
-          <p className="mt-2 max-w-2xl text-sm text-titanes-100/90">Escribe al staff tecnico y agenda una sesion de evaluacion para la proxima temporada.</p>
-          <Link to="/contacto" className="mt-5 inline-flex rounded-xl bg-white px-4 py-2 text-xs font-semibold tracking-[0.12em] text-titanes-900 uppercase">Contactar al club</Link>
+          <p className="mt-2 max-w-2xl text-sm text-primary-100/90">Escribe al staff tecnico y agenda una sesion de evaluacion para la proxima temporada.</p>
+          <Link to="/contacto" className="mt-5 inline-flex rounded-xl bg-white px-4 py-2 text-xs font-semibold tracking-[0.12em] text-primary-900 uppercase">Contactar al club</Link>
         </article>
       </section>
     </main>

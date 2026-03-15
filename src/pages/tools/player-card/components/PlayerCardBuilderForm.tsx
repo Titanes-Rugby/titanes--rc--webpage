@@ -10,7 +10,7 @@ type PlayerCardBuilderFormProps = {
   onImageFileChange: (file?: File) => void;
 };
 
-const fieldClassName = 'rounded-xl border border-titanes-200 bg-white px-3 py-2 text-sm text-titanes-900 outline-none focus:border-titanes-500';
+const fieldClassName = 'rounded-xl border border-primary-200 bg-white px-3 py-2 text-sm text-primary-900 outline-none focus:border-primary-500';
 
 const PlayerCardBuilderForm = ({ form, uploadError, onImageFileChange }: PlayerCardBuilderFormProps) => {
   const { register, formState } = form;
@@ -32,11 +32,11 @@ const PlayerCardBuilderForm = ({ form, uploadError, onImageFileChange }: PlayerC
       <input placeholder="Nombre del club" className={cn(fieldClassName, errors.teamName && 'border-red-500')} {...register('teamName', { required: true })} />
       <input placeholder="URL de imagen" className={cn(fieldClassName, 'sm:col-span-2', errors.imageSrc && 'border-red-500')} {...register('imageSrc', { required: true })} />
       <label className="sm:col-span-2">
-        <span className="mb-1 block text-xs font-semibold tracking-[0.12em] text-titanes-500 uppercase">Subir imagen</span>
+        <span className="mb-1 block text-xs font-semibold tracking-[0.12em] text-primary-500 uppercase">Subir imagen</span>
         <input
           type="file"
           accept="image/*"
-          className={cn(fieldClassName, 'w-full file:mr-3 file:rounded-md file:border-0 file:bg-titanes-700 file:px-3 file:py-1.5 file:text-xs file:font-semibold file:text-white')}
+          className={cn(fieldClassName, 'w-full file:mr-3 file:rounded-md file:border-0 file:bg-primary-700 file:px-3 file:py-1.5 file:text-xs file:font-semibold file:text-white')}
           onChange={(event) => onImageFileChange(event.target.files?.[0])}
         />
       </label>

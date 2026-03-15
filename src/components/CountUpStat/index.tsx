@@ -55,7 +55,7 @@ const CountUpStat = ({
 				{value}
 				{suffix}
 			</p>
-			<p className="text-titanes-100/85">{label}</p>
+			<p className="text-primary-100/85">{label}</p>
 		</div>
 	);
 };

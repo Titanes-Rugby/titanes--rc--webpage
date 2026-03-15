@@ -16,10 +16,10 @@ const renderClubRoute = (path: string) => {
 };
 
 describe('<ClubPage />', () => {
-  it('falls back to historia for invalid section', () => {
+  it('falls back to quienes-somos for invalid section', () => {
     renderClubRoute('/club/academia/nope');
-    expect(screen.getByRole('heading', { name: /Historia Del Club/i })).toBeInTheDocument();
-    expect(screen.getByText(/Un club construido desde identidad y entrega/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Nuestra Esencia y Visión/i, level: 2 })).toBeInTheDocument();
+    expect(screen.getByText(/Más que un equipo, somos una hermandad/i)).toBeInTheDocument();
   });
 
   it('renders staff section from route param', () => {

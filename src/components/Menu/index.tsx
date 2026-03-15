@@ -40,7 +40,7 @@ const MENU_ENTRIES: MenuEntry[] = [
 		children: [
 			{
 				label: '¿Qué somos?',
-				href: '/club/que-somos',
+				href: '/club/quienes-somos',
 				description: 'Identidad, misión y visión del club.',
 			},
 			{
@@ -155,7 +155,8 @@ const dropdownItemVariants = {
 	hover: { x: 3 },
 };
 
-const getMenuIcon = (label: string) => menuIconByLabel[label as keyof typeof menuIconByLabel];
+const getMenuIcon = (label: string): IconComponent =>
+	menuIconByLabel[label as keyof typeof menuIconByLabel] ?? SparklesIcon;
 
 const overlayVariants = {
 	hidden: { opacity: 0 },
@@ -174,12 +175,12 @@ const panelVariants = {
 
 const dropdownVariants = {
 	hidden: { opacity: 0, y: 8, scale: 0.98 },
-		visible: {
-			opacity: 1,
-			y: 0,
-			scale: 1,
-			transition: { duration: 0.18, ease: 'easeOut' as const },
-		},
+	visible: {
+		opacity: 1,
+		y: 0,
+		scale: 1,
+		transition: { duration: 0.18, ease: 'easeOut' as const },
+	},
 	exit: { opacity: 0, y: 6, scale: 0.98, transition: { duration: 0.14 } },
 };
 
@@ -283,7 +284,7 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 			<AnimatePresence>
 				{isOpen ? (
 					<motion.div
-						className="absolute left-1/2 z-50 mt-3 w-[23rem] -translate-x-1/2 rounded-2xl border border-white/20 bg-white/95 p-3 text-titanes-900 shadow-2xl backdrop-blur"
+						className="absolute left-1/2 z-50 mt-3 w-[23rem] -translate-x-1/2 rounded-2xl border border-white/20 bg-white/95 p-3 text-primary-900 shadow-2xl backdrop-blur"
 						initial="hidden"
 						animate="visible"
 						exit="exit"
@@ -296,14 +297,14 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 								<MotionLink
 									key={child.label}
 									to={child.href as string}
-									className="flex items-start gap-2 rounded-xl px-3 py-2 transition-colors hover:bg-titanes-100/70"
+									className="flex items-start gap-2 rounded-xl px-3 py-2 transition-colors hover:bg-primary-100/70"
 									initial="rest"
 									animate="rest"
 									whileHover="hover"
 									variants={dropdownItemVariants}
 								>
 									<motion.span
-										className="mt-0.5 text-titanes-600"
+										className="mt-0.5 text-primary-600"
 										variants={dropdownIconVariants}
 										transition={{ duration: 0.18 }}
 									>
@@ -311,13 +312,13 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 											const ChildIcon = getMenuIcon(child.label);
 											return <ChildIcon className="h-4 w-4" />;
 										})()}
-										</motion.span>
-										<div>
-											<p className="text-sm font-semibold text-titanes-900">{child.label}</p>
-											<p className="mt-0.5 text-xs text-titanes-700/80">{child.description}</p>
-										</div>
-									</MotionLink>
-								))}
+									</motion.span>
+									<div>
+										<p className="text-sm font-semibold text-primary-900">{child.label}</p>
+										<p className="mt-0.5 text-xs text-primary-700/80">{child.description}</p>
+									</div>
+								</MotionLink>
+							))}
 						</div>
 					</motion.div>
 				) : null}
@@ -363,7 +364,7 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 			{mobileMenuOpen ? (
 				<Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen} static>
 					<motion.div
-						className="fixed inset-0 z-40 bg-titanes-900/55 backdrop-blur-[2px]"
+						className="fixed inset-0 z-40 bg-primary-900/55 backdrop-blur-[2px]"
 						variants={overlayVariants}
 						initial="hidden"
 						animate="visible"
@@ -376,14 +377,14 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 						animate="visible"
 						exit="exit"
 					>
-						<div className="flex items-center justify-between border-b border-titanes-100 pb-4">
+						<div className="flex items-center justify-between border-b border-primary-100 pb-4">
 							<Link to="/" className="-m-1.5 p-1.5">
 								<span className="sr-only">Titanes Rugby Club</span>
-								<Logo className="h-14 w-auto fill-titanes-500" />
+								<Logo className="h-14 w-auto fill-primary-500" />
 							</Link>
 							<motion.button
 								type="button"
-								className="rounded-full border border-titanes-200 bg-transparent p-2 text-titanes-700"
+								className="rounded-full border border-primary-200 bg-transparent p-2 text-primary-700"
 								onClick={() => setMobileMenuOpen(false)}
 								whileTap={{ scale: 0.94 }}
 							>
@@ -401,12 +402,12 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 										<MotionLink
 											key={entry.label}
 											to={entry.href as string}
-											className="flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-titanes-900 transition-colors hover:bg-titanes-100"
+											className="flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-primary-900 transition-colors hover:bg-primary-100"
 											variants={mobileItemVariants}
 											whileTap={{ scale: 0.98 }}
 											onClick={() => setMobileMenuOpen(false)}
 										>
-											<EntryIcon className="h-4 w-4 text-titanes-600" />
+											<EntryIcon className="h-4 w-4 text-primary-600" />
 											{entry.label}
 										</MotionLink>
 									);
@@ -417,17 +418,17 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 								return (
 									<motion.div
 										key={entry.label}
-										className="rounded-xl border border-titanes-100"
+										className="rounded-xl border border-primary-100"
 										variants={mobileItemVariants}
 									>
 										<button
 											type="button"
-											className="flex w-full items-center justify-between border-0 bg-transparent px-4 py-3 text-left text-sm font-semibold uppercase tracking-[0.12em] text-titanes-900"
+											className="flex w-full items-center justify-between border-0 bg-transparent px-4 py-3 text-left text-sm font-semibold uppercase tracking-[0.12em] text-primary-900"
 											onClick={() => setExpandedSection(isExpanded ? null : entry.label)}
 											aria-expanded={isExpanded}
 										>
 											<span className="inline-flex items-center gap-2">
-												<EntryIcon className="h-4 w-4 text-titanes-600" />
+												<EntryIcon className="h-4 w-4 text-primary-600" />
 												{entry.label}
 											</span>
 											<motion.span animate={{ rotate: isExpanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
@@ -447,13 +448,13 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 														const ChildIcon = getMenuIcon(child.label);
 
 														return (
-																														<Link
+															<Link
 																key={child.label}
 																to={child.href as string}
-																className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-titanes-700 transition-colors hover:bg-titanes-50 hover:text-titanes-900"
+																className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-primary-700 transition-colors hover:bg-primary-50 hover:text-primary-900"
 																onClick={() => setMobileMenuOpen(false)}
 															>
-																<ChildIcon className="h-4 w-4 text-titanes-500" />
+																<ChildIcon className="h-4 w-4 text-primary-500" />
 																{child.label}
 															</Link>
 														);
@@ -518,7 +519,7 @@ const Header = () => {
 			animate={isVisible ? { y: 0, opacity: 1 } : { y: -120, opacity: 0 }}
 			transition={{ type: 'tween', duration: 0.32 }}
 		>
-			<div className="mx-auto max-w-7xl rounded-2xl border border-white/25 bg-gradient-to-r from-titanes-600/95 via-titanes-500/95 to-titanes-700/95 px-5 shadow-[0_20px_40px_-22px_rgba(5,31,31,0.9)] backdrop-blur-md lg:px-8">
+			<div className="mx-auto max-w-7xl rounded-2xl border border-white/25 bg-gradient-to-r from-primary-600/95 via-primary-500/95 to-primary-700/95 px-5 shadow-[0_20px_40px_-22px_rgba(5,31,31,0.9)] backdrop-blur-md lg:px-8">
 				<nav className="flex items-center justify-between py-3.5" aria-label="Global">
 					<Brand />
 					<DesktopMenu openKey={openKey} setOpenKey={setOpenKey} />

@@ -25,7 +25,7 @@ const Parallax = ({
 	backgroundImage,
 	className,
 	contentClassName,
-	overlayClassName = 'bg-titanes-900/75',
+	overlayClassName = 'bg-primary-900/75',
 	...props
 }: ParallaxProps) => {
 	return (

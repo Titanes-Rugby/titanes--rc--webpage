@@ -1,6 +1,6 @@
 const SponsorsHero = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-accent-700 via-accent-800 to-titanes-900 px-6 pb-14 pt-34 text-white sm:pt-40">
+    <section className="relative overflow-hidden bg-gradient-to-br from-accent-700 via-accent-800 to-primary-900 px-6 pb-14 pt-34 text-white sm:pt-40">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(255,255,255,0.16),transparent_45%)]" />
       <div className="mx-auto w-full max-w-6xl">
         <p className="text-xs font-semibold tracking-[0.2em] text-accent-100 uppercase">Patrocinadores</p>

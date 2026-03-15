@@ -8,7 +8,7 @@ const GalleryPanel = ({ items }: GalleryPanelProps) => {
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {items.map((item) => (
-        <article key={item.id} className="group relative overflow-hidden rounded-2xl border border-titanes-100 bg-white">
+        <article key={item.id} className="group relative overflow-hidden rounded-2xl border border-primary-100 bg-white">
           <img
             src={item.imageSrc}
             alt={item.title}

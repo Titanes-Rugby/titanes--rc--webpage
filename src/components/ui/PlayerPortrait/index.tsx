@@ -11,7 +11,7 @@ type PlayerPortraitProps = {
 
 const PlayerPortrait = ({ imageSrc, alt, number, className, imageClassName }: PlayerPortraitProps) => {
   return (
-    <div className={cn('relative aspect-[4/5] overflow-hidden bg-gradient-to-b from-titanes-300 to-titanes-500', className)}>
+    <div className={cn('relative aspect-[4/5] overflow-hidden bg-gradient-to-b from-primary-300 to-primary-500', className)}>
       <Logo
         tone="light"
         label="Titanes Rugby Club watermark"
@@ -19,7 +19,7 @@ const PlayerPortrait = ({ imageSrc, alt, number, className, imageClassName }: Pl
       />
       <img src={imageSrc} alt={alt} className={cn('relative z-10 h-full w-full object-cover object-top', imageClassName)} />
       {number ? (
-        <div className="absolute top-3 right-3 z-20 rounded-full bg-titanes-900/85 px-2.5 py-1 text-xs font-bold text-white">
+        <div className="absolute top-3 right-3 z-20 rounded-full bg-primary-900/85 px-2.5 py-1 text-xs font-bold text-white">
           #{number}
         </div>
       ) : null}

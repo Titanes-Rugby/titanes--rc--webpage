@@ -17,7 +17,7 @@ type PlayersGridProps = {
 const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPageChange }: PlayersGridProps) => {
 	return (
 		<div className="space-y-5">
-			<p className="text-xs font-semibold tracking-[0.12em] text-titanes-500 uppercase">
+			<p className="text-xs font-semibold tracking-[0.12em] text-primary-500 uppercase">
 				{filteredCount} players found
 			</p>
 			{players.length ? (
@@ -26,7 +26,7 @@ const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPa
 						<AnimatedTiltCard
 							key={player.id}
 							scrollTilt
-							className="overflow-hidden rounded-2xl border border-titanes-100 bg-white shadow-sm transition-shadow hover:shadow-lg"
+							className="overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-sm transition-shadow hover:shadow-lg"
 						>
 							{({ contentX, contentY, contentScale }) => (
 								<button type="button" onClick={() => onSelectPlayer(player)} className="group w-full text-left">
@@ -42,8 +42,8 @@ const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPa
 										/>
 									</motion.div>
 									<div className="space-y-1 p-4">
-										<h3 className="text-lg font-semibold text-titanes-900">{player.name}</h3>
-										<p className="text-sm text-titanes-600">{player.position}</p>
+										<h3 className="text-lg font-semibold text-primary-900">{player.name}</h3>
+										<p className="text-sm text-primary-600">{player.position}</p>
 									</div>
 								</button>
 							)}
@@ -51,7 +51,7 @@ const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPa
 					))}
 				</div>
 			) : (
-				<article className="rounded-2xl border border-titanes-100 bg-white p-6 text-center text-sm text-titanes-600">
+				<article className="rounded-2xl border border-primary-100 bg-white p-6 text-center text-sm text-primary-600">
 					No players found with the current filters.
 				</article>
 			)}
@@ -59,7 +59,7 @@ const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPa
 				<PagerButton disabled={page === 1} onClick={() => onPageChange(page - 1)}>
 					Prev
 				</PagerButton>
-				<span className="px-2 text-xs font-semibold tracking-[0.12em] text-titanes-600 uppercase">
+				<span className="px-2 text-xs font-semibold tracking-[0.12em] text-primary-600 uppercase">
 					Page {page} / {pages}
 				</span>
 				<PagerButton disabled={page === pages} onClick={() => onPageChange(page + 1)}>
@@ -81,7 +81,7 @@ const PagerButton = ({ children, disabled, onClick }: PagerButtonProps) => (
 		type="button"
 		disabled={disabled}
 		onClick={onClick}
-		className="rounded-lg border border-titanes-200 px-3 py-1.5 text-[11px] font-semibold tracking-[0.12em] text-titanes-700 uppercase disabled:cursor-not-allowed disabled:opacity-45"
+		className="rounded-lg border border-primary-200 px-3 py-1.5 text-[11px] font-semibold tracking-[0.12em] text-primary-700 uppercase disabled:cursor-not-allowed disabled:opacity-45"
 	>
 		{children}
 	</button>

@@ -12,13 +12,13 @@ type FixtureFiltersProps = {
 
 const FixtureFilters = ({ team, status, teamOptions, onTeamChange, onStatusChange }: FixtureFiltersProps) => {
   return (
-    <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-titanes-100 bg-white p-3">
+    <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-primary-100 bg-white p-3">
       {teamOptions.map((option) => (
         <button
           key={option.id}
           type="button"
           onClick={() => onTeamChange(option.id)}
-          className={cn('rounded-full px-3 py-1.5 text-[11px] font-semibold tracking-[0.12em] uppercase', team === option.id ? 'bg-titanes-700 text-white' : 'text-titanes-700 hover:bg-titanes-100')}
+          className={cn('rounded-full px-3 py-1.5 text-[11px] font-semibold tracking-[0.12em] uppercase', team === option.id ? 'bg-primary-700 text-white' : 'text-primary-700 hover:bg-primary-100')}
         >
           {option.label}
         </button>

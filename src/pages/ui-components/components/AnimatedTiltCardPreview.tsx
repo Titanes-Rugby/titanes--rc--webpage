@@ -5,7 +5,7 @@ import AnimatedTiltCard from '@components/ui/AnimatedTiltCard';
 const AnimatedTiltCardPreview = () => {
   return (
     <div className="[perspective:1400px]">
-      <AnimatedTiltCard scrollTilt className="bg-gradient-to-br from-secondary-700 via-secondary-800 to-titanes-900 text-white">
+      <AnimatedTiltCard scrollTilt className="bg-gradient-to-br from-secondary-700 via-secondary-800 to-primary-900 text-white">
         {({ contentX, contentY, contentScale }) => (
           <motion.div className="space-y-5 p-6 sm:p-8" style={{ x: contentX, y: contentY, scale: contentScale }}>
             <p className="inline-flex rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[11px] font-semibold tracking-[0.12em] uppercase">

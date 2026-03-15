@@ -3,17 +3,17 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-	--color-titanes-50: #ecfaf0;
-	--color-titanes-100: #daf5df;
-	--color-titanes-200: #b8ecc7;
-	--color-titanes-300: #85c69e;
-	--color-titanes-400: #538d6f;
-	--color-titanes-500: #1e4233;
-	--color-titanes-600: #15382d;
-	--color-titanes-700: #0f2f28;
-	--color-titanes-800: #092622;
-	--color-titanes-900: #051f1f;
-	--color-titanes-950: #031515;
+	--color-primary-50: #ecfaf0;
+	--color-primary-100: #daf5df;
+	--color-primary-200: #b8ecc7;
+	--color-primary-300: #85c69e;
+	--color-primary-400: #538d6f;
+	--color-primary-500: #1e4233;
+	--color-primary-600: #15382d;
+	--color-primary-700: #0f2f28;
+	--color-primary-800: #092622;
+	--color-primary-900: #051f1f;
+	--color-primary-950: #031515;
 
 	--color-secondary-50: #f2f6fb;
 	--color-secondary-100: #e6eef6;

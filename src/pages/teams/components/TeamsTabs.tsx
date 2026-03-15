@@ -17,18 +17,18 @@ type TeamsTabsProps = {
 
 const TeamsTabs = ({ activeTab, basePath }: TeamsTabsProps) => {
 	return (
-		<div className="sticky top-0 z-20 border-b border-titanes-100 bg-white/95 backdrop-blur-sm">
+		<div className="sticky top-0 z-20 border-b border-primary-100 bg-white/95 backdrop-blur-sm">
 			<div className="mx-auto flex w-full max-w-6xl gap-2 overflow-x-auto px-6 py-3">
 				{tabs.map((tab) => (
 					<Link
 						key={tab.id}
 						to={`${basePath}/${tab.id}`}
-						className="relative rounded-lg px-4 py-2 text-xs font-semibold tracking-[0.12em] text-titanes-700 uppercase"
+						className="relative rounded-lg px-4 py-2 text-xs font-semibold tracking-[0.12em] text-primary-700 uppercase"
 					>
 						{activeTab === tab.id ? (
 							<motion.span
 								layoutId="teams-tab"
-								className="absolute inset-0 rounded-lg bg-titanes-700"
+								className="absolute inset-0 rounded-lg bg-primary-700"
 								transition={{ type: 'spring', stiffness: 260, damping: 24 }}
 							/>
 						) : null}

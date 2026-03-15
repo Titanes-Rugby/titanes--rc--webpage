@@ -1,4 +1,4 @@
-import logoTitanes from '@/assets/logoTitanes.PNG';
+import LogoSvg from '@/assets/logo.svg?react';
 import { cn } from '@/utils/cn';
 
 type LogoSize = 'sm' | 'md' | 'lg';
@@ -18,26 +18,14 @@ const sizeClassByValue: Record<LogoSize, string> = {
 };
 
 const toneClassByValue: Record<LogoTone, string> = {
-	primary: '',
-	light: '',
+	primary: 'fill-primary-500',
+	light: 'fill-white',
 };
 
-const Logo = ({
-	size = 'md',
-	tone = 'primary',
-	className,
-	label = 'Titanes Rugby Club',
-}: LogoProps) => {
+const Logo = ({ size = 'md', tone = 'primary', className, label = 'Titanes Rugby Club' }: LogoProps) => {
 	return (
-		<img
-			role="img"
-			aria-label={label}
-			alt={label}
-			src={logoTitanes}
-			className={cn(sizeClassByValue[size], toneClassByValue[tone], className)}
-		/>
+		<LogoSvg role="img" aria-label={label} className={cn(sizeClassByValue[size], toneClassByValue[tone], className)} />
 	);
 };
 
 export default Logo;
-

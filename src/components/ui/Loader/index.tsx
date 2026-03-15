@@ -15,12 +15,12 @@ const Loader = ({ label = 'Cargando...', size = 'md', fullScreen = false }: Load
 		<div className={containerClassName} role="status" aria-live="polite" aria-label={label}>
 			<div className="flex flex-col items-center gap-3">
 				<div className="relative">
-					<div className="absolute inset-0 animate-ping rounded-full bg-titanes-200/60" />
-					<div className="relative rounded-full border border-titanes-100 bg-white p-2 shadow-sm">
+					<div className="absolute inset-0 animate-ping rounded-full bg-primary-200/60" />
+					<div className="relative rounded-full border border-primary-100 bg-white p-2 shadow-sm">
 						<Logo size={size} tone="primary" className="animate-pulse" />
 					</div>
 				</div>
-				<p className="text-xs font-semibold uppercase tracking-[0.12em] text-titanes-500">{label}</p>
+				<p className="text-xs font-semibold uppercase tracking-[0.12em] text-primary-500">{label}</p>
 			</div>
 		</div>
 	);

@@ -24,7 +24,7 @@ const AnimatedTiltCard = ({ children, className, shineClassName, scrollTilt = fa
   return (
     <motion.article
       className={cn(
-        'group/card relative overflow-hidden rounded-[2rem] border border-titanes-900/15 bg-titanes-600 shadow-[0_28px_60px_-26px_rgba(2,18,17,0.7),0_8px_20px_-14px_rgba(2,18,17,0.45)] transition-shadow duration-300 hover:shadow-[0_36px_78px_-24px_rgba(2,18,17,0.78),0_14px_30px_-16px_rgba(2,18,17,0.5)] [transform-style:preserve-3d] will-change-transform',
+        'group/card relative overflow-hidden rounded-[2rem] border border-primary-900/15 bg-primary-600 shadow-[0_28px_60px_-26px_rgba(2,18,17,0.7),0_8px_20px_-14px_rgba(2,18,17,0.45)] transition-shadow duration-300 hover:shadow-[0_36px_78px_-24px_rgba(2,18,17,0.78),0_14px_30px_-16px_rgba(2,18,17,0.5)] [transform-style:preserve-3d] will-change-transform',
         className,
       )}
       onMouseMove={onMouseMove}

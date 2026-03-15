@@ -11,7 +11,7 @@ type BaseLayoutProps = PropsWithChildren<{
 
 const BaseLayout = ({ children, className, contentClassName }: BaseLayoutProps) => {
   return (
-    <div className={cn('min-h-screen bg-titanes-50 text-titanes-900', className)}>
+    <div className={cn('min-h-screen bg-primary-50 text-primary-900', className)}>
       <Menu />
       <div className={cn('relative', contentClassName)}>{children}</div>
     </div>

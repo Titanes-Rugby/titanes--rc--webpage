@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import withDevOnly from '@/hocs/withDevOnly';
 
 const baseLinkClassName =
-	'flex h-11 w-11 items-center justify-center rounded-xl border border-titanes-200 bg-white text-titanes-700 transition-all hover:-translate-x-0.5 hover:border-titanes-300 hover:text-titanes-900';
+	'flex h-11 w-11 items-center justify-center rounded-xl border border-primary-200 bg-white text-primary-700 transition-all hover:-translate-x-0.5 hover:border-primary-300 hover:text-primary-900';
 const itemVariants = {
 	hidden: { opacity: 0, x: 8, scale: 0.92 },
 	visible: { opacity: 1, x: 0, scale: 1 },
@@ -19,8 +19,8 @@ const DevFloatingMenu = () => {
 			animate={{ opacity: 1, x: 0 }}
 			transition={{ duration: 0.28, ease: 'easeOut' }}
 		>
-			<div className="rounded-2xl border border-titanes-200 bg-white/90 p-2 shadow-lg backdrop-blur-sm">
-				<p className="px-2 pb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-titanes-500">
+			<div className="rounded-2xl border border-primary-200 bg-white/90 p-2 shadow-lg backdrop-blur-sm">
+				<p className="px-2 pb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-primary-500">
 					Dev
 				</p>
 				<motion.div

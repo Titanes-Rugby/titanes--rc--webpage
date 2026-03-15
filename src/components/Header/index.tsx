@@ -61,7 +61,7 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 				<div className="flex items-center justify-between">
 					<a href="#" className="-m-1.5 p-1.5">
 						<span className="sr-only">Your Company</span>
-						<Logo className="h-16 w-auto hover:drop-shadow-[0_0_1em_#61dafbaa] fill-titanes-500" />
+						<Logo className="h-16 w-auto hover:drop-shadow-[0_0_1em_#61dafbaa] fill-primary-500" />
 					</a>
 					<button
 						type="button"
@@ -112,7 +112,7 @@ const Brand = () => (
 const Header = () => {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	return (
-		<header className="absolute inset-x-0 top-0 z-50 w-full bg-titanes-500 text-white">
+		<header className="absolute inset-x-0 top-0 z-50 w-full bg-primary-500 text-white">
 			<nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
 				<Brand />
 				<Menu onOpen={() => setMobileMenuOpen(true)} />

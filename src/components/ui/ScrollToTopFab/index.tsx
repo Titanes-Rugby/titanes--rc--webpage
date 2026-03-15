@@ -25,7 +25,7 @@ const ScrollToTopFab = () => {
           type="button"
           aria-label="Scroll to top"
           onClick={handleScrollTop}
-          className="fixed right-5 bottom-5 z-[60] inline-flex h-12 w-12 items-center justify-center rounded-full border border-titanes-200 bg-white/95 text-titanes-700 shadow-[0_16px_30px_-18px_rgba(3,21,21,0.75)] backdrop-blur-sm transition-colors hover:border-titanes-300 hover:text-titanes-900"
+          className="fixed right-5 bottom-5 z-[60] inline-flex h-12 w-12 items-center justify-center rounded-full border border-primary-200 bg-white/95 text-primary-700 shadow-[0_16px_30px_-18px_rgba(3,21,21,0.75)] backdrop-blur-sm transition-colors hover:border-primary-300 hover:text-primary-900"
           initial={{ opacity: 0, y: 20, scale: 0.85 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 12, scale: 0.92 }}

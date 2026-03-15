@@ -15,7 +15,7 @@ const MediaPage = () => {
   const activeSectionData = useMemo(() => getMediaSection(activeSection), [activeSection]);
 
   return (
-    <main className="bg-titanes-50 min-h-screen">
+    <main className="bg-primary-50 min-h-screen">
       <MediaHero title={activeSectionData.title} description={activeSectionData.description} />
       <MediaTabs activeSection={activeSection} />
 
