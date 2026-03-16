@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import AnimatedTiltCard from '@components/ui/AnimatedTiltCard';
 
 import type { TeamCoach } from '../types';
-import { getAgeFromBirthDate } from './players/getAge';
+import { getAgeFromBirthDate } from '@utils/date';
 
 type CoachesPanelProps = {
   coaches: TeamCoach[];

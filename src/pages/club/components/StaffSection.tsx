@@ -1,5 +1,6 @@
+import { getAgeFromBirthDate } from '@utils/date';
+
 import { staffMembers } from '../club.data';
-import { getAgeFromBirthDate } from '../../teams/components/players/getAge';
 
 const StaffSection = () => {
   return (
