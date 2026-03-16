@@ -6,4 +6,6 @@ export type SponsorItem = {
   tier: SponsorTier;
   category: string;
   summary: string;
+  url?: string;
+  logoSrc?: string;
 };

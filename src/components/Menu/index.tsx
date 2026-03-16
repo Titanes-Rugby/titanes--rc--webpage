@@ -49,9 +49,9 @@ const MENU_ENTRIES: MenuEntry[] = [
 				description: 'Origen, valores y crecimiento del club.',
 			},
 			{
-				label: 'Staff Tcnico',
+				label: 'Staff Administrativo',
 				href: '/club/staff-tecnico',
-				description: 'Entrenadores, preparacin fsica y soporte.',
+				description: 'Presidentes y Junta directiva .',
 			},
 			{
 				label: 'Instalaciones',

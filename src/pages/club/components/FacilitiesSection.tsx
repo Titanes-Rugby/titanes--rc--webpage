@@ -9,11 +9,36 @@ const FacilitiesSection = () => {
         <h2 className="text-3xl font-bold text-primary-900">Instalaciones</h2>
         <p className="mt-2 text-sm leading-relaxed text-primary-700">Infraestructura enfocada en desarrollo deportivo, salud del atleta y preparacion competitiva de alto nivel.</p>
       </div>
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-5 md:grid-cols-2">
         {facilityItems.map((item) => (
-          <article key={item.id} className="rounded-2xl border border-primary-100 bg-white p-6 shadow-sm">
-            <h3 className="text-xl font-bold text-primary-900">{item.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-primary-700">{item.detail}</p>
+          <article key={item.id} className="overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-sm">
+            <div className="relative">
+              <img
+                src={item.imageSrc ?? '/images/background/cancha-utp.jpg'}
+                alt={item.label ?? item.title}
+                className="h-52 w-full object-cover object-center"
+              />
+              {item.mapUrl ? (
+                <div className="absolute right-3 top-3">
+                  <a
+                    href={item.mapUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-full border border-white/70 bg-white/85 px-3 py-1 text-xs font-semibold tracking-[0.12em] text-primary-800 shadow-sm backdrop-blur transition hover:bg-white"
+                  >
+                    Obtener Ubicacion
+                  </a>
+                </div>
+              ) : null}
+            </div>
+            <div className="space-y-2 p-4">
+              <p className="text-xs font-semibold tracking-[0.12em] text-primary-500 uppercase">{item.title}</p>
+              {item.label ? <h3 className="text-xl font-bold text-primary-900">{item.label}</h3> : null}
+              {item.location ? (
+                <p className="text-sm font-semibold text-primary-700">Ubicación: {item.location}</p>
+              ) : null}
+              <p className="text-sm leading-relaxed text-primary-700">{item.detail}</p>
+            </div>
           </article>
         ))}
       </div>

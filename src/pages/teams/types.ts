@@ -24,6 +24,8 @@ export type TeamCoach = {
   name: string;
   role: string;
   imageSrc?: string;
+  birthDate?: string;
+  experienceYears?: string;
   bio: string;
 };
 

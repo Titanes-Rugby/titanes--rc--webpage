@@ -8,14 +8,20 @@ export type ClubSection = {
 };
 
 export type StaffMember = {
-	id: string;
-	name: string;
-	role: string;
-	focus: string;
+  id: string;
+  name: string;
+  role: string;
+  imageSrc?: string;
+  birthDate?: string;
+  focus: string;
 };
 
 export type FacilityItem = {
 	id: string;
 	title: string;
 	detail: string;
+	imageSrc?: string;
+	label?: string;
+	location?: string;
+	mapUrl?: string;
 };

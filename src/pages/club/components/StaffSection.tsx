@@ -1,18 +1,29 @@
 import { staffMembers } from '../club.data';
+import { getAgeFromBirthDate } from '../../teams/components/players/getAge';
 
 const StaffSection = () => {
   return (
     <section className="space-y-6">
       <div className="max-w-3xl">
-        <h2 className="text-3xl font-bold text-primary-900">Staff Tecnico</h2>
-        <p className="mt-2 text-sm leading-relaxed text-primary-700">Equipo profesional responsable de direccion tactica, rendimiento fisico y operacion diaria del plantel competitivo.</p>
+        <h2 className="text-3xl font-bold text-primary-900">Staff Administrativo</h2>
+        <p className="mt-2 text-sm leading-relaxed text-primary-700">Equipo profesional que gestiona operaciones, logistica, soporte y rendimiento integral del club.</p>
       </div>
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {staffMembers.map((member) => (
-          <article key={member.id} className="rounded-2xl border border-primary-100 bg-white p-5 shadow-sm">
-            <p className="text-xs font-semibold tracking-[0.12em] text-primary-500 uppercase">{member.role}</p>
-            <h3 className="mt-2 text-xl font-bold text-primary-900">{member.name}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-primary-700">{member.focus}</p>
+          <article key={member.id} className="flex gap-4 rounded-2xl border border-primary-100 bg-white p-5 shadow-sm">
+            <div className="h-28 w-28 overflow-hidden rounded-xl border border-primary-100 bg-primary-50 shadow-sm">
+              <img
+                src={member.imageSrc ?? '/images/players/player_1.png'}
+                alt={member.name}
+                className="h-full w-full object-cover object-top"
+              />
+            </div>
+            <div className="space-y-1">
+              <p className="text-sm font-semibold tracking-[0.1em] text-primary-600 uppercase">{member.role}</p>
+              <h3 className="text-xl font-black text-primary-900">{member.name}</h3>
+              <p className="text-xs font-semibold text-primary-600">Edad: {getAgeFromBirthDate(member.birthDate)}</p>
+              <p className="text-sm leading-relaxed text-primary-700">{member.focus}</p>
+            </div>
           </article>
         ))}
       </div>

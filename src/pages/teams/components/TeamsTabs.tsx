@@ -5,7 +5,7 @@ import type { TeamTab } from '../types';
 
 const tabs: { id: TeamTab; label: string }[] = [
 	{ id: 'players', label: 'Players' },
-	{ id: 'coaches', label: 'Coaching Staff' },
+	{ id: 'coaches', label: 'Staff Tecnico' },
 	{ id: 'stats', label: 'Stats' },
 	{ id: 'fixtures', label: 'Fixtures' },
 ];
