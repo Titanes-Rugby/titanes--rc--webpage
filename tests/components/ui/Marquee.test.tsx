@@ -91,4 +91,24 @@ describe('<Marquee />', () => {
     fireEvent.blur(root);
     rectSpy.mockRestore();
   });
+
+  it('keeps loop width at zero when measurement width is missing', () => {
+    const rectSpy = vi.spyOn(Element.prototype, 'getBoundingClientRect').mockReturnValue({
+      width: undefined,
+      height: 20,
+      x: 0,
+      y: 0,
+      top: 0,
+      right: 0,
+      bottom: 20,
+      left: 0,
+      toJSON: () => ({}),
+    } as DOMRect);
+
+    render(<Marquee items={['Z']} renderItem={(item) => <span>{item}</span>} />);
+    animationFrameCallbacks.at(-1)?.(0, 16);
+
+    expect(setX).not.toHaveBeenCalled();
+    rectSpy.mockRestore();
+  });
 });

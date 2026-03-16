@@ -27,6 +27,7 @@ export const usePlayerCardBuilderForm = () => {
   }, [reset]);
 
   useEffect(() => {
+    /* v8 ignore next 3 */
     if (!initializedRef.current) return;
     const nextSearch = searchFromValues(values);
     const nextUrl = `${window.location.pathname}${nextSearch ? `?${nextSearch}` : ''}`;

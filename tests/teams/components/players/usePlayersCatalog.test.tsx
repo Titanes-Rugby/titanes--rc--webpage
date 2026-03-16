@@ -11,6 +11,9 @@ const players = [
   { id: 'p5', name: 'Alberto Cortez', position: 'First Row', number: '01', imageSrc: '/p5.png' },
   { id: 'p6', name: 'Christhoval Barba', position: 'Second Row', number: '04', imageSrc: '/p6.png' },
   { id: 'p7', name: 'Leo Diaz', position: 'Wing', number: '14', imageSrc: '/p7.png' },
+  { id: 'p8', name: 'Diego Torres', position: 'Center', number: '12', imageSrc: '/p8.png' },
+  { id: 'p9', name: 'Bruno Campos', position: 'Scrum Half', number: '09', imageSrc: '/p9.png' },
+  { id: 'p10', name: 'Andres Smith', position: 'Full Back', number: '15', imageSrc: '/p10.png' },
 ];
 
 describe('usePlayersCatalog', () => {
@@ -21,7 +24,7 @@ describe('usePlayersCatalog', () => {
     expect(result.current.positions).toContain('Wing');
     expect(result.current.pages).toBe(2);
     expect(result.current.page).toBe(1);
-    expect(result.current.paginatedPlayers).toHaveLength(6);
+    expect(result.current.paginatedPlayers).toHaveLength(9);
 
     act(() => result.current.setPage(2));
     expect(result.current.page).toBe(2);

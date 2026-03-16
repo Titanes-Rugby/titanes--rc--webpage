@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
@@ -120,5 +120,29 @@ describe('<MenuHeader />', () => {
     await waitFor(() => {
       expect(header.getAttribute('style')).toContain('opacity');
     });
+  });
+
+  it('keeps desktop dropdown open when blur stays inside the same wrapper', async () => {
+    const user = userEvent.setup();
+    let frameCb: ((time: number) => void) | null = null;
+    const rafSpy = vi.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => {
+      frameCb = cb;
+      return 1;
+    });
+
+    renderMenu();
+    const clubButton = screen.getByRole('button', { name: /club/i });
+    await user.hover(clubButton);
+    expect(screen.getByRole('link', { name: /Historia/i })).toBeInTheDocument();
+
+    const wrapper = clubButton.closest('div.relative') as HTMLElement;
+    fireEvent.blur(wrapper);
+    act(() => {
+      clubButton.focus();
+      frameCb?.(0);
+    });
+
+    expect(screen.getByRole('link', { name: /Historia/i })).toBeInTheDocument();
+    rafSpy.mockRestore();
   });
 });

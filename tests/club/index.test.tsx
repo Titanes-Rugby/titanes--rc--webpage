@@ -41,4 +41,11 @@ describe('<ClubPage />', () => {
     expect(screen.getByText(/Cancha Principal/i)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Solicitar visita/i })).toHaveAttribute('href', '/contacto');
   });
+
+  it('builds section links from custom slug when section param is present', () => {
+    renderClubRoute('/club/academia/historia');
+
+    expect(screen.getByRole('heading', { name: /Linea de tiempo/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /¿Quiénes somos\?/i })).toHaveAttribute('href', '/club/academia/quienes-somos');
+  });
 });

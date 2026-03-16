@@ -1,3 +1,4 @@
+import { StrictMode } from 'react';
 import { act, renderHook, waitFor } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -114,5 +115,17 @@ describe('usePlayerCardBuilderForm', () => {
     });
 
     expect(writeText).toHaveBeenCalledWith(`${window.location.origin}/tools/player-card`);
+  });
+
+  it('supports strict mode rerenders without reinitializing from search', async () => {
+    window.history.pushState({}, '', '/tools/player-card?name=StrictMode');
+    const replaceStateSpy = vi.spyOn(window.history, 'replaceState');
+    const { result } = renderHook(() => usePlayerCardBuilderForm(), { wrapper: StrictMode });
+
+    expect(result.current.getValues('name')).toBe('StrictMode');
+
+    act(() => result.current.setValue('nickname', 'SM'));
+    await waitFor(() => expect(replaceStateSpy).toHaveBeenCalled());
+    expect(result.current.getValues('name')).toBe('StrictMode');
   });
 });

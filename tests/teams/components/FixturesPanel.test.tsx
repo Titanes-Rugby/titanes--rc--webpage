@@ -15,9 +15,10 @@ describe('<FixturesPanel />', () => {
     );
 
     expect(screen.getAllByText(/Upcoming Match/i)).toHaveLength(2);
-    expect(screen.getByText(/vs Panama Sharks/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/^vs$/i)).toHaveLength(2);
+    expect(screen.getByText(/Panama Sharks/i)).toBeInTheDocument();
     expect(screen.getByText(/Estadio Nacional/i)).toBeInTheDocument();
-    expect(screen.getByText(/vs Canal Bulls/i)).toBeInTheDocument();
+    expect(screen.getByText(/Canal Bulls/i)).toBeInTheDocument();
     expect(screen.getByText(/Titanes Field/i)).toBeInTheDocument();
   });
 });
