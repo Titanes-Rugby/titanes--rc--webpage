@@ -39,7 +39,7 @@ const MENU_ENTRIES: MenuEntry[] = [
 		label: 'Club',
 		children: [
 			{
-				label: '¿Qué somos?',
+				label: '¿Quienes somos?',
 				href: '/club/quienes-somos',
 				description: 'Identidad, misión y visión del club.',
 			},
@@ -64,19 +64,19 @@ const MENU_ENTRIES: MenuEntry[] = [
 		label: 'Equipos',
 		children: [
 			{
-				label: 'Primera Divisin',
+				label: 'Titanes',
 				href: '/equipos/primera-division',
-				description: 'Plantilla principal, calendario y resultados.',
+				description: 'Equipo masculino, calendarios y resultados.',
 			},
 			{
-				label: 'Juveniles',
+				label: 'Titanides',
+				href: '/equipos/femenino',
+				description: 'Equipo femenino, staff y proximos partidos.',
+			},
+			{
+				label: 'Titanes Juveniles',
 				href: '/equipos/juveniles',
 				description: 'Desarrollo competitivo y formativo por categoras.',
-			},
-			{
-				label: 'Femenino',
-				href: '/equipos/femenino',
-				description: 'Programa femenino, staff y prximos partidos.',
 			},
 		],
 	},

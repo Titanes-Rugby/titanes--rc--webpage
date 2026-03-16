@@ -4,6 +4,7 @@ import AnimatedTiltCard from '@components/ui/AnimatedTiltCard';
 import PlayerPortrait from '@components/ui/PlayerPortrait';
 
 import type { TeamPlayer } from '../../types';
+import { getAgeFromBirthDate } from './getAge';
 
 type PlayersGridProps = {
 	players: TeamPlayer[];
@@ -43,7 +44,11 @@ const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPa
 									</motion.div>
 									<div className="space-y-1 p-4">
 										<h3 className="text-lg font-semibold text-primary-900">{player.name}</h3>
-										<p className="text-sm text-primary-600">{player.position}</p>
+										<p className="text-sm text-primary-600">Edad: {getAgeFromBirthDate(player.birthDate)}</p>
+										<p className="text-xs font-semibold text-primary-500">Posición: {player.position}</p>
+										<p className="text-xs font-semibold text-primary-500">
+											Estatus: {(player.statuses ?? ['Jugador']).join(' / ')}
+										</p>
 									</div>
 								</button>
 							)}

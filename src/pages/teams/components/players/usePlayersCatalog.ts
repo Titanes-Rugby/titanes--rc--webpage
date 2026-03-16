@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 
 import type { TeamPlayer } from '../../types';
 
-const PAGE_SIZE = 6;
+const PAGE_SIZE = 9;
 
 export const usePlayersCatalog = (players: TeamPlayer[]) => {
   const [positionFilter, setPositionFilter] = useState('All');

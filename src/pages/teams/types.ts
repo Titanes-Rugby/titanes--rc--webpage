@@ -10,9 +10,12 @@ export type TeamPlayer = {
   position: string;
   number: string;
   imageSrc: string;
-  age?: string;
+  birthDate?: string;
   height?: string;
   weight?: string;
+  experienceYears?: string;
+  strongHand?: string;
+  statuses?: string[];
   bio?: string;
 };
 
@@ -20,6 +23,7 @@ export type TeamCoach = {
   id: string;
   name: string;
   role: string;
+  imageSrc?: string;
   bio: string;
 };
 
@@ -35,6 +39,7 @@ export type TeamFixture = {
   rival: string;
   date: string;
   place: string;
+  rivalLogo?: string;
 };
 
 export type TeamProfile = {
