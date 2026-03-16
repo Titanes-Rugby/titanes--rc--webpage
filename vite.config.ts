@@ -34,12 +34,12 @@ export default defineConfig({
 			all: true,
 			include: ['src/**/*.{ts,tsx}'],
 			exclude: ['src/**/*.d.ts', 'src/**/__mocks__/**', 'src/**/*.test.{ts,tsx}', 'src/**/*.stories.{ts,tsx}'],
-				thresholds: {
-					statements: 97,
-					branches: 97,
-					functions: 97,
-					lines: 97,
-				},
+			thresholds: {
+				statements: 97,
+				branches: 97,
+				functions: 97,
+				lines: 97,
+			},
 		},
 		watch: false,
 	},

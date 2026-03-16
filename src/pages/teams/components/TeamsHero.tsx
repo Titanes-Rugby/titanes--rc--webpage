@@ -1,3 +1,5 @@
+import { Hero } from '@components/ui';
+
 import type { TeamProfile } from '../types';
 
 type TeamsHeroProps = {
@@ -6,25 +8,25 @@ type TeamsHeroProps = {
 
 const TeamsHero = ({ team }: TeamsHeroProps) => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary-700 via-primary-800 to-primary-900 px-6 pb-14 pt-34 text-white sm:pt-40">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.16),transparent_40%)]" />
-      <div className="pointer-events-none absolute -right-14 -bottom-16 opacity-10">
-        <img src="/images/logo.svg" alt="" className="h-72 w-72" />
-      </div>
-
-      <div className="relative mx-auto flex w-full max-w-6xl flex-wrap items-end justify-between gap-8">
-        <div className="max-w-2xl space-y-3">
-          <p className="text-xs font-semibold tracking-[0.2em] text-primary-100 uppercase">Squad Overview</p>
-          <h1 className="text-4xl leading-tight font-black sm:text-6xl">{team.title}</h1>
-          <p className="max-w-xl text-base text-primary-100/90 sm:text-lg">{team.subtitle}</p>
-        </div>
+    <Hero
+      eyebrow="Squad Overview"
+      title={team.title}
+      description={team.subtitle}
+      gradientClassName="bg-gradient-to-br from-primary-700 via-primary-800 to-primary-900"
+      radialClassName="bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.16),transparent_40%)]"
+      watermarkSrc="/images/logo.svg"
+      watermarkClassName="-right-14 -bottom-16 h-72 w-72"
+      bodyClassName="max-w-2xl space-y-3"
+      titleClassName="mt-0 text-4xl leading-tight font-black sm:text-6xl"
+      descriptionClassName="max-w-xl text-base text-primary-100/90 sm:text-lg"
+      aside={
         <div className="grid gap-3 text-right sm:grid-cols-3 sm:text-left">
           <StatCard label="Season" value={team.season} />
           <StatCard label="Record" value={team.record} />
           <StatCard label="Ranking" value={team.ranking} />
         </div>
-      </div>
-    </section>
+      }
+    />
   );
 };
 

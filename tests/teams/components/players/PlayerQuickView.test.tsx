@@ -26,17 +26,38 @@ describe('<PlayerQuickView />', () => {
     render(
       <PlayerQuickView
         onClose={onClose}
-        player={{ id: 'p1', name: 'Carlos Ruiz', position: 'Fly Half', number: '10', imageSrc: '/p.png' }}
+        player={{
+          id: 'p1',
+          name: 'Carlos Ruiz',
+          position: 'Fly Half',
+          number: '10',
+          imageSrc: '/p.png',
+          statuses: ['Capitan', 'Jugador'],
+        }}
       />,
     );
 
     expect(screen.getByText(/Carlos Ruiz/i)).toBeInTheDocument();
-    expect(screen.getByText(/Jugador clave del plantel/i)).toBeInTheDocument();
-    expect(screen.getAllByText('--')).toHaveLength(3);
+    expect(screen.getByText(/Posición/i)).toBeInTheDocument();
+    expect(screen.getByText(/Fly Half/i)).toBeInTheDocument();
+    expect(screen.getByText(/Estatus/i)).toBeInTheDocument();
+    expect(screen.getByText(/Capitan \/ Jugador/i)).toBeInTheDocument();
+    expect(screen.getAllByText('--')).toHaveLength(5);
 
     const closeButtons = screen.getAllByRole('button');
     await user.click(closeButtons[0]);
     await user.click(screen.getByRole('button', { name: /Close/i }));
     expect(onClose).toHaveBeenCalledTimes(2);
+  });
+
+  it('falls back status to Jugador when statuses are empty', () => {
+    render(
+      <PlayerQuickView
+        onClose={vi.fn()}
+        player={{ id: 'p2', name: 'Mateo Reyes', position: 'Wing', number: '11', imageSrc: '/p2.png', statuses: [] }}
+      />,
+    );
+
+    expect(screen.getByText(/Jugador/i)).toBeInTheDocument();
   });
 });

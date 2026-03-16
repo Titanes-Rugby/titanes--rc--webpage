@@ -12,6 +12,8 @@
 		"preview": "vite preview",
 		"lint": "tsc --noEmit && eslint src/**/*.ts{,x} --cache --max-warnings=0",
 		"lint:fix": "eslint src/**/*.ts{,x} --fix",
+		"format": "prettier --write .",
+		"format:check": "prettier --check .",
 		"test": "vitest",
 		"test:coverage": "vitest run --coverage",
 		"prepare": "husky install"

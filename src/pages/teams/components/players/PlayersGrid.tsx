@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
 
+import { getAgeFromBirthDate } from '@utils/date';
+
 import AnimatedTiltCard from '@components/ui/AnimatedTiltCard';
 import PlayerPortrait from '@components/ui/PlayerPortrait';
 
 import type { TeamPlayer } from '../../types';
-import { getAgeFromBirthDate } from './getAge';
 
 type PlayersGridProps = {
 	players: TeamPlayer[];
@@ -31,10 +32,7 @@ const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPa
 						>
 							{({ contentX, contentY, contentScale }) => (
 								<button type="button" onClick={() => onSelectPlayer(player)} className="group w-full text-left">
-									<motion.div
-										className="relative"
-										style={{ x: contentX, y: contentY, scale: contentScale }}
-									>
+									<motion.div className="relative" style={{ x: contentX, y: contentY, scale: contentScale }}>
 										<PlayerPortrait
 											imageSrc={player.imageSrc}
 											alt={player.name}

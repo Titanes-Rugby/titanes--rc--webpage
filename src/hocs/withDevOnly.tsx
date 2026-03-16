@@ -2,6 +2,7 @@ import { ComponentType } from 'react';
 
 const withDevOnly = <P extends object>(Component: ComponentType<P>) => {
 	const WrappedComponent = (props: P) => {
+		/* v8 ignore next 3 */
 		if (!import.meta.env.DEV) {
 			return null;
 		}
