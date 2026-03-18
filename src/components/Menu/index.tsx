@@ -96,21 +96,21 @@ const MENU_ENTRIES: MenuEntry[] = [
 			{
 				label: 'Videos',
 				href: '/media/videos',
-				description: 'Highlights, entrevistas y contenido semanal.',
+				description: 'Momentos destacados, entrevistas y contenido semanal.',
 			},
 		],
 	},
 	{
-		label: 'Tools',
+		label: 'Herramientas',
 		children: [
 			{
-				label: 'Player Card',
+				label: 'Tarjeta de jugador',
 				href: '/tools/player-card',
 				description: 'Crea y exporta tarjetas de jugadores en PNG.',
 			},
 		],
 	},
-	{ label: 'Fixture', href: '/fixture' },
+	{ label: 'Partidos', href: '/fixture' },
 	{ label: 'Patrocinadores', href: '/patrocinadores' },
 	{ label: 'Contacto', href: '/contacto' },
 ];

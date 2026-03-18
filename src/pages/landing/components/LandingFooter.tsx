@@ -38,7 +38,7 @@ const LandingFooter = () => {
 							<Logo size="lg" tone="light" className="h-16" />
 						</Link>
 						<p className="mt-6 max-w-xs text-sm text-white/90">
-							The Titanes are a proud part of Panama rugby and our local community.
+							Titanes es parte orgullosa del rugby panameño y de nuestra comunidad.
 						</p>
 						<div className="mt-7 flex items-center gap-2.5">
 							{socialLinks.map((item) => (
@@ -72,7 +72,7 @@ const LandingFooter = () => {
 				<div className="mt-12 border-t border-white/20 pt-6">
 					<div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
 						<p className="text-sm text-white/75">
-							&copy; {currentYear} Titanes Rugby Club. All rights reserved.
+							&copy; {currentYear} Titanes Rugby Club. Todos los derechos reservados.
 						</p>
 						<div className="flex flex-wrap items-center gap-x-5 gap-y-2">
 							{legalLinks.map((item) => (
