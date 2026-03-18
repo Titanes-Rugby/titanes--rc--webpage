@@ -1,7 +1,7 @@
-export type TeamTab = 'players' | 'coaches' | 'stats' | 'fixtures';
+export type TeamTab = 'players' | 'coaches' | 'stats';
 
 export const isTeamTab = (value?: string): value is TeamTab => {
-  return value === 'players' || value === 'coaches' || value === 'stats' || value === 'fixtures';
+  return value === 'players' || value === 'coaches' || value === 'stats';
 };
 
 export type TeamPlayer = {
@@ -16,6 +16,7 @@ export type TeamPlayer = {
   experienceYears?: string;
   strongHand?: string;
   statuses?: string[];
+  team?: string;
   bio?: string;
 };
 
@@ -54,5 +55,5 @@ export type TeamProfile = {
   players: TeamPlayer[];
   coaches: TeamCoach[];
   stats: TeamStat[];
-  fixtures: TeamFixture[];
+  fixtures?: TeamFixture[];
 };

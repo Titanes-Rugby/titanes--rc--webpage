@@ -2,7 +2,6 @@ import { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import CoachesPanel from './components/CoachesPanel';
-import FixturesPanel from './components/FixturesPanel';
 import PlayersPanel from './components/PlayersPanel';
 import StatsPanel from './components/StatsPanel';
 import TeamsHero from './components/TeamsHero';
@@ -15,6 +14,16 @@ const TeamsPage = () => {
 	const team = useMemo(() => findTeamBySlug(slug), [slug]);
 	const activeTab = isTeamTab(tab) ? tab : 'players';
 	const tabBasePath = `/equipos/${team.slug}`;
+	const allPlayers = useMemo(
+		() =>
+			teamProfiles.flatMap((profile) =>
+				profile.players.map((player) => ({
+					...player,
+					team: player.team ?? profile.title,
+				}))
+			),
+		[]
+	);
 
 	return (
 		<main className="bg-primary-50 min-h-screen">
@@ -22,26 +31,10 @@ const TeamsPage = () => {
 			<TeamsTabs activeTab={activeTab} basePath={tabBasePath} />
 
 			<section className="mx-auto w-full max-w-6xl space-y-8 px-6 py-8">
-				<div className="flex flex-wrap gap-2">
-					{teamProfiles.map((profile) => (
-						<Link
-							key={profile.slug}
-							to={`/equipos/${profile.slug}/${activeTab}`}
-							className={`rounded-full border px-3 py-1.5 text-[11px] font-semibold tracking-[0.12em] uppercase ${
-								profile.slug === team.slug
-									? 'border-primary-700 bg-primary-700 text-white'
-									: 'border-primary-200 text-primary-700'
-							}`}
-						>
-							{profile.title}
-						</Link>
-					))}
-				</div>
 
-				{activeTab === 'players' ? <PlayersPanel players={team.players} /> : null}
+				{activeTab === 'players' ? <PlayersPanel players={allPlayers} /> : null}
 				{activeTab === 'coaches' ? <CoachesPanel coaches={team.coaches} /> : null}
 				{activeTab === 'stats' ? <StatsPanel stats={team.stats} /> : null}
-				{activeTab === 'fixtures' ? <FixturesPanel fixtures={team.fixtures} /> : null}
 
 				<article className="rounded-2xl bg-primary-800 p-7 text-white">
 					<p className="text-xs font-semibold tracking-[0.12em] text-primary-100 uppercase">Club CTA</p>

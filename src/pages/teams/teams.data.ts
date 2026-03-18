@@ -45,7 +45,7 @@ export const teamProfiles: TeamProfile[] = [
     season: '2026',
     record: '8W - 2L',
     ranking: '#2 Liga Nacional',
-    players: basePlayers,
+    players: basePlayers.map((player) => ({ ...player, team: 'Titanes' })),
     coaches,
     fixtures,
     stats: [
@@ -62,7 +62,7 @@ export const teamProfiles: TeamProfile[] = [
     season: '2026',
     record: '7W - 1L',
     ranking: '#1 Conferencia',
-    players: basePlayers,
+    players: basePlayers.map((player) => ({ ...player, team: 'Titanides' })),
     coaches,
     fixtures,
     stats: [
@@ -79,7 +79,7 @@ export const teamProfiles: TeamProfile[] = [
     season: '2026',
     record: '6W - 3L',
     ranking: '#3 Liga Juvenil',
-    players: basePlayers,
+    players: basePlayers.map((player) => ({ ...player, team: 'Titanes Juveniles' })),
     coaches,
     fixtures,
     stats: [

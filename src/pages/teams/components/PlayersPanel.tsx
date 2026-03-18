@@ -12,14 +12,31 @@ type PlayersPanelProps = {
 
 const PlayersPanel = ({ players }: PlayersPanelProps) => {
   const [selectedPlayer, setSelectedPlayer] = useState<TeamPlayer | null>(null);
-  const { page, pages, query, positions, positionFilter, paginatedPlayers, filteredCount, onChangePosition, onChangeQuery, setPage } = usePlayersCatalog(players);
+  const {
+    page,
+    pages,
+    query,
+    teams,
+    teamFilter,
+    positions,
+    positionFilter,
+    paginatedPlayers,
+    filteredCount,
+    onChangeTeam,
+    onChangePosition,
+    onChangeQuery,
+    setPage,
+  } = usePlayersCatalog(players);
 
   return (
     <section className="space-y-6">
       <PlayersFilters
+        teams={teams}
+        teamFilter={teamFilter}
         positions={positions}
         positionFilter={positionFilter}
         query={query}
+        onChangeTeam={onChangeTeam}
         onChangePosition={onChangePosition}
         onChangeQuery={onChangeQuery}
       />
