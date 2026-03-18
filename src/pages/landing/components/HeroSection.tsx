@@ -24,7 +24,7 @@ const HeroSection = () => {
 					</p>
 					<div className="mt-8 flex flex-wrap items-center gap-3">
 						<Button variant="light" appearance="filled" size="lg" onClick={() => navigate('/fixture')}>
-							Ver Fixture
+							Ver partidos
 						</Button>
 						<Button variant="light" appearance="outline" size="lg" onClick={() => navigate('/contacto')}>
 							Unirme al Club

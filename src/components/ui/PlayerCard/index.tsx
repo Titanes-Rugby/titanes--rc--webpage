@@ -54,7 +54,7 @@ const PlayerCard = ({ player }: PlayerCardProps) => {
 						<div className="min-w-0 space-y-6 p-6 pt-10 text-white sm:space-y-8 sm:p-8 sm:pt-12">
 							<header className="space-y-4">
 								<p className="text-sm font-medium tracking-[0.18em] text-white/90 uppercase sm:text-base">
-									Position · {player.position}
+									Posición · {player.position}
 								</p>
 								<h3 className="line-clamp-2 text-4xl leading-[0.92] font-black tracking-tight uppercase sm:text-5xl 2xl:text-6xl">
 									{player.name} {player.nickname}
@@ -80,9 +80,9 @@ const PlayerCard = ({ player }: PlayerCardProps) => {
 									<Shield className="h-8 w-8 shrink-0 sm:h-10 sm:w-10" aria-hidden="true" />
 									<p className="text-4xl leading-none font-black tracking-tight sm:text-5xl">{player.yearsInTeam}</p>
 									<p className="text-base leading-[0.9] font-medium lowercase sm:text-lg">
-										years
+										años
 										<br />
-										in club
+										en el club
 									</p>
 								</div>
 								<Logo

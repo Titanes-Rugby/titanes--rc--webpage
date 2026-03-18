@@ -2,21 +2,19 @@ import { WithBackground } from '@components/Parallax';
 
 const TEAMS = [
 	{
-		title: 'Primera Division',
+		title: 'Titanes',
 		href: '/equipos/primera-division',
-		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus.',
+		description: 'Plantel principal masculino que compite en liga nacional con enfoque en alto rendimiento.',
 	},
 	{
-		title: 'Juveniles',
-		href: '/equipos/juveniles',
-		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum.',
-	},
-	{
-		title: 'Femenino',
+		title: 'Titanides',
 		href: '/equipos/femenino',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.',
+		description: 'Equipo femenino competitivo con calendario nacional y torneos regionales.',
+	},
+	{
+		title: 'Titanes Juveniles',
+		href: '/equipos/juveniles',
+		description: 'Programa de desarrollo U18-U20 para formar talento y proyectarlo al plantel mayor.',
 	},
 ];
 
@@ -35,7 +33,7 @@ const TeamsSection = () => {
 							Equipos
 						</p>
 						<h2 className="mt-3 text-3xl font-semibold text-primary-900 dark:text-primary-100 sm:text-4xl">
-							Categorias competitivas del club
+							Categorías competitivas del club
 						</h2>
 					</div>
 					<a

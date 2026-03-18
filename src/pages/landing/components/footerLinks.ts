@@ -10,50 +10,50 @@ type FooterSection = {
 
 export const footerSections: FooterSection[] = [
 	{
-		title: 'About',
+		title: 'Sobre nosotros',
 		links: [
-			{ label: 'About Us', href: '/club/quienes-somos' },
-			{ label: 'Our History', href: '/club/historia' },
-			{ label: 'Fan Hub & Events', href: '/contacto' },
-			{ label: 'Partners', href: '/patrocinadores' },
+			{ label: 'Sobre nosotros', href: '/club/quienes-somos' },
+			{ label: 'Nuestra historia', href: '/club/historia' },
+			{ label: 'Contacto y eventos', href: '/contacto' },
+			{ label: 'Patrocinadores', href: '/patrocinadores' },
 		],
 	},
 	{
-		title: 'Squad',
+		title: 'Equipo',
 		links: [
-			{ label: 'First Team', href: '/equipos/primera-division' },
-			{ label: 'Juniors', href: '/equipos/juveniles' },
-			{ label: 'Women', href: '/equipos/femenino' },
+			{ label: 'Titanes', href: '/equipos/primera-division' },
+			{ label: 'Titanides', href: '/equipos/femenino' },
+			{ label: 'Titanes Juveniles', href: '/equipos/juveniles' },
 		],
 	},
 	{
-		title: 'News',
+		title: 'Noticias',
 		links: [
-			{ label: 'Latest News', href: '/media/noticias' },
+			{ label: 'Ultimas noticias', href: '/media/noticias' },
 			{ label: 'Videos', href: '/media/videos' },
-			{ label: 'Social', href: '/media' },
+			{ label: 'Redes', href: '/media' },
 		],
 	},
 	{
-		title: 'Fixtures',
+		title: 'Partidos',
 		links: [
-			{ label: 'Fixtures & Results', href: '/fixture' },
-			{ label: 'Tickets', href: '/contacto' },
+			{ label: 'Partidos y resultados', href: '/fixture' },
+			{ label: 'Entradas', href: '/contacto' },
 		],
 	},
 ];
 
 export const legalLinks: FooterLink[] = [
-	{ label: 'Contact Us', href: '/contacto' },
-	{ label: 'Terms and Conditions', href: '/contacto' },
-	{ label: 'Privacy Policy', href: '/contacto' },
-	{ label: 'Collection Statement', href: '/contacto' },
-	{ label: 'Email Subscriptions', href: '/contacto' },
+	{ label: 'Contactanos', href: '/contacto' },
+	{ label: 'Terminos y condiciones', href: '/contacto' },
+	{ label: 'Politica de privacidad', href: '/contacto' },
+	{ label: 'Declaracion de cobros', href: '/contacto' },
+	{ label: 'Suscripciones', href: '/contacto' },
 ];
 
 export const socialLinks: FooterLink[] = [
-	{ label: 'Fb', href: '#' },
-	{ label: 'X', href: '#' },
-	{ label: 'Ig', href: '#' },
+	{ label: 'IG', href: '#' },
+	{ label: 'TT', href: '#' },
+	{ label: 'FB', href: '#' },
 	{ label: 'Yt', href: '#' },
 ];

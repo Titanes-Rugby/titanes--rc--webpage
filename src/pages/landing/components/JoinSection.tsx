@@ -8,7 +8,7 @@ const JoinSection = () => {
 					<p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-100">Comunidad</p>
 					<h2 className="mt-2 text-3xl font-semibold text-white">Hazte miembro de Titanes</h2>
 					<p className="mt-2 max-w-2xl text-sm text-primary-100/90">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu leo quam.
+						Súmate a entrenos abiertos, participa en activaciones y recibe noticias y convocatorias del club.
 					</p>
 				</div>
 				<Link

@@ -30,8 +30,8 @@ const FixtureSection = () => {
 	return (
 		<section id="fixture" className="bg-white py-20">
 			<div className="mx-auto w-full max-w-6xl px-6">
-				<p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-500">Fixture</p>
-				<h2 className="mt-3 text-3xl font-semibold text-primary-900 sm:text-4xl">Proximos partidos</h2>
+				<p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-500">Calendario</p>
+				<h2 className="mt-3 text-3xl font-semibold text-primary-900 sm:text-4xl">Próximos partidos</h2>
 				<div className="mt-10 grid gap-5 md:grid-cols-3">
 					{MATCHES.map((match) => (
 						<article
