@@ -10,6 +10,7 @@ export type FixtureItem = {
   date: string;
   time: string;
   venue: string;
+  venueUrl?: string;
   home: string;
   away: string;
   homeLogoSrc?: string;

@@ -28,9 +28,23 @@ const FixtureList = ({ items }: FixtureListProps) => {
                 <span className="text-xs font-semibold tracking-[0.12em] text-primary-500 uppercase">vs</span>
                 <TeamBadge name={item.away} logoSrc={item.awayLogoSrc} logoAfter />
               </div>
-              <p className="mt-1 text-sm text-primary-700">
-                {item.date} · {item.time} · {item.venue}
-              </p>
+              <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-primary-700">
+                <span>
+                  {item.date} · {item.time}
+                </span>
+                {item.venueUrl ? (
+                  <a
+                    href={item.venueUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 rounded-full border border-primary-200 bg-primary-50 px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-primary-700 transition hover:border-primary-400 hover:bg-white"
+                  >
+                    {item.venue}
+                  </a>
+                ) : (
+                  <span>{item.venue}</span>
+                )}
+              </div>
             </div>
 
             {item.status === 'result' ? (
