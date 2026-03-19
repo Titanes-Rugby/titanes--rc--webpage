@@ -52,8 +52,8 @@ export const legalLinks: FooterLink[] = [
 ];
 
 export const socialLinks: FooterLink[] = [
-	{ label: 'IG', href: '#' },
-	{ label: 'TT', href: '#' },
-	{ label: 'FB', href: '#' },
-	{ label: 'Yt', href: '#' },
+	{ label: 'Instagram', href: 'https://www.instagram.com/titanesrugby' },
+	{ label: 'TikTok', href: 'https://www.tiktok.com/@titanesrugby' },
+	{ label: 'Facebook', href: 'https://www.facebook.com/titanesrugby' },
+	{ label: 'YouTube', href: 'https://www.youtube.com/@titanesrugby' },
 ];

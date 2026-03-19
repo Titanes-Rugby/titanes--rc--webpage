@@ -15,8 +15,8 @@ export const clubSections: ClubSection[] = [
 	},
 	{
 		id: 'staff-tecnico',
-		label: 'Staff Administrativo',
-		title: 'Staff Administrativo',
+		label: 'Personal Administrativo',
+		title: 'Personal Administrativo',
 		description: 'Equipo de trabajo que gestiona operaciones, logística y rendimiento global.',
 	},
 	{
@@ -47,7 +47,7 @@ export const staffMembers: StaffMember[] = [
 	{
 		id: 's3',
 		name: 'Marco Bernal',
-		role: 'Gestor de Performance',
+		role: 'Gestor de rendimiento',
 		birthDate: '1990-12-11',
 		imageSrc: '/images/players/player_1.png',
 		focus: 'Monitoreo de cargas, recuperacion y disponibilidad de plantel.',
@@ -55,7 +55,7 @@ export const staffMembers: StaffMember[] = [
 	{
 		id: 's4',
 		name: 'Laura Pineda',
-		role: 'Team Manager',
+		role: 'Jefe de equipo',
 		birthDate: '1992-07-23',
 		imageSrc: '/images/players/player_1.png',
 		focus: 'Operacion diaria del plantel y comunicacion con competencias.',

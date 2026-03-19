@@ -49,7 +49,7 @@ const MENU_ENTRIES: MenuEntry[] = [
 				description: 'Origen, valores y crecimiento del club.',
 			},
 			{
-				label: 'Staff Administrativo',
+				label: 'Personal administrativo',
 				href: '/club/staff-tecnico',
 				description: 'Presidentes y Junta directiva .',
 			},
@@ -89,7 +89,7 @@ const MENU_ENTRIES: MenuEntry[] = [
 				description: 'Actualizaciones del club y comunicados.',
 			},
 			{
-				label: 'Galera',
+				label: 'Galeria',
 				href: '/media/galeria',
 				description: 'Fotos destacadas de entrenamientos y partidos.',
 			},
