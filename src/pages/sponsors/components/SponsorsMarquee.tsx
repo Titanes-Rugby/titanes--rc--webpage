@@ -9,7 +9,7 @@ type SponsorsMarqueeProps = {
 const SponsorsMarquee = ({ sponsors }: SponsorsMarqueeProps) => {
   return (
     <div className="rounded-2xl border border-primary-100 bg-white p-4">
-      <p className="mb-4 text-xs font-semibold tracking-[0.12em] text-primary-500 uppercase">Wall Of Partners</p>
+      <p className="mb-4 text-xs font-semibold tracking-[0.12em] text-primary-500 uppercase">Patrocinadores</p>
       <Marquee
         items={sponsors}
         renderItem={(sponsor) => (

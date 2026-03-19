@@ -37,10 +37,10 @@ const TeamsPage = () => {
 				{activeTab === 'stats' ? <StatsPanel stats={team.stats} /> : null}
 
 				<article className="rounded-2xl bg-primary-800 p-7 text-white">
-					<p className="text-xs font-semibold tracking-[0.12em] text-primary-100 uppercase">Club CTA</p>
-					<h2 className="mt-2 text-2xl font-bold">Quieres formar parte del roster de Titanes?</h2>
+					<p className="text-xs font-semibold tracking-[0.12em] text-primary-100 uppercase">Titanes Rugby Club</p>
+					<h2 className="mt-2 text-2xl font-bold">¿Quieres formar parte de la lista de Titanes?</h2>
 					<p className="mt-2 max-w-2xl text-sm text-primary-100/90">
-						Escribe al staff tecnico y agenda una sesion de evaluacion para la proxima temporada.
+						Escribe al personal técnico y agenda una sesión de evaluación para la próxima temporada.
 					</p>
 					<Link
 						to="/contacto"

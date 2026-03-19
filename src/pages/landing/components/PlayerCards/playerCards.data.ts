@@ -5,7 +5,7 @@ import type { PlayerCardData } from '@components/ui/PlayerCard';
 export const playerCards: PlayerCardData[] = [
 	{
 		id: 'christhoval-barba',
-		position: 'Segunda fila',
+		position: 'Pilar izquierdo',
 		name: 'Christhoval',
 		nickname: 'Barba',
 		imageSrc: '/images/players/player_1.png',
@@ -28,7 +28,7 @@ export const playerCards: PlayerCardData[] = [
 	},
 	{
 		id: 'alberto-cortez',
-		position: 'Primera fila',
+		position: 'Pilar derecho',
 		name: 'Alberto',
 		nickname: 'Cortez',
 		imageSrc: '/images/players/player_1.png',

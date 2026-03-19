@@ -9,7 +9,7 @@ type TeamsHeroProps = {
 const TeamsHero = ({ team }: TeamsHeroProps) => {
   return (
     <Hero
-      eyebrow="Squad Overview"
+      eyebrow="Descripción general de los equipos"
       title={team.title}
       description={team.subtitle}
       gradientClassName="bg-gradient-to-br from-primary-700 via-primary-800 to-primary-900"
@@ -21,9 +21,9 @@ const TeamsHero = ({ team }: TeamsHeroProps) => {
       descriptionClassName="max-w-xl text-base text-primary-100/90 sm:text-lg"
       aside={
         <div className="grid gap-3 text-right sm:grid-cols-3 sm:text-left">
-          <StatCard label="Season" value={team.season} />
-          <StatCard label="Record" value={team.record} />
-          <StatCard label="Ranking" value={team.ranking} />
+          <StatCard label="Temporada" value={team.season} />
+          <StatCard label="Registro" value={team.record} />
+          <StatCard label="Clasificación" value={team.ranking} />
         </div>
       }
     />
