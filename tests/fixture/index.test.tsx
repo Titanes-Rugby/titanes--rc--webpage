@@ -12,7 +12,7 @@ describe('<FixturePage />', () => {
     expect(screen.getByText(/Panama Sharks/i)).toBeInTheDocument();
     expect(screen.getByText(/Canal Bulls U20/i)).toBeInTheDocument();
     expect(screen.getByText(/Pacific RFC/i)).toBeInTheDocument();
-    expect(screen.getAllByText(/Upcoming/i)).toHaveLength(3);
+    expect(screen.getAllByText(/Próximamente/i)).toHaveLength(3);
   });
 
   it('filters list by results status', async () => {

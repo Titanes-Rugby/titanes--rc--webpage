@@ -31,7 +31,7 @@ describe('<HeroSection />', () => {
     expect(screen.getByText(/Divisiones competitivas/i)).toBeInTheDocument();
     expect(screen.getByText(/Años de historia|A&ntilde;os de historia/i)).toBeInTheDocument();
 
-    await user.click(screen.getByRole('button', { name: /Ver Fixture/i }));
+    await user.click(screen.getByRole('button', { name: /Ver partidos/i }));
     await user.click(screen.getByRole('button', { name: /Unirme al Club/i }));
 
     expect(navigateMock).toHaveBeenNthCalledWith(1, '/fixture');

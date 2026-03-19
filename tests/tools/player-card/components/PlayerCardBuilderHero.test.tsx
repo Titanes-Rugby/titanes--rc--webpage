@@ -6,7 +6,7 @@ import PlayerCardBuilderHero from '@/pages/tools/player-card/components/PlayerCa
 describe('<PlayerCardBuilderHero />', () => {
   it('renders title and tool description', () => {
     render(<PlayerCardBuilderHero />);
-    expect(screen.getByRole('heading', { name: /Player Card Builder/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Creador de tarjetas de jugador/i })).toBeInTheDocument();
     expect(screen.getByText(/Completa los datos del jugador/i)).toBeInTheDocument();
   });
 });

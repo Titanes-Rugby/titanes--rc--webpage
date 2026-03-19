@@ -1,4 +1,4 @@
-import { socialLinks } from '@/pages/landing/components/footerLinks';
+import { socialLinks } from '@/components/Footer/footerLinks';
 
 const SocialCTA = () => {
 	return (

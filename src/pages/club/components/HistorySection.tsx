@@ -44,11 +44,9 @@ const HistorySection = () => {
               key={title}
               className="overflow-hidden rounded-2xl border border-primary-100 bg-white text-center shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
-              {image ? (
-                <div className="h-32 w-full overflow-hidden">
-                  <img src={image} alt={title} className="h-full w-full object-cover" />
-                </div>
-              ) : null}
+              <div className="h-32 w-full overflow-hidden">
+                <img src={image} alt={title} className="h-full w-full object-cover" />
+              </div>
               <div className="p-4">
                 <h3 className="text-base font-semibold text-primary-900">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-primary-700">{description}</p>

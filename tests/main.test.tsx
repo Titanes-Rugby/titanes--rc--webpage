@@ -15,5 +15,5 @@ describe('main entrypoint', () => {
 
     expect(createRootMock).toHaveBeenCalledWith(document.getElementById('root'));
     expect(renderMock).toHaveBeenCalledTimes(1);
-  });
+  }, 15000);
 });

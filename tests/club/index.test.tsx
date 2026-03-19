@@ -30,15 +30,15 @@ describe('<ClubPage />', () => {
 
   it('renders staff section from route param', () => {
     renderClubRoute('/club/staff-tecnico');
-    expect(screen.getByRole('heading', { name: /Staff Tecnico/i, level: 2 })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Personal Administrativo/i, level: 2 })).toBeInTheDocument();
     expect(screen.getByText(/Diego Alvarado/i)).toBeInTheDocument();
-    expect(screen.getByText(/Team Manager/i)).toBeInTheDocument();
+    expect(screen.getByText(/Director Deportivo/i)).toBeInTheDocument();
   });
 
   it('renders instalaciones section with contact CTA', () => {
     renderClubRoute('/club/instalaciones');
     expect(screen.getByRole('heading', { name: /Instalaciones/i, level: 2 })).toBeInTheDocument();
-    expect(screen.getByText(/Cancha Principal/i)).toBeInTheDocument();
+    expect(screen.getByText(/Cancha UTP Sede Central/i)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Solicitar visita/i })).toHaveAttribute('href', '/contacto');
   });
 

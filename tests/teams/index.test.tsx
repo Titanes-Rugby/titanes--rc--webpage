@@ -19,7 +19,7 @@ describe('<TeamsPage />', () => {
     renderTeamsRoute('/equipos/primera-division/players');
 
     expect(screen.getByRole('heading', { name: /^Titanes$/i })).toBeInTheDocument();
-    expect(screen.getByText(/9 players found/i)).toBeInTheDocument();
+    expect(screen.getByText(/18 jugadores encontrados/i)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Contactar al club/i })).toHaveAttribute('href', '/contacto');
   });
 
@@ -28,27 +28,26 @@ describe('<TeamsPage />', () => {
 
     expect(screen.getByRole('heading', { name: /Titanes Juveniles/i })).toBeInTheDocument();
     expect(screen.getByText(/Head Coach/i)).toBeInTheDocument();
-    expect(screen.queryByText(/players found/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/jugadores encontrados/i)).not.toBeInTheDocument();
   });
 
   it('falls back to players tab when tab is invalid', () => {
     renderTeamsRoute('/equipos/femenino/not-a-real-tab');
 
     expect(screen.getByRole('heading', { name: /Titanides/i })).toBeInTheDocument();
-    expect(screen.getByText(/9 players found/i)).toBeInTheDocument();
+    expect(screen.getByText(/18 jugadores encontrados/i)).toBeInTheDocument();
   });
 
   it('renders stats tab content', () => {
     renderTeamsRoute('/equipos/primera-division/stats');
 
-    expect(screen.getByText(/Tackle Success/i)).toBeInTheDocument();
-    expect(screen.queryByText(/players found/i)).not.toBeInTheDocument();
+    expect(screen.getByText(/Éxito en tackles|Exito en tackles/i)).toBeInTheDocument();
+    expect(screen.queryByText(/jugadores encontrados/i)).not.toBeInTheDocument();
   });
 
-  it('renders fixtures tab content', () => {
+  it('falls back to players tab when route uses removed fixtures tab', () => {
     renderTeamsRoute('/equipos/juveniles/fixtures');
 
-    expect(screen.getAllByText(/Upcoming Match/i).length).toBeGreaterThan(0);
-    expect(screen.queryByText(/players found/i)).not.toBeInTheDocument();
+    expect(screen.getByText(/18 jugadores encontrados/i)).toBeInTheDocument();
   });
 });

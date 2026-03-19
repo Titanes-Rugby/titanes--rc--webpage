@@ -24,8 +24,8 @@ describe('<PlayersGrid />', () => {
       />,
     );
 
-    expect(screen.getByText(/No players found with the current filters/i)).toBeInTheDocument();
-    expect(screen.getByText(/Page 1 \/ 1/i)).toBeInTheDocument();
+    expect(screen.getByText(/No se encontraron jugadores con los filtros actuales/i)).toBeInTheDocument();
+    expect(screen.getByText(/Página 1 \/ 1/i)).toBeInTheDocument();
   });
 
   it('renders players and triggers callbacks on click and paging', async () => {
@@ -45,10 +45,10 @@ describe('<PlayersGrid />', () => {
     );
 
     await user.click(screen.getByRole('button', { name: /Carlos Ruiz/i }));
-    await user.click(screen.getByRole('button', { name: /Next/i }));
+    await user.click(screen.getByRole('button', { name: /Siguiente/i }));
 
     expect(onSelectPlayer).toHaveBeenCalledTimes(1);
     expect(onPageChange).toHaveBeenCalledWith(2);
-    expect(screen.getByText(/7 players found/i)).toBeInTheDocument();
+    expect(screen.getByText(/7 jugadores encontrados/i)).toBeInTheDocument();
   });
 });

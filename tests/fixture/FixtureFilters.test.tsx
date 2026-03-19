@@ -28,10 +28,10 @@ describe('<FixtureFilters />', () => {
     expect(screen.getByRole('button', { name: /Primera/i }).className).toContain('bg-primary-700');
     expect(screen.getByRole('button', { name: /Todos/i }).className).toContain('hover:bg-primary-100');
     expect(screen.getByRole('button', { name: /Resultados/i }).className).toContain('bg-secondary-700');
-    expect(screen.getByRole('button', { name: /Proximos/i }).className).toContain('hover:bg-secondary-100');
+    expect(screen.getByRole('button', { name: /Próximos/i }).className).toContain('hover:bg-secondary-100');
 
     await user.click(screen.getByRole('button', { name: /Todos/i }));
-    await user.click(screen.getByRole('button', { name: /Proximos/i }));
+    await user.click(screen.getByRole('button', { name: /Próximos/i }));
 
     expect(onTeamChange).toHaveBeenCalledWith('all');
     expect(onStatusChange).toHaveBeenCalledWith('upcoming');

@@ -36,4 +36,15 @@ describe('<CoachesPanel />', () => {
     expect(screen.getByRole('img', { name: /Diego Alvarado/i })).toHaveAttribute('src', '/diego.png');
     expect(screen.getByRole('img', { name: /Jorge Salinas/i })).toHaveAttribute('src', '/images/players/player_1.png');
   });
+
+  it('truncates long coach bios', () => {
+    const longBio = 'a'.repeat(160);
+    render(
+      <CoachesPanel
+        coaches={[{ id: 'c3', name: 'Marco Bernal', role: 'Performance Coach', bio: longBio, imageSrc: '/marco.png' }]}
+      />,
+    );
+
+    expect(screen.getByText(`${'a'.repeat(147)}...`)).toBeInTheDocument();
+  });
 });

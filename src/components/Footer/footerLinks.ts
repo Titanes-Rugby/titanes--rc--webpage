@@ -1,7 +1,13 @@
+import { SiFacebook, SiTiktok, SiInstagram, SiYoutube, type IconType } from '@icons-pack/react-simple-icons';
+
 type FooterLink = {
 	label: string;
 	href: string;
 };
+
+type FooterSocialLink = {
+	Icon: IconType;
+} & FooterLink;
 
 type FooterSection = {
 	title: string;
@@ -51,9 +57,9 @@ export const legalLinks: FooterLink[] = [
 	{ label: 'Suscripciones', href: '/contacto' },
 ];
 
-export const socialLinks: FooterLink[] = [
-	{ label: 'Instagram', href: 'https://www.instagram.com/titanesrugby' },
-	{ label: 'TikTok', href: 'https://www.tiktok.com/@titanesrugby' },
-	{ label: 'Facebook', href: 'https://www.facebook.com/titanesrugby' },
-	{ label: 'YouTube', href: 'https://www.youtube.com/@titanesrugby' },
+export const socialLinks: FooterSocialLink[] = [
+	{ label: 'Instagram', href: 'https://www.instagram.com/titanesrugby', Icon: SiInstagram },
+	{ label: 'TikTok', href: 'https://www.tiktok.com/@titanesrugby', Icon: SiTiktok },
+	{ label: 'Facebook', href: 'https://www.facebook.com/titanesrugby', Icon: SiFacebook },
+	{ label: 'YouTube', href: 'https://www.youtube.com/@titanesrugby', Icon: SiYoutube },
 ];

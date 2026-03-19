@@ -19,8 +19,8 @@ describe('<LandingPage />', () => {
 		expect(
 			screen.getByRole('heading', { name: /Tarjetas de jugadores con presencia de nivel profesional/i }),
 		).toBeInTheDocument();
-		expect(screen.getByRole('heading', { name: /Categorias competitivas del club/i })).toBeInTheDocument();
-		expect(screen.getByRole('heading', { name: /Proximos partidos/i })).toBeInTheDocument();
+		expect(screen.getByRole('heading', { name: /Categorías competitivas del club/i })).toBeInTheDocument();
+		expect(screen.getByRole('heading', { name: /Próximos partidos/i })).toBeInTheDocument();
 		expect(screen.getByRole('heading', { name: /Actualidad del club/i })).toBeInTheDocument();
 		expect(screen.getByRole('heading', { name: /Hazte miembro de Titanes/i })).toBeInTheDocument();
 	});
@@ -32,7 +32,7 @@ describe('<LandingPage />', () => {
 			</MemoryRouter>,
 		);
 
-		expect(screen.getByRole('button', { name: /Ver Fixture/i })).toBeInTheDocument();
+		expect(screen.getByRole('button', { name: /Ver partidos/i })).toBeInTheDocument();
 		expect(screen.getByRole('button', { name: /Unirme al Club/i })).toBeInTheDocument();
 		expect(screen.getByRole('link', { name: /Ver fixture completo/i })).toHaveAttribute('href', '/fixture');
 		expect(screen.getByRole('link', { name: /Ver patrocinadores/i })).toHaveAttribute('href', '/patrocinadores');

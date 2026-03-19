@@ -744,6 +744,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@icons-pack/react-simple-icons@npm:^13.13.0":
+  version: 13.13.0
+  resolution: "@icons-pack/react-simple-icons@npm:13.13.0"
+  peerDependencies:
+    react: ^16.13 || ^17 || ^18 || ^19
+  checksum: 10c0/2c49846554d855347f0ebbcd39accdd754854670db214d218df7b8d4927d3f8b3f3b5c8ac25280006467e8c94d585105a3e3f7de17e61bf3f63538aad3728309
+  languageName: node
+  linkType: hard
+
 "@isaacs/fs-minipass@npm:^4.0.0":
   version: 4.0.1
   resolution: "@isaacs/fs-minipass@npm:4.0.1"
@@ -6699,6 +6708,7 @@ __metadata:
   dependencies:
     "@headlessui/react": "npm:^2.2.9"
     "@heroicons/react": "npm:^2.2.0"
+    "@icons-pack/react-simple-icons": "npm:^13.13.0"
     "@tailwindcss/postcss": "npm:^4.2.1"
     "@tailwindcss/typography": "npm:^0.5.19"
     "@testing-library/dom": "npm:^10.4.1"
