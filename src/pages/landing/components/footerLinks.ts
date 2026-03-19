@@ -1,6 +1,7 @@
 type FooterLink = {
 	label: string;
 	href: string;
+	icon?: 'instagram' | 'tiktok' | 'facebook' | 'youtube';
 };
 
 type FooterSection = {
@@ -52,8 +53,8 @@ export const legalLinks: FooterLink[] = [
 ];
 
 export const socialLinks: FooterLink[] = [
-	{ label: 'Instagram', href: 'https://www.instagram.com/titanesrugby' },
-	{ label: 'TikTok', href: 'https://www.tiktok.com/@titanesrugby' },
-	{ label: 'Facebook', href: 'https://www.facebook.com/titanesrugby' },
-	{ label: 'YouTube', href: 'https://www.youtube.com/@titanesrugby' },
+	{ label: 'Instagram', href: 'https://www.instagram.com/titanesrc?igsh=MXZ6bTlieGo2Y2RyYg==', icon: 'instagram' },
+	{ label: 'TikTok', href: 'https://www.tiktok.com/@titanes_rugbyclub', icon: 'tiktok' },
+	{ label: 'Facebook', href: 'https://www.facebook.com/groups/126799640713388', icon: 'facebook' },
+	{ label: 'YouTube', href: 'https://www.youtube.com/@titanesrugby', icon: 'youtube' },
 ];

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import Logo from '@/components/ui/Logo';
+import SocialIcon from '@/components/ui/SocialIcon';
 
 import { footerSections, legalLinks, socialLinks } from './footerLinks';
 
@@ -40,16 +41,21 @@ const LandingFooter = () => {
 						<p className="mt-6 max-w-xs text-sm text-white/90">
 							Titanes es parte orgullosa del rugby panameño y de nuestra comunidad.
 						</p>
-						<div className="mt-7 space-y-2">
+						<div className="mt-7 space-y-3">
 							<p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/80">Redes sociales</p>
-							<div className="flex flex-col gap-2">
+							<div className="flex flex-wrap gap-2">
 								{socialLinks.map((item) => (
-									<FooterLinkItem
+									<a
 										key={item.label}
-										label={item.label}
 										href={item.href}
-										className="inline-flex items-center gap-2 rounded-full border border-white/30 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.08em] text-white transition-colors hover:bg-white hover:text-primary-900"
-									/>
+										target="_blank"
+										rel="noreferrer"
+										aria-label={item.label}
+										className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-primary-900"
+									>
+										<SocialIcon name={item.icon ?? 'instagram'} className="h-5 w-5" />
+										<span className="sr-only">{item.label}</span>
+									</a>
 								))}
 							</div>
 						</div>
