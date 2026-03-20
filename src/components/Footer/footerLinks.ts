@@ -3,6 +3,7 @@ import { SiFacebook, SiTiktok, SiInstagram, SiYoutube, type IconType } from '@ic
 type FooterLink = {
 	label: string;
 	href: string;
+	icon?: 'instagram' | 'tiktok' | 'facebook' | 'youtube';
 };
 
 type FooterSocialLink = {
@@ -58,8 +59,8 @@ export const legalLinks: FooterLink[] = [
 ];
 
 export const socialLinks: FooterSocialLink[] = [
-	{ label: 'Instagram', href: 'https://www.instagram.com/titanesrugby', Icon: SiInstagram },
-	{ label: 'TikTok', href: 'https://www.tiktok.com/@titanesrugby', Icon: SiTiktok },
-	{ label: 'Facebook', href: 'https://www.facebook.com/titanesrugby', Icon: SiFacebook },
+	{ label: 'Instagram', href: 'https://www.instagram.com/titanesrc', Icon: SiInstagram },
+	{ label: 'TikTok', href: 'https://www.tiktok.com/@titanes_rugbyclub', Icon: SiTiktok },
+	{ label: 'Facebook', href: 'https://www.facebook.com/groups/126799640713388', Icon: SiFacebook },
 	{ label: 'YouTube', href: 'https://www.youtube.com/@titanesrugby', Icon: SiYoutube },
 ];

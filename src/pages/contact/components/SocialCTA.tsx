@@ -17,9 +17,11 @@ const SocialCTA = () => {
 						href={item.href}
 						target="_blank"
 						rel="noreferrer"
-						className="inline-flex h-10 items-center justify-center rounded-full border border-primary-100/50 px-4 text-xs font-bold uppercase tracking-[0.1em] text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-primary-900"
+						aria-label={item.label}
+						className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-primary-100/50 text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-primary-900"
 					>
-						{item.label}
+						<item.Icon className="size-5" />
+						<span className="sr-only">{item.label}</span>
 					</a>
 				))}
 			</div>

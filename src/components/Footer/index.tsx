@@ -42,7 +42,7 @@ const Footer = () => {
 						<p className="mt-6 max-w-xs text-sm text-white/90">
 							Titanes es parte orgullosa del rugby panameño y de nuestra comunidad.
 						</p>
-						<div className="mt-7 space-y-2">
+						<div className="mt-7 space-y-3">
 							<p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/80">Redes sociales</p>
 							<div className="flex flex-row gap-2">
 								{socialLinks.map((item) => (
