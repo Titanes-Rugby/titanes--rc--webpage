@@ -9,37 +9,38 @@
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+import HistoryGallery from './HistoryGallery';
 
 const EVENTS = [
 	{
 		year: '2004-2005',
 		title: 'Los Primeros Pasos',
 		subtitle: "El Misticismo de 'El Infierno' y los 'Diablos Rojos'",
-		body: 'Antes de que Titanes Rugby Club fuera una realidad, hubo eventos que marcaron nuestro ADN para siempre. Todo se remonta al nacimiento del rugby en Panamá, una semilla que plantó Jorge D’Orcy junto a tres amigos el 18 de noviembre de 2004. Con la visión de promover valores y buenas costumbres, invitaron a jóvenes de la Universidad de Panamá a descubrir este deporte.Para el 2005, ese grupo de amigos se consolidó como Diablos Rojos Rugby Club, jugando la modalidad de Rugby XV.El nombre no fue casualidad; buscábamos algo bien autóctono que hiciera "match" con nuestro lugar de entrenamiento: "El Infierno".Era una cancha apodada así porque estaba justo al lado de donde pasaba la locomotora, creando un ambiente único para forjar el carácter.En esos días, el rugby era un conglomerado de amigos de distintas universidades y trabajos que compartían una misma pasión.',
+		body: 'Antes de que Titanes Rugby Club fuera una realidad, hubo eventos que marcaron nuestro ADN para siempre. Todo se remonta al nacimiento del rugby en Panamá, una semilla que plantó Jorge D’Orcy junto a tres amigos el 18 de noviembre de 2004. Con la visión de promover valores y buenas costumbres, invitaron a jóvenes de la Universidad de Panamá a descubrir este deporte.Para el 2005, ese grupo de amigos se consolidó como Diablos Rojos Rugby Club con el iconico nombre de los antiguos buses imponentes en el pais, jugando la modalidad de Rugby XV.El nombre no fue casualidad; buscábamos algo bien autóctono que hiciera "match" con nuestro lugar de entrenamiento: "El Infierno".Era una cancha apodada así porque estaba justo al lado de donde pasaba la locomotora, creando un ambiente único para forjar el carácter.En esos días, el rugby era un conglomerado de amigos de distintas universidades y trabajos que compartían una misma pasión.',
 		highlight: "Nombre autóctono que hacía 'match' con el lugar de entrenamiento.",
 		icon: FireIcon,
-		image: 'https://images.unsplash.com/photo-1759760300494-7378d88180f9?auto=format&fit=crop&w=1400&q=80&sat=-25',
+		image: '/images/background/diablosRojos.png',
 		gradient: 'from-emerald-900/50 via-green-800/50 to-lime-700/50',
 	},
 	{
 		year: '2007',
 		title: 'Crecimiento y Expansión',
 		subtitle: 'El Nacimiento de Titanes',
-		body: 'A medida que el deporte ganaba popularidad y se sumaban exjugadores extranjeros que aportaban su experiencia desinteresadamente, el equipo creció tanto que en 2007 se tomó una decisión estratégica. Decidimos separarnos por afinidades laborales y universitarias para poder expandirnos y buscar más gente. Esta transición dio paso a la modalidad de Sevens (Rugby 7), y el 21 de octubre de 2007 se oficializaron nuevos equipos, entre ellos Cuervos, Dragones y, por supuesto, Titanes. Con la fundación oficial, logramos establecernos en la Universidad Tecnológica de Panamá (UTP), donde iniciamos nuestros primeros reclutamientos.',
+		body: 'A medida que el deporte ganaba popularidad y se sumaban exjugadores extranjeros que aportaban su experiencia desinteresadamente, el equipo naturalmente creció tanto que en 2007 que se tomó una decisión estratégica. Decidimos separarnos por afinidades laborales y universitarias para poder expandirnos y buscar más gente. Esta transición dio paso a la modalidad de Sevens (Rugby 7), y el 21 de octubre de 2007 se oficializaron nuevos equipos, entre ellos Cuervos, Dragones y, por supuesto, Titanes. Con la fundación oficial donde iniciamos nuestros primeros reclutamientos, al inicio despues de la fundacion el equipo estuvo cerca de haberse desintegrado, fue alli donde Manuel Valdivia y otros 3 titanes mas se reunieron para reintegrar el equipo, gracias a eso logramos establecernos en la Universidad Tecnológica de Panamá (UTP) donde gracias al aumento de numero de integrantes se hicieron las primeras votaciones para crear una junta directiva. Al momento de pensar en un nombre en el equipo, hubieron muchas divisiones y fue dificil decidirse por uno en especifico, pero al final prevalecio nuestro nombre Titanes. ',
 		highlight:
-			"Dato curioso: Por votación casi unanime nos llamamos 'Tecno Barbies', pero al final prevaleció Titanes.",
+			"Dato curioso: Debido a las divisiones para votar por el nombre del equipo, casi nos llamamos 'Tecno Barbies'",
 		icon: ShieldCheckIcon,
-		image: 'https://images.unsplash.com/photo-1641176912780-3fa33fd20a15?auto=format&fit=crop&w=1400&q=80&sat=-18',
+		image: '/images/background/Primer_equipo.jpeg',
 		gradient: 'from-lime-600/50 via-green-600/50 to-emerald-600/50',
 	},
 	{
 		year: '2012 - Presente',
-		title: 'El Corazón Femenino',
-		subtitle: 'Titanides y el Efecto Multiplicador',
-		body: 'El rugby femenino en Panamá inició formalmente en 2012 con las Dragones Rugby Girls, pero pronto Titanes abrió su propio proyecto: Las Titanides. Este equipo no solo formó jugadoras, sino líderes con un conocimiento profundo que luego fundaron otros equipos en el país. Es un orgullo decir que de la familia de las Titanides surgieron grandes ramas del rugby nacional.',
+		title: 'El Despertar de las Titanides',
+		subtitle: 'Forjando el Legado del Rugby Femenino',
+		body: 'La historia del rugby femenino en Panamá cambió para siempre cuando Sudamérica Rugby emitió la directriz de fomentar y formalizar la rama femenil en toda la región. Este llamado a la acción encontró tierra fértil en el corazón de nuestras jugadoras. Aunque el camino inició formalmente en 2012 con el establecimiento de las Dragones Rugby Girls, su llegada fue la chispa que encendió un fuego que ya existía dentro de la familia de Titanes. En aquel entonces, Titanes ya contaba con mujeres apasionadas por el deporte, guerreras que entrenaban con el alma pero que aún no contaban con una estructura formal. Inspiradas por el ejemplo de las Dragones, esa pasión se transformó en un proyecto sólido y ambicioso: así nacieron "Las Titanides" uno de los pilares de la rama femenina que abrio paso al nacimeinto de nuevos equipos tanto femeninos como masculinos.',
 		highlight: 'White Lyons RC, Lycans, Guerreros y Spartans RC nacen gracias al impulso Titanide.',
 		icon: HeartIcon,
-		image: 'https://images.unsplash.com/photo-1612729153740-3f595f81651c?auto=format&fit=crop&w=1400&q=80&sat=-12',
+		image: '/images/background/fecha1-129.JPG',
 		gradient: 'from-green-700/50 via-emerald-700/50 to-lime-600/50',
 	},
 	{
@@ -60,6 +61,27 @@ const LEGACY = [
 	{ name: 'Guerreros', founder: 'Manuel Valdivia' },
 	{ name: 'Spartans RC', founder: 'Comunidad' },
 ];
+
+const LYCANS_LOGO = '/images/background/Lycans.PNG';
+const WHITE_LIONS_LOGO = '/images/background/WhiteLions.PNG';
+const GUERREROS_LOGO = '/images/background/Guerreros.png';
+const SPARTANS_LOGO = '/images/background/Spartans.PNG';
+
+const LEGACY_BADGES = [
+	'from-lime-100 via-green-100 to-emerald-100 text-primary-900',
+	'from-amber-100 via-orange-100 to-rose-100 text-primary-900',
+	'from-cyan-100 via-sky-100 to-indigo-100 text-primary-900',
+	'from-slate-100 via-zinc-100 to-stone-100 text-primary-900',
+];
+
+const getInitials = (name: string) =>
+	name
+		.split(' ')
+		.filter(Boolean)
+		.map((part) => part[0])
+		.join('')
+		.slice(0, 3)
+		.toUpperCase();
 
 const FullHistorySection = () => {
 	const containerRef = useRef<HTMLDivElement>(null);
@@ -138,11 +160,20 @@ const FullHistorySection = () => {
 								className="relative rounded-3xl bg-white shadow-xl ring-1 ring-primary-900/5 overflow-hidden group"
 							>
 								<div className="overflow-hidden">
-									<div className="relative h-72 overflow-hidden">
+									<div className="relative h-100 overflow-hidden">
 										<motion.img
 											src={image}
 											alt={title}
 											className="h-full w-full object-cover"
+											style={
+												index === 0
+													? { objectPosition: 'center 63%' }
+													: index === 1
+														? { objectPosition: 'center 45%' }
+														: index === 2
+															? { objectPosition: 'center 27%' }
+															: undefined
+											}
 											whileHover={{ scale: 1.05 }}
 											transition={{ duration: 0.4 }}
 										/>
@@ -275,15 +306,40 @@ const FullHistorySection = () => {
 						>
 							<div className="flex items-center gap-3">
 								<ShieldCheckIcon className="h-8 w-8 text-lime-300" />
-								<div>
-									<p className="font-bold text-lg">{team.name}</p>
-									<p className="text-sm text-white/80">Fundador: {team.founder}</p>
+								<div className="flex-1">
+									<p className="font-bold text-xl">{team.name}</p>
+									<p className="text-base text-white/80">Fundador: {team.founder}</p>
 								</div>
+								{team.name === 'White Lyons RC' ? (
+									<div className="ml-auto h-[70px] w-[70px]">
+										<img src={WHITE_LIONS_LOGO} alt="Logo White Lyons" className="h-full w-full object-contain" />
+									</div>
+								) : team.name === 'Lycans' ? (
+									<div className="ml-auto h-[70px] w-[70px]">
+										<img src={LYCANS_LOGO} alt="Logo Lycans" className="h-full w-full object-contain" />
+									</div>
+								) : team.name === 'Guerreros' ? (
+									<div className="ml-auto h-[70px] w-[70px]">
+										<img src={GUERREROS_LOGO} alt="Logo Guerreros" className="h-full w-full object-contain" />
+									</div>
+								) : team.name === 'Spartans RC' ? (
+									<div className="ml-auto h-[70px] w-[70px]">
+										<img src={SPARTANS_LOGO} alt="Logo Spartans" className="h-full w-full object-contain" />
+									</div>
+								) : (
+									<div
+										className={`ml-auto flex h-[70px] w-[70px] items-center justify-center rounded-full bg-gradient-to-br shadow-inner text-base font-bold ${LEGACY_BADGES[index % LEGACY_BADGES.length]}`}
+									>
+										{getInitials(team.name)}
+									</div>
+								)}
 							</div>
 						</motion.div>
 					))}
 				</div>
 			</motion.article>
+
+			<HistoryGallery />
 
 			<motion.div
 				initial={{ opacity: 0, y: 20 }}
