@@ -9,6 +9,7 @@ vi.mock('framer-motion', () => ({
 		div: (props: ComponentProps<'div'>) => <div {...props} />,
 		button: (props: ComponentProps<'button'>) => <button {...props} />,
 		figure: (props: ComponentProps<'figure'>) => <figure {...props} />,
+		figcaption: (props: ComponentProps<'figcaption'>) => <figcaption {...props} />,
 		img: (props: ComponentProps<'img'>) => <img {...props} />,
 	},
 }));

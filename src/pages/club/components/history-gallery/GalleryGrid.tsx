@@ -19,7 +19,8 @@ const GalleryGrid = () => {
 						initial={{ opacity: 0, y: 12 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true }}
-						transition={{ delay: Math.min(idx * 0.05, 0.4) }}
+						transition={{ delay: Math.min(idx * 0.05, 0.4), duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
+						whileHover={{ y: -4, transition: { duration: 0.22, ease: 'easeOut' } }}
 						className="flex flex-col overflow-hidden rounded-2xl border border-primary-100 bg-primary-50/60 shadow-sm"
 					>
 						<button
