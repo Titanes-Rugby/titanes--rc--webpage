@@ -8,12 +8,12 @@ export type ClubSection = {
 };
 
 export type StaffMember = {
-  id: string;
-  name: string;
-  role: string;
-  imageSrc?: string;
-  birthDate?: string;
-  focus: string;
+	id: string;
+	name: string;
+	role: string;
+	imageSrc?: string;
+	birthDate?: string;
+	focus: string;
 };
 
 export type FacilityItem = {
@@ -24,4 +24,10 @@ export type FacilityItem = {
 	label?: string;
 	location?: string;
 	mapUrl?: string;
+};
+
+export type LegacyTeam = {
+	name: string;
+	founder: string;
+	logo?: string;
 };

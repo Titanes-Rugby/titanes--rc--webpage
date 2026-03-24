@@ -1,4 +1,5 @@
-﻿import {
+﻿import { useEffect, useRef, useState } from 'react';
+import {
 	BookOpenIcon,
 	FireIcon,
 	HeartIcon,
@@ -8,8 +9,10 @@
 } from '@heroicons/react/20/solid';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+
+import ClubLogoTimeline from './ClubLogoTimeline';
 import HistoryGallery from './HistoryGallery';
+import { LegacyTeam } from './LegacyTeam';
 
 const EVENTS = [
 	{
@@ -56,32 +59,36 @@ const EVENTS = [
 ];
 
 const LEGACY = [
-	{ name: 'White Lyons RC', founder: 'Norma Ortiz' },
-	{ name: 'Lycans', founder: 'Mayzu' },
-	{ name: 'Guerreros', founder: 'Manuel Valdivia' },
-	{ name: 'Spartans RC', founder: 'Comunidad' },
+	{ name: 'White Lyons RC', founder: 'Norma Ortiz', logo: '/images/background/WhiteLions.PNG' },
+	{ name: 'Lycans', founder: 'Mayzu', logo: '/images/background/Lycans.PNG' },
+	{ name: 'Guerreros', founder: 'Manuel Valdivia', logo: '/images/background/Guerreros.png' },
+	{
+		name: 'White Sharks',
+		founder: 'Manuel Valdivia',
+		logo: 'https://res.cloudinary.com/dur8qmwlg/image/upload/v1774321955/White-Sharks_z59prd.png',
+	},
+	{ name: 'Spartans RC', founder: 'Comunidad', logo: '/images/background/Spartans.PNG' },
+	{
+		name: 'Corsarios',
+		founder: 'Angel A. Singh',
+		logo: 'https://res.cloudinary.com/dur8qmwlg/image/upload/v1774321953/corsariosrc_ktjath.png',
+	},
+	{
+		name: 'Bucaneras',
+		founder: 'Oderay Hudson',
+		logo: 'https://res.cloudinary.com/dur8qmwlg/image/upload/v1774321954/bucaneras_mtuau2.png',
+	},
+	{
+		name: 'Baulas',
+		founder: 'Maximo',
+		logo: 'https://res.cloudinary.com/dur8qmwlg/image/upload/v1774321956/baulas_wv8gyv.png',
+	},
+	{
+		name: 'Toros',
+		founder: 'Jorge Medina (Moro)',
+		logo: 'https://res.cloudinary.com/dur8qmwlg/image/upload/v1774321956/toros1_iqqlhx.png',
+	},
 ];
-
-const LYCANS_LOGO = '/images/background/Lycans.PNG';
-const WHITE_LIONS_LOGO = '/images/background/WhiteLions.PNG';
-const GUERREROS_LOGO = '/images/background/Guerreros.png';
-const SPARTANS_LOGO = '/images/background/Spartans.PNG';
-
-const LEGACY_BADGES = [
-	'from-lime-100 via-green-100 to-emerald-100 text-primary-900',
-	'from-amber-100 via-orange-100 to-rose-100 text-primary-900',
-	'from-cyan-100 via-sky-100 to-indigo-100 text-primary-900',
-	'from-slate-100 via-zinc-100 to-stone-100 text-primary-900',
-];
-
-const getInitials = (name: string) =>
-	name
-		.split(' ')
-		.filter(Boolean)
-		.map((part) => part[0])
-		.join('')
-		.slice(0, 3)
-		.toUpperCase();
 
 const FullHistorySection = () => {
 	const containerRef = useRef<HTMLDivElement>(null);
@@ -295,51 +302,14 @@ const FullHistorySection = () => {
 				</p>
 				<div className="grid md:grid-cols-2 gap-4">
 					{LEGACY.map((team, index) => (
-						<motion.div
-							key={team.name}
-							initial={{ opacity: 0, x: -20 }}
-							whileInView={{ opacity: 1, x: 0 }}
-							viewport={{ once: true }}
-							transition={{ delay: index * 0.1 }}
-							whileHover={{ scale: 1.02, y: -2 }}
-							className="rounded-2xl bg-gradient-to-br from-primary-700 to-primary-600 p-5 text-white shadow-md border border-primary-500 cursor-pointer"
-						>
-							<div className="flex items-center gap-3">
-								<ShieldCheckIcon className="h-8 w-8 text-lime-300" />
-								<div className="flex-1">
-									<p className="font-bold text-xl">{team.name}</p>
-									<p className="text-base text-white/80">Fundador: {team.founder}</p>
-								</div>
-								{team.name === 'White Lyons RC' ? (
-									<div className="ml-auto h-[70px] w-[70px]">
-										<img src={WHITE_LIONS_LOGO} alt="Logo White Lyons" className="h-full w-full object-contain" />
-									</div>
-								) : team.name === 'Lycans' ? (
-									<div className="ml-auto h-[70px] w-[70px]">
-										<img src={LYCANS_LOGO} alt="Logo Lycans" className="h-full w-full object-contain" />
-									</div>
-								) : team.name === 'Guerreros' ? (
-									<div className="ml-auto h-[70px] w-[70px]">
-										<img src={GUERREROS_LOGO} alt="Logo Guerreros" className="h-full w-full object-contain" />
-									</div>
-								) : team.name === 'Spartans RC' ? (
-									<div className="ml-auto h-[70px] w-[70px]">
-										<img src={SPARTANS_LOGO} alt="Logo Spartans" className="h-full w-full object-contain" />
-									</div>
-								) : (
-									<div
-										className={`ml-auto flex h-[70px] w-[70px] items-center justify-center rounded-full bg-gradient-to-br shadow-inner text-base font-bold ${LEGACY_BADGES[index % LEGACY_BADGES.length]}`}
-									>
-										{getInitials(team.name)}
-									</div>
-								)}
-							</div>
-						</motion.div>
+						<LegacyTeam key={team.name} team={team} index={index} />
 					))}
 				</div>
 			</motion.article>
 
 			<HistoryGallery />
+
+			<ClubLogoTimeline />
 
 			<motion.div
 				initial={{ opacity: 0, y: 20 }}
