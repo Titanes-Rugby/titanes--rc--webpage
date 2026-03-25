@@ -25,10 +25,10 @@ export const mediaSections: MediaSection[] = [
 export const newsItems: NewsItem[] = [
 	{
 		id: 'n5',
-		title: 'Vaya jornada la del pasado domingo!',
+		title: 'Titanes gana en casa y asegura liderato',
 		date: '10 Mar 2026',
 		excerpt:
-			'Partidos intensos, grandes jugadas y mucha pasion en la cancha. Revive los mejores momentos de la fecha en nuestro perfil.',
+			'Triunfo clave para mantenerse primeros en la tabla. Revive los mejores momentos de la fecha en nuestro perfil.',
 		imageSrc:
 			'https://instagram.fpac1-1.fna.fbcdn.net/v/t51.82787-15/649103203_18174499351389035_4298290789997004965_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=Mzg0OTkxNTAxMDA5MzgyMjE1MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM1MC5zZHIuQzMifQ%3D%3D&_nc_ohc=TlEWUFncnfEQ7kNvwF-h6iJ&_nc_oc=AdoHzNhAj143qbkYJAatlVrn_N22p3QQFCGePKRZuEFzjUwO0VfhjtWjPRZ8KWJUngY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fpac1-1.fna&_nc_gid=gvTTBl9gzFYRr7nVImLnqw&_nc_ss=7a32e&oh=00_Afzwe80PwNaxuyhHey5S1x7oZRxD_S3Z5K2JCKuIOF70gg&oe=69CA1040',
 		imageLink: 'https://www.instagram.com/p/DVtsMMOlrjl/?img_index=1',
@@ -79,7 +79,7 @@ export const newsItems: NewsItem[] = [
 export const galleryItems: GalleryItem[] = [
 	{
 		id: 'g3',
-		title: 'Liga Nacional Fecha 2',
+		title: 'Sesion de contacto y defensa',
 		imageSrc:
 			'https://instagram.fpac1-4.fna.fbcdn.net/v/t51.82787-15/649228012_18174499369389035_7143376100682156561_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ig_cache_key=Mzg0OTkxNTAxMDExMDYwODU5Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM1MC5zZHIuQzMifQ%3D%3D&_nc_ohc=_82RiKA1qpgQ7kNvwEuKTdi&_nc_oc=AdpdPk7Gtn0vgMdwxYYo1DWy8oLLnKw25bI19mzvBclt5tlJ1iisW42zDHi4AKZxUE4&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fpac1-4.fna&_nc_gid=vd_UnZk473tSfvNbewhF3w&_nc_ss=7a32e&oh=00_AfyqfhkAsomA-_oq61XSZ9_Lw-yhjGAZ8TjAJVA103ArPA&oe=69CA1C84',
 		imageLink:

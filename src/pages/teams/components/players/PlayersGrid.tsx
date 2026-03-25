@@ -20,7 +20,7 @@ const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPa
   return (
     <div className="space-y-5">
       <p className="text-xs font-semibold tracking-[0.12em] text-primary-500 uppercase">
-        {filteredCount} jugadores encontrados
+        {filteredCount} players found
       </p>
       {players.length ? (
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -42,10 +42,10 @@ const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPa
                   </motion.div>
                   <div className="space-y-1 p-4">
                     <h3 className="text-lg font-semibold text-primary-900">{player.name}</h3>
-                    <p className="text-sm text-primary-600">Edad: {getAgeFromBirthDate(player.birthDate)}</p>
-                    <p className="text-xs font-semibold text-primary-500">Posición: {player.position}</p>
+                    <p className="text-sm text-primary-600">Age: {getAgeFromBirthDate(player.birthDate)}</p>
+                    <p className="text-xs font-semibold text-primary-500">Position · {player.position}</p>
                     <p className="text-xs font-semibold text-primary-500">
-                      Estatus: {(player.statuses ?? ['Jugador']).join(' / ')}
+                      Status: {(player.statuses ?? ['Player']).join(' / ')}
                     </p>
                   </div>
                 </button>
@@ -55,18 +55,18 @@ const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPa
         </div>
       ) : (
         <article className="rounded-2xl border border-primary-100 bg-white p-6 text-center text-sm text-primary-600">
-          No se encontraron jugadores con los filtros actuales.
+          No players found with the current filters.
         </article>
       )}
       <div className="flex items-center justify-center gap-2">
         <PagerButton disabled={page === 1} onClick={() => onPageChange(page - 1)}>
-          Anterior
+          Previous
         </PagerButton>
         <span className="px-2 text-xs font-semibold tracking-[0.12em] text-primary-600 uppercase">
-          Página {page} / {pages}
+          Page {page} / {pages}
         </span>
         <PagerButton disabled={page === pages} onClick={() => onPageChange(page + 1)}>
-          Siguiente
+          Next
         </PagerButton>
       </div>
     </div>

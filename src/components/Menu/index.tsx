@@ -110,7 +110,7 @@ const MENU_ENTRIES: MenuEntry[] = [
 			},
 		],
 	},
-	{ label: 'Partidos', href: '/fixture' },
+	{ label: 'Fixture', href: '/fixture' },
 	{ label: 'Patrocinadores', href: '/patrocinadores' },
 	{ label: 'Contacto', href: '/contacto' },
 ];

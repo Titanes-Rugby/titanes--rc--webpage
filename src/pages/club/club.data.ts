@@ -15,9 +15,9 @@ export const clubSections: ClubSection[] = [
 	},
 	{
 		id: 'staff-tecnico',
-		label: 'Personal Administrativo',
-		title: 'Personal Administrativo',
-		description: 'Equipo de trabajo que gestiona operaciones, logística y rendimiento global.',
+		label: 'Staff Tecnico',
+		title: 'Staff Tecnico',
+		description: 'Cuerpo técnico y administrativo que gestiona operaciones y rendimiento del club.',
 	},
 	{
 		id: 'instalaciones',
@@ -31,7 +31,7 @@ export const staffMembers: StaffMember[] = [
 	{
 		id: 's1',
 		name: 'Diego Alvarado',
-		role: 'Director Deportivo',
+		role: 'Team Manager',
 		birthDate: '1985-04-14',
 		imageSrc: '/images/players/player_1.png',
 		focus: 'Planificacion estrategica y relacion con liga y patrocinadores.',
@@ -65,7 +65,7 @@ export const staffMembers: StaffMember[] = [
 export const facilityItems: FacilityItem[] = [
 	{
 		id: 'f1',
-		title: 'Cancha de entrenamiento',
+		title: 'Cancha Principal',
 		label: 'Cancha UTP Sede Central',
 		location: 'Universidad Tecnologica de Panama, Sede Central',
 		imageSrc: 'https://utp.ac.pa/sites/default/files/cuadro_de_softbol_drone_mfn_1.jpg',

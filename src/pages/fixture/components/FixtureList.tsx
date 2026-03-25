@@ -59,7 +59,7 @@ const FixtureList = ({ items }: FixtureListProps) => {
               </div>
             ) : (
               <span className="rounded-full bg-accent-100 px-3 py-1 text-[11px] font-semibold tracking-[0.12em] text-accent-800 uppercase">
-                Próximamente
+                Upcoming
               </span>
             )}
           </div>

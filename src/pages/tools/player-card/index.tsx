@@ -23,7 +23,7 @@ const PlayerCardToolPage = () => {
         <div className="space-y-4">
           <PlayerCardBuilderToolbar presets={presets} shareStatus={shareStatus} onSelectPreset={onSelectPreset} onCopyShareLink={copyShareLink} />
           <article className="rounded-2xl border border-primary-100 bg-white p-5 shadow-sm">
-            <h2 className="text-sm font-semibold tracking-[0.12em] text-primary-600 uppercase">Datos del jugador</h2>
+            <h2 className="text-sm font-semibold tracking-[0.12em] text-primary-600 uppercase">Player Data</h2>
             <p className="mt-1 text-sm text-primary-700">Completa todos los campos para generar la tarjeta.</p>
             <div className="mt-4">
               <PlayerCardBuilderForm form={form} uploadError={uploadError} onImageFileChange={onImageFileChange} />

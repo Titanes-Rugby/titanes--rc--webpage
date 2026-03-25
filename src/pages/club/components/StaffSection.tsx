@@ -6,10 +6,8 @@ const StaffSection = () => {
 	return (
 		<section className="space-y-6">
 			<div className="max-w-3xl">
-				<h2 className="text-3xl font-bold text-primary-900">Personal Administrativo</h2>
-				<p className="mt-2 text-sm leading-relaxed text-primary-700">
-					Equipo profesional que gestiona operaciones, logistica, soporte y rendimiento integral del club.
-				</p>
+				<h2 className="text-3xl font-bold text-primary-900">Staff Tecnico</h2>
+				<p className="mt-2 text-sm leading-relaxed text-primary-700">Equipo profesional que gestiona operaciones, soporte y rendimiento integral del club.</p>
 			</div>
 			<div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
 				{staffMembers.map((member) => (

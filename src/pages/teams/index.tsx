@@ -2,11 +2,12 @@ import { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import CoachesPanel from './components/CoachesPanel';
+import FixturesPanel from './components/FixturesPanel';
 import PlayersPanel from './components/PlayersPanel';
 import StatsPanel from './components/StatsPanel';
 import TeamsHero from './components/TeamsHero';
 import TeamsTabs from './components/TeamsTabs';
-import { findTeamBySlug, teamProfiles } from './teams.data';
+import { findTeamBySlug } from './teams.data';
 import { isTeamTab } from './types';
 
 const TeamsPage = () => {
@@ -14,16 +15,7 @@ const TeamsPage = () => {
 	const team = useMemo(() => findTeamBySlug(slug), [slug]);
 	const activeTab = isTeamTab(tab) ? tab : 'players';
 	const tabBasePath = `/equipos/${team.slug}`;
-	const allPlayers = useMemo(
-		() =>
-			teamProfiles.flatMap((profile) =>
-				profile.players.map((player) => ({
-					...player,
-					team: player.team ?? profile.title,
-				}))
-			),
-		[]
-	);
+	const allPlayers = useMemo(() => team.players, [team]);
 
 	return (
 		<main className="bg-primary-50 min-h-screen">
@@ -35,6 +27,7 @@ const TeamsPage = () => {
 				{activeTab === 'players' ? <PlayersPanel players={allPlayers} /> : null}
 				{activeTab === 'coaches' ? <CoachesPanel coaches={team.coaches} /> : null}
 				{activeTab === 'stats' ? <StatsPanel stats={team.stats} /> : null}
+				{activeTab === 'fixtures' ? <FixturesPanel fixtures={team.fixtures ?? []} /> : null}
 
 				<article className="rounded-2xl bg-primary-800 p-7 text-white">
 					<p className="text-xs font-semibold tracking-[0.12em] text-primary-100 uppercase">Titanes Rugby Club</p>
@@ -55,3 +48,4 @@ const TeamsPage = () => {
 };
 
 export default TeamsPage;
+
