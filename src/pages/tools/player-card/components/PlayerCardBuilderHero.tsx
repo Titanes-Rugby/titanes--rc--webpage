@@ -1,9 +1,9 @@
-import { Hero } from '@components/ui';
+﻿import { Hero } from '@components/ui';
 
 const PlayerCardBuilderHero = () => {
   return (
     <Hero
-      eyebrow="Herramientas"
+      eyebrow="Tools"
       title="Creador de tarjetas de jugador"
       description="Completa los datos del jugador, previsualiza la tarjeta y expórtala como imagen para compartir."
       gradientClassName="bg-gradient-to-br from-secondary-700 via-secondary-800 to-primary-900"

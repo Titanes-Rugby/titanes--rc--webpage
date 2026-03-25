@@ -24,8 +24,26 @@ const FixtureFilters = ({ team, status, teamOptions, onTeamChange, onStatusChang
         </button>
       ))}
       <div className="ml-auto flex items-center gap-2">
-        <button type="button" onClick={() => onStatusChange('upcoming')} className={cn('rounded-full px-3 py-1.5 text-[11px] font-semibold tracking-[0.12em] uppercase', status === 'upcoming' ? 'bg-secondary-700 text-white' : 'text-secondary-700 hover:bg-secondary-100')}>Próximos</button>
-        <button type="button" onClick={() => onStatusChange('result')} className={cn('rounded-full px-3 py-1.5 text-[11px] font-semibold tracking-[0.12em] uppercase', status === 'result' ? 'bg-secondary-700 text-white' : 'text-secondary-700 hover:bg-secondary-100')}>Resultados</button>
+        <button
+          type="button"
+          onClick={() => onStatusChange('upcoming')}
+          className={cn(
+            'rounded-full px-3 py-1.5 text-[11px] font-semibold tracking-[0.12em] uppercase',
+            status === 'upcoming' ? 'bg-secondary-700 text-white' : 'text-secondary-700 hover:bg-secondary-100',
+          )}
+        >
+          Próximos
+        </button>
+        <button
+          type="button"
+          onClick={() => onStatusChange('result')}
+          className={cn(
+            'rounded-full px-3 py-1.5 text-[11px] font-semibold tracking-[0.12em] uppercase',
+            status === 'result' ? 'bg-secondary-700 text-white' : 'text-secondary-700 hover:bg-secondary-100',
+          )}
+        >
+          Resultados
+        </button>
       </div>
     </div>
   );

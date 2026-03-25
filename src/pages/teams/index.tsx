@@ -6,7 +6,7 @@ import PlayersPanel from './components/PlayersPanel';
 import StatsPanel from './components/StatsPanel';
 import TeamsHero from './components/TeamsHero';
 import TeamsTabs from './components/TeamsTabs';
-import { findTeamBySlug, teamProfiles } from './teams.data';
+import { findTeamBySlug } from './teams.data';
 import { isTeamTab } from './types';
 
 const TeamsPage = () => {
@@ -14,16 +14,7 @@ const TeamsPage = () => {
 	const team = useMemo(() => findTeamBySlug(slug), [slug]);
 	const activeTab = isTeamTab(tab) ? tab : 'players';
 	const tabBasePath = `/equipos/${team.slug}`;
-	const allPlayers = useMemo(
-		() =>
-			teamProfiles.flatMap((profile) =>
-				profile.players.map((player) => ({
-					...player,
-					team: player.team ?? profile.title,
-				}))
-			),
-		[]
-	);
+	const allPlayers = useMemo(() => team.players, [team]);
 
 	return (
 		<main className="bg-primary-50 min-h-screen">
@@ -55,3 +46,4 @@ const TeamsPage = () => {
 };
 
 export default TeamsPage;
+

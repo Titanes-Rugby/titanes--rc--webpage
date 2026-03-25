@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 
 import { getAgeFromBirthDate } from '@utils/date';
 
@@ -43,9 +43,9 @@ const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPa
                   <div className="space-y-1 p-4">
                     <h3 className="text-lg font-semibold text-primary-900">{player.name}</h3>
                     <p className="text-sm text-primary-600">Edad: {getAgeFromBirthDate(player.birthDate)}</p>
-                    <p className="text-xs font-semibold text-primary-500">Posición: {player.position}</p>
+                    <p className="text-xs font-semibold text-primary-500">Posición · {player.position}</p>
                     <p className="text-xs font-semibold text-primary-500">
-                      Estatus: {(player.statuses ?? ['Jugador']).join(' / ')}
+                      Estado: {(player.statuses ?? ['Player']).join(' / ')}
                     </p>
                   </div>
                 </button>

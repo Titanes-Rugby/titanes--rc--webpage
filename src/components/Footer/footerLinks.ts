@@ -21,7 +21,7 @@ export const footerSections: FooterSection[] = [
 		links: [
 			{ label: 'Sobre nosotros', href: '/club/quienes-somos' },
 			{ label: 'Nuestra historia', href: '/club/historia' },
-			{ label: 'Contacto y eventos', href: '/contacto' },
+			{ label: 'Eventos y agenda', href: '/contacto' },
 			{ label: 'Patrocinadores', href: '/patrocinadores' },
 		],
 	},
@@ -51,7 +51,7 @@ export const footerSections: FooterSection[] = [
 ];
 
 export const legalLinks: FooterLink[] = [
-	{ label: 'Contactanos', href: '/contacto' },
+	{ label: 'Escríbenos', href: '/contacto' },
 	{ label: 'Terminos y condiciones', href: '/contacto' },
 	{ label: 'Politica de privacidad', href: '/contacto' },
 	{ label: 'Declaracion de cobros', href: '/contacto' },

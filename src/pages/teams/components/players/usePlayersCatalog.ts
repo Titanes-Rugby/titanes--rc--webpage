@@ -4,15 +4,7 @@ import type { TeamPlayer } from '../../types';
 
 const PAGE_SIZE = 9;
 
-const FIXED_POSITIONS = [
-	'Pilar izquierdo',
-	'Pilar derecho',
-	'Hooker',
-	'Medio scrum',
-	'Apertura',
-	'Centro',
-	'Wing',
-];
+const FIXED_POSITIONS = ['Prop', 'Hooker', 'Scrum-half', 'Fly Half', 'Center', 'Wing', 'Fullback'];
 
 export const usePlayersCatalog = (players: TeamPlayer[]) => {
 	const [teamFilter, setTeamFilter] = useState('Todos los equipos');

@@ -1,27 +1,38 @@
+import type { SyntheticEvent } from 'react';
 import { WithBackground } from '@components/Parallax';
 
 import { newsItems } from '@/pages/media/media.data';
 
+const FALLBACK_IMAGE = '/images/background/1ra_fecha.png';
+
+const handleImageError = (event: SyntheticEvent<HTMLImageElement>) => {
+	const img = event.currentTarget;
+
+	if (img.dataset.fallbackApplied === 'true') return;
+
+	img.dataset.fallbackApplied = 'true';
+	img.src = FALLBACK_IMAGE;
+};
+
 const NewsSection = () => {
 	return (
-		<WithBackground
-			id="media"
-			backgroundClassName="bg-primary-900"
-			className="py-20"
-			overlayClassName="bg-transparent"
-		>
+		<WithBackground id="media" backgroundClassName="bg-primary-900" className="py-20" overlayClassName="bg-transparent">
 			<div className="mx-auto w-full max-w-6xl px-6">
 				<p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-200">Noticias</p>
 				<h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">Actualidad del club</h2>
 				<div className="mt-10 grid gap-5 md:grid-cols-3">
 					{newsItems.slice(0, 3).map((item) => (
-						<article key={item.id} className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+						<article
+							key={item.id}
+							className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+						>
 							{item.imageSrc ? (
-								<div className="h-36 w-full overflow-hidden">
+								<div className="h-60 w-full overflow-hidden">
 									<img
 										src={item.imageSrc}
 										alt={item.title}
-										className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+										className="h-full w-full object-cover object-center transition duration-300 group-hover:scale-105"
+										onError={handleImageError}
 									/>
 								</div>
 							) : null}

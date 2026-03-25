@@ -1,4 +1,4 @@
-import type { FixtureItem } from '../types';
+﻿import type { FixtureItem } from '../types';
 import TeamBadge from './TeamBadge';
 
 type FixtureListProps = {
