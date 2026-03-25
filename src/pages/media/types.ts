@@ -13,12 +13,15 @@ export type NewsItem = {
   date: string;
   excerpt: string;
   imageSrc: string;
+  imageLink?: string;
+  link?: string;
 };
 
 export type GalleryItem = {
   id: string;
   title: string;
   imageSrc: string;
+  imageLink?: string;
 };
 
 export type VideoItem = {
@@ -27,4 +30,5 @@ export type VideoItem = {
   duration: string;
   summary: string;
   imageSrc: string;
+  link?: string;
 };
