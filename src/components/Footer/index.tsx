@@ -5,16 +5,18 @@ import Logo from '@/components/ui/Logo';
 import { footerSections, legalLinks, socialLinks } from './footerLinks';
 
 type FooterLinkItemProps = {
-	label: string;
+	label?: string;
 	href: string;
 	className: string;
+	Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 };
 
-const FooterLinkItem = ({ label, href, className }: FooterLinkItemProps) => {
+const FooterLinkItem = ({ label, href, className, Icon }: FooterLinkItemProps) => {
 	if (href.startsWith('http')) {
 		return (
 			<a href={href} className={className} target="_blank" rel="noreferrer">
 				{label}
+				{Icon && <Icon className="size-6" />}
 			</a>
 		);
 	}
@@ -26,7 +28,7 @@ const FooterLinkItem = ({ label, href, className }: FooterLinkItemProps) => {
 	);
 };
 
-const LandingFooter = () => {
+const Footer = () => {
 	const currentYear = new Date().getFullYear();
 
 	return (
@@ -40,15 +42,18 @@ const LandingFooter = () => {
 						<p className="mt-6 max-w-xs text-sm text-white/90">
 							Titanes es parte orgullosa del rugby panameño y de nuestra comunidad.
 						</p>
-						<div className="mt-7 flex items-center gap-2.5">
-							{socialLinks.map((item) => (
-								<FooterLinkItem
-									key={item.label}
-									label={item.label}
-									href={item.href}
-									className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-xs font-bold uppercase tracking-[0.08em] text-white transition-colors hover:bg-white hover:text-primary-900"
-								/>
-							))}
+						<div className="mt-7 space-y-3">
+							<p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/80">Redes sociales</p>
+							<div className="flex flex-row gap-2">
+								{socialLinks.map((item) => (
+									<FooterLinkItem
+										key={item.label}
+										Icon={item.Icon}
+										href={item.href}
+										className="size-11 inline-flex items-center gap-2 rounded-full border border-white/30 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.08em] text-white transition-colors hover:bg-white hover:text-primary-900"
+									/>
+								))}
+							</div>
 						</div>
 					</div>
 
@@ -91,4 +96,4 @@ const LandingFooter = () => {
 	);
 };
 
-export default LandingFooter;
+export default Footer;

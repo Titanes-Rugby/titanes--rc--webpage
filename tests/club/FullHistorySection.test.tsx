@@ -18,6 +18,7 @@ vi.mock('framer-motion', async () => {
 
   return {
     motion,
+    AnimatePresence: ({ children }: { children: ReactNode }) => <>{children}</>,
     useScroll: () => ({ scrollYProgress: 0 }),
     useTransform: () => '50%',
   };
@@ -39,6 +40,9 @@ describe('<FullHistorySection />', () => {
     expect(screen.getByRole('heading', { name: /Titanes: Nuestra Herencia, nuestro legado/i, level: 2 })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /Linea de tiempo/i, level: 3 })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /Legado que se multiplica/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Evolucion de logos del club/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByText(/2006 - 2011/i)).toBeInTheDocument();
+    expect(screen.getByText(/2025 - Presente/i)).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /Universidad Tecnol.gica de Panam./i, level: 3 })).toBeInTheDocument();
     expect(screen.getByText(/Fundador:\s*Norma Ortiz/i)).toBeInTheDocument();
     expect(screen.getByText(/Fundador:\s*Comunidad/i)).toBeInTheDocument();
@@ -62,7 +66,7 @@ describe('<FullHistorySection />', () => {
     Object.defineProperty(cards[3], 'getBoundingClientRect', { value: () => ({ top: -100, height: 100 }) });
 
     fireEvent.scroll(window);
-    const secondTimelineButton = screen.getByRole('button', { name: /2007/i });
+    const secondTimelineButton = screen.getByRole('button', { name: /2007\s*Crecimiento y Expansi.n/i });
     expect(secondTimelineButton.className).toContain('border-lime-500');
 
     await user.click(screen.getByRole('button', { name: /2004-2005/i }));
@@ -78,5 +82,16 @@ describe('<FullHistorySection />', () => {
 
     unmount();
     expect(removeSpy).toHaveBeenCalledWith('scroll', expect.any(Function));
+  });
+
+  it('opens logo lightbox and closes it', async () => {
+    const user = userEvent.setup();
+    renderSection();
+
+    await user.click(screen.getByRole('button', { name: /Abrir logo:\s*2006 - 2011/i }));
+    expect(screen.getByRole('dialog', { name: /Logo 2006 - 2011/i })).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: /Cerrar visor de imagen/i }));
+    expect(screen.queryByRole('dialog', { name: /Logo 2006 - 2011/i })).not.toBeInTheDocument();
   });
 });

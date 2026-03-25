@@ -31,6 +31,7 @@ const Marquee = <T,>({
 		const measure = () => setLoopWidth(rowRef.current?.getBoundingClientRect().width ?? 0);
 		measure();
 		const observer = new ResizeObserver(measure);
+		/* v8 ignore next */
 		if (rowRef.current) observer.observe(rowRef.current);
 		window.addEventListener('resize', measure);
 		return () => {

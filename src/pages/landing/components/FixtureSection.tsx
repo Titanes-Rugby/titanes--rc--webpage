@@ -26,14 +26,20 @@ const MATCHES = [
 	},
 ];
 
-const FixtureSection = () => {
+type LandingMatch = (typeof MATCHES)[number];
+
+type FixtureSectionProps = {
+	matches?: LandingMatch[];
+};
+
+const FixtureSection = ({ matches = MATCHES }: FixtureSectionProps) => {
 	return (
 		<section id="fixture" className="bg-white py-20">
 			<div className="mx-auto w-full max-w-6xl px-6">
 				<p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-500">Calendario</p>
 				<h2 className="mt-3 text-3xl font-semibold text-primary-900 sm:text-4xl">Proximos partidos</h2>
 				<div className="mt-10 grid gap-5 md:grid-cols-3">
-					{MATCHES.map((match) => (
+					{matches.map((match) => (
 						<article
 							key={`${match.rival}-${match.date}`}
 							className="rounded-2xl border border-primary-100 bg-white/90 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
@@ -72,7 +78,7 @@ const FixtureSection = () => {
 
 type TeamBadgeProps = {
 	name: string;
-	logoSrc?: string;
+	logoSrc: string;
 	logoAfter?: boolean;
 };
 
@@ -92,20 +98,9 @@ const TeamBadge = ({ name, logoSrc, logoAfter }: TeamBadgeProps) => (
 	</div>
 );
 
-const LogoCircle = ({ logoSrc, name }: { logoSrc?: string; name: string }) => (
+const LogoCircle = ({ logoSrc, name }: { logoSrc: string; name: string }) => (
 	<span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-primary-100 bg-primary-50 p-1.5">
-		{logoSrc ? (
-			<img src={logoSrc} alt={`Logo ${name}`} className="h-full w-full object-contain" />
-		) : (
-			<span className="text-xs font-bold text-primary-700">
-				{name
-					.split(' ')
-					.filter(Boolean)
-					.slice(0, 2)
-					.map((part) => part[0]?.toUpperCase())
-					.join('')}
-			</span>
-		)}
+		<img src={logoSrc} alt={`Logo ${name}`} className="h-full w-full object-contain" />
 	</span>
 );
 

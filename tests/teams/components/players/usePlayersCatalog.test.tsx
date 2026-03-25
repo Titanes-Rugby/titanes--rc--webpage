@@ -20,7 +20,7 @@ describe('usePlayersCatalog', () => {
   it('builds filters, paginates and resets page on filter changes', () => {
     const { result } = renderHook(() => usePlayersCatalog(players));
 
-    expect(result.current.positions).toContain('All');
+    expect(result.current.positions).toContain('Todas');
     expect(result.current.positions).toContain('Wing');
     expect(result.current.pages).toBe(2);
     expect(result.current.page).toBe(1);
@@ -37,5 +37,26 @@ describe('usePlayersCatalog', () => {
     act(() => result.current.onChangePosition('Wing'));
     expect(result.current.page).toBe(1);
     expect(result.current.filteredCount).toBe(2);
+  });
+
+  it('clamps current page when filters shrink result pages', () => {
+    const playersWithTeams = players.map((player, index) => ({
+      ...player,
+      team: index < 9 ? 'Titanes' : 'Titanides',
+    }));
+    const { result } = renderHook(() => usePlayersCatalog(playersWithTeams));
+
+    act(() => result.current.setPage(2));
+    expect(result.current.page).toBe(2);
+
+    act(() => result.current.onChangeTeam('Titanes'));
+    expect(result.current.page).toBe(1);
+    expect(result.current.pages).toBe(1);
+
+    act(() => result.current.setPage(5));
+    expect(result.current.page).toBe(1);
+
+    act(() => result.current.onChangePosition('Hooker'));
+    expect(result.current.filteredCount).toBe(1);
   });
 });

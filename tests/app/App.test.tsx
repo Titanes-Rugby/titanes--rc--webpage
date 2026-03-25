@@ -8,7 +8,7 @@ describe('<App />', () => {
 		const { findByText, findByRole } = render(<App />);
 
 		const heroText = await findByText(/Rugby de alto nivel/i);
-		const fixtureCta = await findByRole('button', { name: /Ver Fixture/i });
+		const fixtureCta = await findByRole('button', { name: /Ver partidos/i });
 
 		expect(heroText).toBeTruthy();
 		expect(fixtureCta).toBeTruthy();
@@ -16,7 +16,7 @@ describe('<App />', () => {
 
 	it('renders a main navigation link to contacto', async () => {
 		const { findByRole } = render(<App />);
-		const contactoLink = await findByRole('link', { name: /Contacto/i });
+		const contactoLink = await findByRole('link', { name: /^Contacto$/i });
 
 		expect(contactoLink.getAttribute('href')).toBe('/contacto');
 	});

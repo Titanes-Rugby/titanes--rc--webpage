@@ -39,7 +39,7 @@ const basePlayer: PlayerCardData = {
 describe('<PlayerCard />', () => {
   it('renders player content including image when available', () => {
     render(<PlayerCard player={basePlayer} />);
-    expect(screen.getByText(/Position · Wing/i)).toBeInTheDocument();
+    expect(screen.getByText(/Posici.n · Wing/i)).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /Juan Perez/i })).toBeInTheDocument();
     expect(screen.getByRole('img', { name: 'Juan' })).toBeInTheDocument();
     expect(screen.getByText('14')).toBeInTheDocument();

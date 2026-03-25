@@ -16,8 +16,9 @@ describe('<ContactPage />', () => {
       'href',
       'https://wa.me/50760001122',
     );
-    expect(
-      screen.getByRole('link', { name: /Cancha Titanes, Ciudad de Panama/i }),
-    ).toHaveAttribute('href', 'https://maps.google.com/?q=Ciudad+de+Panama');
+    expect(screen.getByRole('link', { name: /Cancha Titanes, Ciudad de Panam/i })).toHaveAttribute(
+      'href',
+      'https://maps.google.com/?q=Ciudad+de+Panama',
+    );
   });
 });

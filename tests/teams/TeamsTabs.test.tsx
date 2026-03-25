@@ -12,21 +12,18 @@ describe('<TeamsTabs />', () => {
       </MemoryRouter>,
     );
 
-    expect(screen.getByRole('link', { name: /Players/i })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: /Jugadores/i })).toHaveAttribute(
       'href',
       '/equipos/primera-division/players',
     );
-    expect(screen.getByRole('link', { name: /Coaching Staff/i })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: /Personal Técnico/i })).toHaveAttribute(
       'href',
       '/equipos/primera-division/coaches',
     );
-    expect(screen.getByRole('link', { name: /Stats/i })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: /Estadísticas/i })).toHaveAttribute(
       'href',
       '/equipos/primera-division/stats',
     );
-    expect(screen.getByRole('link', { name: /Fixtures/i })).toHaveAttribute(
-      'href',
-      '/equipos/primera-division/fixtures',
-    );
+    expect(screen.queryByRole('link', { name: /Fixtures/i })).not.toBeInTheDocument();
   });
 });

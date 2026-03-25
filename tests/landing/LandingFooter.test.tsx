@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
 
-vi.mock('@/pages/landing/components/footerLinks', () => ({
+vi.mock('@/components/Footer/footerLinks', () => ({
   footerSections: [
     {
       title: 'About',
@@ -16,13 +16,13 @@ vi.mock('@/pages/landing/components/footerLinks', () => ({
   socialLinks: [{ label: 'X', href: '#' }],
 }));
 
-import LandingFooter from '@/pages/landing/components/LandingFooter';
+import Footer from '@/components/Footer';
 
-describe('<LandingFooter />', () => {
+describe('<Footer />', () => {
   it('renders external anchors and internal router links', () => {
     render(
       <MemoryRouter>
-        <LandingFooter />
+        <Footer />
       </MemoryRouter>,
     );
 

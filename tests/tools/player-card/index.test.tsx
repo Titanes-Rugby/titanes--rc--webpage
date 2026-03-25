@@ -35,6 +35,6 @@ describe('<PlayerCardToolPage />', () => {
     expect(screen.getByText('Mock Toolbar')).toBeInTheDocument();
     expect(screen.getByText('Mock Form')).toBeInTheDocument();
     expect(screen.getByText('Mock Preview')).toBeInTheDocument();
-    expect(screen.getByText(/Player Data/i)).toBeInTheDocument();
+    expect(screen.getByText(/Datos del jugador/i)).toBeInTheDocument();
   });
 });
