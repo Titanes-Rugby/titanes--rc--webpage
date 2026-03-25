@@ -15,9 +15,9 @@ export const clubSections: ClubSection[] = [
 	},
 	{
 		id: 'staff-tecnico',
-		label: 'Staff Tecnico',
-		title: 'Staff Tecnico',
-		description: 'Cuerpo técnico y administrativo que gestiona operaciones y rendimiento del club.',
+		label: 'Personal Administrativo',
+		title: 'Personal Administrativo',
+		description: 'Cuerpo directivo y personal administrativo que gestiona operaciones y rendimiento del club.',
 	},
 	{
 		id: 'instalaciones',
@@ -31,7 +31,7 @@ export const staffMembers: StaffMember[] = [
 	{
 		id: 's1',
 		name: 'Diego Alvarado',
-		role: 'Team Manager',
+		role: 'Director Deportivo',
 		birthDate: '1985-04-14',
 		imageSrc: '/images/players/player_1.png',
 		focus: 'Planificacion estrategica y relacion con liga y patrocinadores.',

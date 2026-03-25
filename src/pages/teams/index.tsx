@@ -2,7 +2,6 @@ import { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import CoachesPanel from './components/CoachesPanel';
-import FixturesPanel from './components/FixturesPanel';
 import PlayersPanel from './components/PlayersPanel';
 import StatsPanel from './components/StatsPanel';
 import TeamsHero from './components/TeamsHero';
@@ -27,7 +26,6 @@ const TeamsPage = () => {
 				{activeTab === 'players' ? <PlayersPanel players={allPlayers} /> : null}
 				{activeTab === 'coaches' ? <CoachesPanel coaches={team.coaches} /> : null}
 				{activeTab === 'stats' ? <StatsPanel stats={team.stats} /> : null}
-				{activeTab === 'fixtures' ? <FixturesPanel fixtures={team.fixtures ?? []} /> : null}
 
 				<article className="rounded-2xl bg-primary-800 p-7 text-white">
 					<p className="text-xs font-semibold tracking-[0.12em] text-primary-100 uppercase">Titanes Rugby Club</p>

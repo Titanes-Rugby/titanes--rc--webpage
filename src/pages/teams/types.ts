@@ -1,7 +1,7 @@
-export type TeamTab = 'players' | 'coaches' | 'stats' | 'fixtures';
+export type TeamTab = 'players' | 'coaches' | 'stats';
 
 export const isTeamTab = (value?: string): value is TeamTab => {
-  return value === 'players' || value === 'coaches' || value === 'stats' || value === 'fixtures';
+  return value === 'players' || value === 'coaches' || value === 'stats';
 };
 
 export type TeamPlayer = {

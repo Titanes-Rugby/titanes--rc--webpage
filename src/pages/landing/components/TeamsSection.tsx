@@ -33,7 +33,7 @@ const TeamsSection = () => {
 							Equipos
 						</p>
 						<h2 className="mt-3 text-3xl font-semibold text-primary-900 dark:text-primary-100 sm:text-4xl">
-							Categorias competitivas del club
+							Categorías competitivas del club
 						</h2>
 					</div>
 					<a

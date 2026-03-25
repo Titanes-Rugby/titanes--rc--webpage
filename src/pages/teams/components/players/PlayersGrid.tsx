@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 
 import { getAgeFromBirthDate } from '@utils/date';
 
@@ -20,7 +20,7 @@ const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPa
   return (
     <div className="space-y-5">
       <p className="text-xs font-semibold tracking-[0.12em] text-primary-500 uppercase">
-        {filteredCount} players found
+        {filteredCount} jugadores encontrados
       </p>
       {players.length ? (
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -42,10 +42,10 @@ const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPa
                   </motion.div>
                   <div className="space-y-1 p-4">
                     <h3 className="text-lg font-semibold text-primary-900">{player.name}</h3>
-                    <p className="text-sm text-primary-600">Age: {getAgeFromBirthDate(player.birthDate)}</p>
-                    <p className="text-xs font-semibold text-primary-500">Position · {player.position}</p>
+                    <p className="text-sm text-primary-600">Edad: {getAgeFromBirthDate(player.birthDate)}</p>
+                    <p className="text-xs font-semibold text-primary-500">Posición · {player.position}</p>
                     <p className="text-xs font-semibold text-primary-500">
-                      Status: {(player.statuses ?? ['Player']).join(' / ')}
+                      Estado: {(player.statuses ?? ['Player']).join(' / ')}
                     </p>
                   </div>
                 </button>
@@ -55,18 +55,18 @@ const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPa
         </div>
       ) : (
         <article className="rounded-2xl border border-primary-100 bg-white p-6 text-center text-sm text-primary-600">
-          No players found with the current filters.
+          No se encontraron jugadores con los filtros actuales.
         </article>
       )}
       <div className="flex items-center justify-center gap-2">
         <PagerButton disabled={page === 1} onClick={() => onPageChange(page - 1)}>
-          Previous
+          Anterior
         </PagerButton>
         <span className="px-2 text-xs font-semibold tracking-[0.12em] text-primary-600 uppercase">
-          Page {page} / {pages}
+          Página {page} / {pages}
         </span>
         <PagerButton disabled={page === pages} onClick={() => onPageChange(page + 1)}>
-          Next
+          Siguiente
         </PagerButton>
       </div>
     </div>

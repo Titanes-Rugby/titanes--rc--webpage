@@ -7,20 +7,20 @@ const PAGE_SIZE = 9;
 const FIXED_POSITIONS = ['Prop', 'Hooker', 'Scrum-half', 'Fly Half', 'Center', 'Wing', 'Fullback'];
 
 export const usePlayersCatalog = (players: TeamPlayer[]) => {
-	const [teamFilter, setTeamFilter] = useState('All teams');
-	const [positionFilter, setPositionFilter] = useState('All');
+	const [teamFilter, setTeamFilter] = useState('Todos los equipos');
+	const [positionFilter, setPositionFilter] = useState('Todas');
 	const [query, setQuery] = useState('');
 	const [page, setPage] = useState(1);
 
-	const teams = useMemo(() => ['All teams', ...new Set(players.map((player) => player.team ?? ''))], [players]);
-	const positions = useMemo(() => ['All', ...FIXED_POSITIONS], []);
+	const teams = useMemo(() => ['Todos los equipos', ...new Set(players.map((player) => player.team ?? ''))], [players]);
+	const positions = useMemo(() => ['Todas', ...FIXED_POSITIONS], []);
 
 	const filteredPlayers = useMemo(() => {
 		const normalizedQuery = query.trim().toLowerCase();
 
 		return players.filter((player) => {
-			const inTeam = teamFilter === 'All teams' || player.team === teamFilter;
-			const inPosition = positionFilter === 'All' || player.position === positionFilter;
+			const inTeam = teamFilter === 'Todos los equipos' || player.team === teamFilter;
+			const inPosition = positionFilter === 'Todas' || player.position === positionFilter;
 			if (!normalizedQuery) return inTeam && inPosition;
 
 			const content = `${player.name} ${player.position} ${player.number}`.toLowerCase();

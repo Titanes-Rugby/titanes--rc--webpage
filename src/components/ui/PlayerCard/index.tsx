@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { Shield } from 'lucide-react';
 
 import AnimatedTiltCard from '@ui/AnimatedTiltCard';
@@ -54,7 +54,7 @@ const PlayerCard = ({ player }: PlayerCardProps) => {
 						<div className="min-w-0 space-y-6 p-6 pt-10 text-white sm:space-y-8 sm:p-8 sm:pt-12">
 							<header className="space-y-4">
 								<p className="text-sm font-medium tracking-[0.18em] text-white/90 uppercase sm:text-base">
-									Position · {player.position}
+									Posición · {player.position}
 								</p>
 								<h3 className="line-clamp-2 text-4xl leading-[0.92] font-black tracking-tight uppercase sm:text-5xl 2xl:text-6xl">
 									{player.name} {player.nickname}

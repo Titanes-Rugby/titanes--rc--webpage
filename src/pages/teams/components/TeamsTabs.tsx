@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 import type { TeamTab } from '../types';
 
 const tabs: { id: TeamTab; label: string }[] = [
-  { id: 'players', label: 'Players' },
-  { id: 'coaches', label: 'Coaching Staff' },
-  { id: 'stats', label: 'Stats' },
-  { id: 'fixtures', label: 'Fixtures' },
+  { id: 'players', label: 'Jugadores' },
+  { id: 'coaches', label: 'Personal Técnico' },
+  { id: 'stats', label: 'Estadísticas' },
 ];
 
 type TeamsTabsProps = {

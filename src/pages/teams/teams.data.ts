@@ -1,6 +1,6 @@
-import type { TeamProfile } from './types';
+﻿import type { TeamProfile } from './types';
 
-const basePlayers = [
+const basePlayersSeed = [
 	{
 		id: 'p1',
 		name: 'Christhoval Barba',
@@ -76,7 +76,7 @@ const basePlayers = [
 		age: '23',
 		height: '6\'0\"',
 		weight: '85 KG',
-		bio: 'Cobertura aÃ©rea y contraataque desde el fondo.',
+		bio: 'Cobertura aÃƒÂ©rea y contraataque desde el fondo.',
 	},
 	{
 		id: 'p8',
@@ -87,7 +87,7 @@ const basePlayers = [
 		age: '27',
 		height: '6\'0\"',
 		weight: '92 KG',
-		bio: 'Defensa solida y lÃ­neas de carrera agresivas.',
+		bio: 'Defensa solida y lÃƒÂ­neas de carrera agresivas.',
 	},
 	{
 		id: 'p9',
@@ -98,8 +98,18 @@ const basePlayers = [
 		age: '24',
 		height: '5\'8\"',
 		weight: '79 KG',
-		bio: 'Ritmo rÃ¡pido de salidas y comunicaciÃ³n constante.',
+		bio: 'Ritmo rÃƒÂ¡pido de salidas y comunicaciÃƒÂ³n constante.',
 	},
+];
+
+const basePlayers = [
+	...basePlayersSeed,
+	...basePlayersSeed.map((player, index) => ({
+		...player,
+		id: `${player.id}-alt`,
+		name: `${player.name} Jr.`,
+		number: player.number ?? `${index + 10}`,
+	})),
 ];
 
 const coaches = [
@@ -142,7 +152,7 @@ export const teamProfiles: TeamProfile[] = [
 		fixtures,
 		stats: [
 			{ id: 's1', label: 'Tries', value: '31', change: '+14%' },
-			{ id: 's2', label: 'Tackle Success', value: '89%', change: '+3.2%' },
+			{ id: 's2', label: 'Éxito en tackles', value: '89%', change: '+3.2%' },
 			{ id: 's3', label: 'Possession', value: '56%', change: '+2.1%' },
 			{ id: 's4', label: 'Penalties', value: '9.2', change: '-1.8' },
 		],
@@ -160,7 +170,7 @@ export const teamProfiles: TeamProfile[] = [
 		fixtures,
 		stats: [
 			{ id: 's1', label: 'Tries', value: '29', change: '+16%' },
-			{ id: 's2', label: 'Tackle Success', value: '91%', change: '+4.1%' },
+			{ id: 's2', label: 'Éxito en tackles', value: '91%', change: '+4.1%' },
 			{ id: 's3', label: 'Possession', value: '58%', change: '+2.8%' },
 			{ id: 's4', label: 'Penalties', value: '8.4', change: '-2.2' },
 		],
@@ -177,7 +187,7 @@ export const teamProfiles: TeamProfile[] = [
 		fixtures,
 		stats: [
 			{ id: 's1', label: 'Tries', value: '24', change: '+9%' },
-			{ id: 's2', label: 'Tackle Success', value: '84%', change: '+2.6%' },
+			{ id: 's2', label: 'Éxito en tackles', value: '84%', change: '+2.6%' },
 			{ id: 's3', label: 'Possession', value: '52%', change: '+1.4%' },
 			{ id: 's4', label: 'Penalties', value: '11.1', change: '-1.1' },
 		],

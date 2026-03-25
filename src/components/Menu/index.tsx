@@ -110,7 +110,7 @@ const MENU_ENTRIES: MenuEntry[] = [
 			},
 		],
 	},
-	{ label: 'Fixture', href: '/fixture' },
+	{ label: 'Partidos', href: '/fixture' },
 	{ label: 'Patrocinadores', href: '/patrocinadores' },
 	{ label: 'Contacto', href: '/contacto' },
 ];
@@ -120,7 +120,7 @@ const menuIconByLabel: Record<string, IconComponent> = {
 	Equipos: UserGroupIcon,
 	Media: SparklesIcon,
 	Tools: WrenchScrewdriverIcon,
-	Fixture: CalendarDaysIcon,
+	Partidos: CalendarDaysIcon,
 	Patrocinadores: BuildingOffice2Icon,
 	Contacto: PhoneIcon,
 	Historia: BookOpenIcon,
