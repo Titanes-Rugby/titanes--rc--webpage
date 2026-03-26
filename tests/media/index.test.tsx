@@ -26,7 +26,7 @@ describe('<MediaPage />', () => {
     renderMediaRoute('/media/galeria');
 
     expect(screen.getByRole('heading', { name: /Galeria Oficial/i })).toBeInTheDocument();
-    expect(screen.getByText(/Sesion de contacto y defensa/i)).toBeInTheDocument();
+    expect(screen.getByText(/Liga Nacinal Fecha 2/i)).toBeInTheDocument();
   });
 
   it('renders videos section from route param', () => {

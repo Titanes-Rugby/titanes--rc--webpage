@@ -21,7 +21,7 @@ describe('menu static modules', () => {
     );
 
     expect(screen.getByText('Titanes Rugby Club')).toBeInTheDocument();
-    expect(screen.getByRole('link')).toHaveAttribute('href', '#');
+    expect(screen.getByRole('link')).toHaveAttribute('href', '/');
   });
 
   it('exports menu entries and animation variants with expected keys', () => {

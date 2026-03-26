@@ -12,9 +12,13 @@ describe('<ContactPage />', () => {
       'href',
       'mailto:contacto@titanesrugbyclub.com',
     );
-    expect(screen.getByRole('link', { name: /\+507 6000-1122/i })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: /\+507 6876-4902/i })).toHaveAttribute(
       'href',
-      'https://wa.me/50760001122',
+      'https://wa.me/50768764902',
+    );
+    expect(screen.getByRole('link', { name: /\+507 6282-6933/i })).toHaveAttribute(
+      'href',
+      'https://wa.me/50762826933',
     );
     expect(screen.getByRole('link', { name: /Cancha Titanes, Ciudad de Panam/i })).toHaveAttribute(
       'href',

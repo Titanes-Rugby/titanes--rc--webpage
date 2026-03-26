@@ -62,5 +62,4 @@ export const socialLinks: FooterSocialLink[] = [
 	{ label: 'Instagram', href: 'https://www.instagram.com/titanesrc', Icon: SiInstagram },
 	{ label: 'TikTok', href: 'https://www.tiktok.com/@titanes_rugbyclub', Icon: SiTiktok },
 	{ label: 'Facebook', href: 'https://www.facebook.com/groups/126799640713388', Icon: SiFacebook },
-	{ label: 'YouTube', href: 'https://www.youtube.com/@titanesrugby', Icon: SiYoutube },
 ];
