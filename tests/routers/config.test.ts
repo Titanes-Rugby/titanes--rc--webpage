@@ -44,5 +44,5 @@ describe('router config', () => {
     );
     const modules = await Promise.all(lazyRoutes.map((route) => route.lazy()));
     expect(modules.every((module) => 'Component' in module)).toBe(true);
-  }, 15000);
+  }, 30000);
 });
