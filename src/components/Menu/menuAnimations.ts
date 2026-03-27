@@ -39,7 +39,7 @@ export const panelVariants = {
 	visible: {
 		x: 0,
 		opacity: 1,
-		transition: { type: 'spring', stiffness: 260, damping: 28 },
+		transition: { type: 'spring' as const, stiffness: 260, damping: 28 },
 	},
 	exit: { x: '100%', opacity: 0.9, transition: { duration: 0.2 } },
 };

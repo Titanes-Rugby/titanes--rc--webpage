@@ -5,32 +5,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 import Logo from '@ui/Logo';
+import { mobileGroupVariants, mobileItemVariants, overlayVariants, panelVariants } from './menuAnimations';
 import { Bars3Icon, ChevronDownIcon, MENU_ENTRIES, getMenuIcon } from './menuConfig';
-
-const overlayVariants = {
-	hidden: { opacity: 0 },
-	visible: { opacity: 1 },
-};
-
-const panelVariants = {
-	hidden: { x: '100%', opacity: 0.9 },
-	visible: {
-		x: 0,
-		opacity: 1,
-		transition: { type: 'spring', stiffness: 260, damping: 28 },
-	},
-	exit: { x: '100%', opacity: 0.9, transition: { duration: 0.2 } },
-};
-
-const mobileGroupVariants = {
-	hidden: {},
-	visible: { transition: { staggerChildren: 0.05, delayChildren: 0.08 } },
-};
-
-const mobileItemVariants = {
-	hidden: { opacity: 0, y: 8 },
-	visible: { opacity: 1, y: 0 },
-};
 
 type MobileMenuProps = {
 	mobileMenuOpen: boolean;
@@ -97,7 +73,11 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 								const isExpanded = expandedSection === entry.label;
 
 								return (
-									<motion.div key={entry.label} className="rounded-xl border border-primary-100" variants={mobileItemVariants}>
+									<motion.div
+										key={entry.label}
+										className="rounded-xl border border-primary-100"
+										variants={mobileItemVariants}
+									>
 										<button
 											type="button"
 											className="flex w-full items-center justify-between border-0 bg-transparent px-4 py-3 text-left text-sm font-semibold uppercase tracking-[0.12em] text-primary-900"

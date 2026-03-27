@@ -12,7 +12,7 @@ type GalleryLightboxProps = {
 };
 
 const springTransition = {
-	type: 'spring',
+	type: 'spring' as const,
 	stiffness: 240,
 	damping: 28,
 	mass: 0.85,

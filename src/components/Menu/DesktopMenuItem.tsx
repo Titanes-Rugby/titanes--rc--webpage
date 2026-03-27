@@ -23,11 +23,11 @@ type DesktopMenuItemProps = {
 
 const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProps) => {
 	const EntryIcon = getMenuIcon(entry.label);
-	const closeTimeoutRef = useRef<ReturnType<typeof window.setTimeout> | null>(null);
+	const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
 	const clearCloseTimeout = () => {
 		if (closeTimeoutRef.current === null) return;
-		window.clearTimeout(closeTimeoutRef.current);
+		clearTimeout(closeTimeoutRef.current);
 		closeTimeoutRef.current = null;
 	};
 
@@ -40,7 +40,7 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 
 	const handleCloseWithDelay = () => {
 		clearCloseTimeout();
-		closeTimeoutRef.current = window.setTimeout(() => {
+		closeTimeoutRef.current = setTimeout(() => {
 			closeTimeoutRef.current = null;
 			runClose();
 		}, 220);
