@@ -1,6 +1,10 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
 import { cn } from '@/utils/cn';
+import { toBackgroundUrl } from './backgroundUrl';
+export type { ParallaxSlide } from './ParallaxSlideshow';
+export { default as ParallaxSlideshow } from './ParallaxSlideshow';
+export { useParallaxSlideshow } from './useParallaxSlideshow';
 
 interface ParallaxProps extends ComponentPropsWithoutRef<'section'> {
 	backgroundImage: string;
@@ -16,9 +20,6 @@ interface WithBackgroundProps extends ComponentPropsWithoutRef<'section'> {
 	contentClassName?: string;
 	overlayClassName?: string;
 }
-
-const toBackgroundUrl = (value: string) =>
-	value.startsWith('url(') ? value : `url(${value.startsWith('/') ? value : `/${value}`})`;
 
 const Parallax = ({
 	children,

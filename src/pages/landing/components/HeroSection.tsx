@@ -1,14 +1,15 @@
 import CountUpStat from '@components/CountUpStat';
+import { ParallaxSlideshow } from '@components/Parallax';
 import { Button } from '@components/ui';
 import { useNavigate } from 'react-router-dom';
 
-import Parallax from '@components/Parallax';
+import { HERO_PARALLAX_SLIDES } from './heroParallaxSlides';
 
 const HeroSection = () => {
 	const navigate = useNavigate();
 
 	return (
-		<Parallax backgroundImage="images/background/J2_RUGBY-10.jpg">
+		<ParallaxSlideshow slides={HERO_PARALLAX_SLIDES} intervalMs={6200} transitionMs={900}>
 			<section className="mx-auto w-full max-w-6xl px-6 pt-20 md:pt-28">
 				<div className="rounded-2xl border border-white/20 bg-black/25 p-6 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.8)] backdrop-blur-sm md:p-9">
 					<p className="mb-5 inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-primary-100">
@@ -37,7 +38,7 @@ const HeroSection = () => {
 					</div>
 				</div>
 			</section>
-		</Parallax>
+		</ParallaxSlideshow>
 	);
 };
 

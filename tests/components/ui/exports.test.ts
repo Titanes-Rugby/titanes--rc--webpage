@@ -9,6 +9,8 @@ describe('ui barrel exports', () => {
     expect(ui.Blockquote).toBeDefined();
     expect(ui.Loader).toBeDefined();
     expect(ui.UiPreview).toBeDefined();
+    expect(ui.MasonryLayout).toBeDefined();
+    expect(ui.MasonryGallery).toBeDefined();
     expect(showcase.UiPreview).toBe(ui.UiPreview);
   });
 });

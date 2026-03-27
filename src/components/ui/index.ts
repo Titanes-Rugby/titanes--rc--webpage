@@ -9,3 +9,6 @@ export { default as PlayerPortrait } from './PlayerPortrait';
 export { default as ScrollToTopFab } from './ScrollToTopFab';
 export { default as Hero } from './Hero';
 export { UiPreview } from './Showcase';
+export { default as MasonryLayout } from './MasonryLayout';
+export { default as MasonryGallery } from './MasonryGallery';
+export type { MasonryGalleryItem } from './MasonryGallery';

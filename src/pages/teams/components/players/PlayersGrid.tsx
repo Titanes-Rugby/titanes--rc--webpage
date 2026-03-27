@@ -42,6 +42,11 @@ const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPa
                   </motion.div>
                   <div className="space-y-1 p-4">
                     <h3 className="text-lg font-semibold text-primary-900">{player.name}</h3>
+                    {player.nationalCaps ? (
+                      <p className="inline-flex items-center rounded-full bg-primary-900 px-2.5 py-1 text-[11px] font-semibold tracking-[0.08em] text-white uppercase">
+                        Selección nacional · {player.nationalCaps} CAP
+                      </p>
+                    ) : null}
                     <p className="text-sm text-primary-600">Edad: {getAgeFromBirthDate(player.birthDate)}</p>
                     <p className="text-xs font-semibold text-primary-500">Posición · {player.position}</p>
                     <p className="text-xs font-semibold text-primary-500">

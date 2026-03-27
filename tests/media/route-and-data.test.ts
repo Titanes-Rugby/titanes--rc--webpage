@@ -4,6 +4,7 @@ import { Component, ErrorBoundary } from '@/pages/media/route';
 import MediaPage from '@/pages/media';
 import RouteErrorBoundary from '@/routers/components/RouteErrorBoundary';
 import { getMediaSection, isMediaSection } from '@/pages/media/media.data';
+import { galleryItems } from '@/pages/media/galleryItems.data';
 
 describe('media route and data', () => {
   it('exports media route component and shared error boundary', () => {
@@ -20,5 +21,10 @@ describe('media route and data', () => {
     expect(getMediaSection('galeria').title).toBe('Galeria Oficial');
     expect(getMediaSection('videos').description).toMatch(/contenido audiovisual/i);
     expect(getMediaSection('unknown' as any).id).toBe('noticias');
+  });
+
+  it('keeps gallery data amount inside expected masonry limits', () => {
+    expect(galleryItems.length).toBeGreaterThanOrEqual(10);
+    expect(galleryItems.length).toBeLessThanOrEqual(30);
   });
 });

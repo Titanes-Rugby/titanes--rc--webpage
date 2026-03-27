@@ -33,6 +33,8 @@ describe('<PlayerQuickView />', () => {
           number: '10',
           imageSrc: '/p.png',
           statuses: ['Capitan', 'Jugador'],
+          nationalCaps: 27,
+          bio: 'Conductor tactico del equipo y gran vision de juego.',
         }}
       />,
     );
@@ -42,6 +44,9 @@ describe('<PlayerQuickView />', () => {
     expect(screen.getByText(/Fly Half/i)).toBeInTheDocument();
     expect(screen.getByText(/Estatus/i)).toBeInTheDocument();
     expect(screen.getByText(/Capitan \/ Jugador/i)).toBeInTheDocument();
+    expect(screen.getByText(/Seleccion nacional · 27 CAP/i)).toBeInTheDocument();
+    expect(screen.getByText(/Conductor tactico del equipo y gran vision de juego/i)).toBeInTheDocument();
+    expect(screen.getByAltText(/Carlos Ruiz/i).parentElement).toHaveClass('w-full');
     expect(screen.getAllByText('--')).toHaveLength(5);
 
     const closeButtons = screen.getAllByRole('button');

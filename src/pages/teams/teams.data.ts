@@ -10,6 +10,7 @@ const basePlayersSeed = [
 		age: '31',
 		height: '6\'1"',
 		weight: '102 KG',
+		nationalCaps: 27,
 		bio: 'Lider del lineout, fuerte en el contacto y lectura defensiva.',
 	},
 	{
@@ -104,11 +105,11 @@ const basePlayersSeed = [
 
 const basePlayers = [
 	...basePlayersSeed,
-	...basePlayersSeed.map((player, index) => ({
+	...basePlayersSeed.map((player) => ({
 		...player,
 		id: `${player.id}-alt`,
 		name: `${player.name} Jr.`,
-		number: player.number ?? `${index + 10}`,
+		number: player.number,
 	})),
 ];
 

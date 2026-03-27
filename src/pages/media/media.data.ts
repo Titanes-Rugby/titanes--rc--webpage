@@ -1,4 +1,5 @@
-import type { GalleryItem, MediaSection, MediaSectionId, NewsItem, VideoItem } from './types';
+import type { MediaSection, MediaSectionId, NewsItem, VideoItem } from './types';
+import { galleryItems } from './galleryItems.data';
 
 export const mediaSections: MediaSection[] = [
 	{
@@ -73,32 +74,6 @@ export const newsItems: NewsItem[] = [
 		imageSrc:
 			'https://instagram.fpac1-4.fna.fbcdn.net/v/t51.82787-15/607368965_18547725640002934_4102471504522400930_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=Mzc5Njk1NzE1ODA3Njk1OTAwMDE4NTQ3NzI1NjM0MDAyOTM0.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjYzMHgxMTIwLnNkci5DMyJ9&_nc_ohc=t3C7q6SJAKYQ7kNvwGm5PvF&_nc_oc=Adriys_RO1kv8ZPx3amu3EIznNRkTydA07WqAiZyhiWe4nxEfUKYJz2gL8QLNx6nSDI&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fpac1-4.fna&_nc_gid=BZujJ8kCyHBq56Zc1x5ORQ&_nc_ss=7a32e&oh=00_AfwS4EZjummVb3KMWDZtTk936-ui2nJTYZHhmKbK-Ycyyg&oe=69CA083D',
 		imageLink: 'https://www.instagram.com/p/DSxgGsKjckY/',
-	},
-];
-
-export const galleryItems: GalleryItem[] = [
-	{
-		id: 'g3',
-		title: 'Liga Nacinal Fecha 2',
-		imageSrc:
-			'https://instagram.fpac1-4.fna.fbcdn.net/v/t51.82787-15/649228012_18174499369389035_7143376100682156561_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ig_cache_key=Mzg0OTkxNTAxMDExMDYwODU5Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM1MC5zZHIuQzMifQ%3D%3D&_nc_ohc=_82RiKA1qpgQ7kNvwEuKTdi&_nc_oc=AdpdPk7Gtn0vgMdwxYYo1DWy8oLLnKw25bI19mzvBclt5tlJ1iisW42zDHi4AKZxUE4&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fpac1-4.fna&_nc_gid=vd_UnZk473tSfvNbewhF3w&_nc_ss=7a32e&oh=00_AfyqfhkAsomA-_oq61XSZ9_Lw-yhjGAZ8TjAJVA103ArPA&oe=69CA1C84',
-		imageLink:
-			'https://photos.google.com/share/AF1QipMbySL11bwEJj3IPQFBgFkSBRXoVfiXQjitqXoQ5cCMc8RKnpAY6Y_I5XrpfgLutw?key=T0lCeVpUZ21OTC1hZ1FCOXI3UVpGbTRPZFN4Vk9B',
-	},
-	{
-		id: 'g2',
-		title: 'Copa Proceres 2026',
-		imageSrc:
-			'https://instagram.fpac1-3.fna.fbcdn.net/v/t51.82787-15/642789377_18567526819002934_7334629374937946784_n.jpg?stp=dst-jpg_e35_p1080x1080_tt6&_nc_cat=106&ig_cache_key=Mzg0NjM2NjI0OTM1NzQ0MzE1NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkyMC5zZHIuQzMifQ%3D%3D&_nc_ohc=gkHm65fA5M0Q7kNvwHmsERM&_nc_oc=AdoAmpvdENvEvGuEQGg1T37njIFbTcBIZ2jvLq1KheAqwVk4vAxHZmyAnp1PntXFzMc&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fpac1-3.fna&_nc_gid=Xl3N8mWRL2PUuG6Zj_QDlg&_nc_ss=7a32e&oh=00_Afy2E8ghzw8lhWCzTpuDUgkwxW6N3bx-Ga54YdQNrn4I7A&oe=69CA1861',
-		imageLink: 'https://drive.google.com/drive/u/2/folders/1wXXwYj6qCZbJn_CXRmBj3F4utK75ifeA',
-	},
-	{
-		id: 'g1',
-		title: 'Liga Nacional Fecha 1',
-		imageSrc:
-			'https://instagram.fpac1-4.fna.fbcdn.net/v/t51.82787-15/632565220_18171757546389035_2221504537401221302_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&ig_cache_key=MzgzMDA4MDQxODYxMjM2Mzk1NA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM1MC5zZHIuQzMifQ%3D%3D&_nc_ohc=uBeggX_n6RIQ7kNvwH-h83p&_nc_oc=AdpDhk9GxUq2vy8BOTiil3QuEGPPKNwr2yqbbRsLr8pqzDL04wOfmx5h_qSPvwLWa-g&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fpac1-4.fna&_nc_gid=_YtNFzNLnctUGM07k2Fgmg&_nc_ss=7a32e&oh=00_Afz89IFwCFwE_d2K5sZrr-dUxNEFSkGk0tbXUj09-89cmg&oe=69CA15DA',
-		imageLink:
-			'https://photos.google.com/share/AF1QipMsond277w_UuJdOm3oKemVDP4K_Ni5XdWoSRLoGe6iORNECtj_NZDPTZpw7-83JA?key=SEVvMnJXZVVFUEsxUl9lVVZRVHRhUmVSTGd3b3ZR',
 	},
 ];
 

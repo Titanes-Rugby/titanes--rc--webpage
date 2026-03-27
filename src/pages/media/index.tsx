@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { galleryItems, getMediaSection, isMediaSection, newsItems, videoItems } from './media.data';
+import { getMediaSection, isMediaSection, newsItems, videoItems } from './media.data';
+import { galleryItems } from './galleryItems.data';
 import GalleryPanel from './components/GalleryPanel';
 import MediaHero from './components/MediaHero';
 import MediaTabs from './components/MediaTabs';

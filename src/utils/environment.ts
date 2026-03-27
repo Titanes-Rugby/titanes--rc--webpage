@@ -7,7 +7,7 @@ function getEnvironment(): 'production' | 'staging' | 'dev' | 'local' {
   if (hostname.includes('staging')) {
     return 'staging';
   }
-  if (hostname.includes('localhost') || hostname.includes('127.0.0.1')) {
+  if (/(localhost|127\.0\.0\.1)/.test(hostname)) {
     return 'local';
   }
 

@@ -16,6 +16,7 @@ export type TeamPlayer = {
   experienceYears?: string;
   strongHand?: string;
   statuses?: string[];
+  nationalCaps?: number;
   team?: string;
   bio?: string;
 };

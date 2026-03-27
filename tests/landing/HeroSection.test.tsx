@@ -11,7 +11,7 @@ vi.mock('react-router-dom', async () => {
 });
 
 vi.mock('@components/Parallax', () => ({
-  default: ({ children }: { children: ReactNode }) => <div data-testid="parallax">{children}</div>,
+  ParallaxSlideshow: ({ children }: { children: ReactNode }) => <div data-testid="parallax">{children}</div>,
 }));
 
 vi.mock('@components/CountUpStat', () => ({

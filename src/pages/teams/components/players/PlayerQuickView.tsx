@@ -34,11 +34,17 @@ const PlayerQuickView = ({ player, onClose }: PlayerQuickViewProps) => {
 						<PlayerPortrait
 							imageSrc={player.imageSrc}
 							alt={player.name}
-							className="mx-auto w-1/2 rounded-2xl"
+							className="w-full rounded-2xl"
 							imageClassName="rounded-2xl"
 						/>
 						<div className="mt-6 space-y-3">
 							<h3 className="text-3xl font-black text-primary-900">{player.name}</h3>
+							{player.nationalCaps ? (
+								<p className="inline-flex items-center rounded-full bg-primary-900 px-3 py-1 text-[11px] font-semibold tracking-[0.08em] text-white uppercase">
+									Seleccion nacional · {player.nationalCaps} CAP
+								</p>
+							) : null}
+							{player.bio ? <p className="text-sm leading-relaxed text-primary-700">{player.bio}</p> : null}
 							<div className="grid grid-cols-1 gap-3">
 								<InfoPill label="Posición" value={player.position} />
 								<InfoPill label="Edad" value={getAgeFromBirthDate(player.birthDate)} />

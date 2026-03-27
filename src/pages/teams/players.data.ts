@@ -13,6 +13,7 @@ export const basePlayers: TeamPlayer[] = [
     experienceYears: '10',
     strongHand: 'Derecha',
     statuses: ['Capitan', 'Jugador'],
+    nationalCaps: 27,
     bio: 'Lider del lineout, fuerte en el contacto y lectura defensiva.',
   },
   {
