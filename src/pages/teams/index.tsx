@@ -1,12 +1,12 @@
 import { useMemo } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import CoachesPanel from './components/CoachesPanel';
 import PlayersPanel from './components/PlayersPanel';
 import StatsPanel from './components/StatsPanel';
 import TeamsHero from './components/TeamsHero';
 import TeamsTabs from './components/TeamsTabs';
-import { findTeamBySlug } from './teams.data';
+import { findTeamBySlug, teamProfiles } from './teams.data';
 import { isTeamTab } from './types';
 
 const TeamsPage = () => {
@@ -14,7 +14,12 @@ const TeamsPage = () => {
 	const team = useMemo(() => findTeamBySlug(slug), [slug]);
 	const activeTab = isTeamTab(tab) ? tab : 'players';
 	const tabBasePath = `/equipos/${team.slug}`;
-	const allPlayers = useMemo(() => team.players, [team]);
+	const availableTeams = useMemo(() => teamProfiles.map((profile) => profile.title), []);
+	const navigate = useNavigate();
+	const teamRoutes = useMemo(
+		() => Object.fromEntries(teamProfiles.map((profile) => [profile.title, `/equipos/${profile.slug}`])),
+		[],
+	);
 
 	return (
 		<main className="bg-primary-50 min-h-screen">
@@ -23,7 +28,17 @@ const TeamsPage = () => {
 
 			<section className="mx-auto w-full max-w-6xl space-y-8 px-6 py-8">
 
-				{activeTab === 'players' ? <PlayersPanel players={allPlayers} /> : null}
+				{activeTab === 'players' ? (
+					<PlayersPanel
+						players={team.players}
+						currentTeam={team.title}
+						availableTeams={availableTeams}
+						onNavigateTeam={(teamName) => {
+							const nextRoute = teamRoutes[teamName];
+							if (nextRoute) navigate(nextRoute);
+						}}
+					/>
+				) : null}
 				{activeTab === 'coaches' ? <CoachesPanel coaches={team.coaches} /> : null}
 				{activeTab === 'stats' ? <StatsPanel stats={team.stats} /> : null}
 

@@ -58,7 +58,7 @@ const Header = () => {
 					<div className="flex items-center gap-2 lg:hidden">
 						<motion.button
 							type="button"
-							className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/10 p-2.5"
+							className="inline-flex cursor-pointer items-center justify-center rounded-full border border-white/25 bg-white/10 p-2.5"
 							onClick={() => setMobileMenuOpen(true)}
 							whileTap={{ scale: 0.94 }}
 						>

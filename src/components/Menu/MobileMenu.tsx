@@ -42,7 +42,7 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 							</Link>
 							<motion.button
 								type="button"
-								className="rounded-full border border-primary-200 bg-transparent p-2 text-primary-700"
+								className="cursor-pointer rounded-full border border-primary-200 bg-transparent p-2 text-primary-700"
 								onClick={() => setMobileMenuOpen(false)}
 								whileTap={{ scale: 0.94 }}
 							>
@@ -60,7 +60,7 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 										<motion.div key={entry.label} variants={mobileItemVariants}>
 											<Link
 												to={entry.href as string}
-												className="flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-primary-900 transition-colors hover:bg-primary-100"
+												className="flex cursor-pointer items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-primary-900 transition-colors hover:bg-primary-100"
 												onClick={() => setMobileMenuOpen(false)}
 											>
 												<EntryIcon className="h-4 w-4 text-primary-600" />
@@ -80,7 +80,7 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 									>
 										<button
 											type="button"
-											className="flex w-full items-center justify-between border-0 bg-transparent px-4 py-3 text-left text-sm font-semibold uppercase tracking-[0.12em] text-primary-900"
+											className="flex w-full cursor-pointer items-center justify-between border-0 bg-transparent px-4 py-3 text-left text-sm font-semibold uppercase tracking-[0.12em] text-primary-900"
 											onClick={() => setExpandedSection(isExpanded ? null : entry.label)}
 											aria-expanded={isExpanded}
 										>
@@ -107,7 +107,7 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 															<Link
 																key={child.label}
 																to={child.href as string}
-																className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-primary-700 transition-colors hover:bg-primary-50 hover:text-primary-900"
+																className="flex cursor-pointer items-center gap-2 rounded-lg px-3 py-2 text-sm text-primary-700 transition-colors hover:bg-primary-50 hover:text-primary-900"
 																onClick={() => setMobileMenuOpen(false)}
 															>
 																<ChildIcon className="h-4 w-4 text-primary-500" />

@@ -1,11 +1,5 @@
-﻿import { motion } from 'framer-motion';
-
-import { getAgeFromBirthDate } from '@utils/date';
-
-import AnimatedTiltCard from '@components/ui/AnimatedTiltCard';
-import PlayerPortrait from '@components/ui/PlayerPortrait';
-
 import type { TeamPlayer } from '../../types';
+import PlayerGridCard from './PlayerGridCard';
 
 type PlayersGridProps = {
   players: TeamPlayer[];
@@ -25,37 +19,7 @@ const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPa
       {players.length ? (
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {players.map((player) => (
-            <AnimatedTiltCard
-              key={player.id}
-              scrollTilt
-              className="overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-sm transition-shadow hover:shadow-lg"
-            >
-              {({ contentX, contentY, contentScale }) => (
-                <button type="button" onClick={() => onSelectPlayer(player)} className="group w-full text-left">
-                  <motion.div className="relative" style={{ x: contentX, y: contentY, scale: contentScale }}>
-                    <PlayerPortrait
-                      imageSrc={player.imageSrc}
-                      alt={player.name}
-                      number={player.number}
-                      imageClassName="transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </motion.div>
-                  <div className="space-y-1 p-4">
-                    <h3 className="text-lg font-semibold text-primary-900">{player.name}</h3>
-                    {player.nationalCaps ? (
-                      <p className="inline-flex items-center rounded-full bg-primary-900 px-2.5 py-1 text-[11px] font-semibold tracking-[0.08em] text-white uppercase">
-                        Selección nacional · {player.nationalCaps} CAP
-                      </p>
-                    ) : null}
-                    <p className="text-sm text-primary-600">Edad: {getAgeFromBirthDate(player.birthDate)}</p>
-                    <p className="text-xs font-semibold text-primary-500">Posición · {player.position}</p>
-                    <p className="text-xs font-semibold text-primary-500">
-                      Estado: {(player.statuses ?? ['Player']).join(' / ')}
-                    </p>
-                  </div>
-                </button>
-              )}
-            </AnimatedTiltCard>
+            <PlayerGridCard key={player.id} player={player} onSelectPlayer={onSelectPlayer} />
           ))}
         </div>
       ) : (

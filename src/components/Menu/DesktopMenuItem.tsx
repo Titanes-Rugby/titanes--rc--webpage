@@ -62,7 +62,7 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 		return (
 			<MotionLink
 				to={entry.href as string}
-				className="inline-flex items-center gap-1.5 rounded-md px-1 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/85 transition-colors hover:text-white"
+				className="inline-flex cursor-pointer items-center gap-1.5 rounded-md px-1 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/85 transition-colors hover:text-white"
 				initial="rest"
 				animate="rest"
 				whileHover="hover"
@@ -90,7 +90,7 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 		>
 			<motion.button
 				type="button"
-				className="inline-flex items-center gap-1.5 rounded-md border-0 bg-transparent px-1 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/85 transition-colors hover:text-white"
+				className="inline-flex cursor-pointer items-center gap-1.5 rounded-md border-0 bg-transparent px-1 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/85 transition-colors hover:text-white"
 				initial="rest"
 				animate="rest"
 				whileHover="hover"
@@ -122,7 +122,7 @@ const DesktopMenuItem = ({ entry, isOpen, onOpen, onClose }: DesktopMenuItemProp
 								<MotionLink
 									key={child.label}
 									to={child.href as string}
-									className="flex items-start gap-2 rounded-xl px-3 py-2 transition-colors hover:bg-primary-100/70"
+									className="flex cursor-pointer items-start gap-2 rounded-xl px-3 py-2 transition-colors hover:bg-primary-100/70"
 									initial="rest"
 									animate="rest"
 									whileHover="hover"
