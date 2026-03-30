@@ -8,9 +8,12 @@ import { usePlayersCatalog } from './players/usePlayersCatalog';
 
 type PlayersPanelProps = {
   players: TeamPlayer[];
+  currentTeam?: string;
+  availableTeams?: string[];
+  onNavigateTeam?: (team: string) => void;
 };
 
-const PlayersPanel = ({ players }: PlayersPanelProps) => {
+const PlayersPanel = ({ players, currentTeam = 'Todos los equipos', availableTeams, onNavigateTeam }: PlayersPanelProps) => {
   const [selectedPlayer, setSelectedPlayer] = useState<TeamPlayer | null>(null);
   const {
     page,
@@ -26,7 +29,16 @@ const PlayersPanel = ({ players }: PlayersPanelProps) => {
     onChangePosition,
     onChangeQuery,
     setPage,
-  } = usePlayersCatalog(players);
+  } = usePlayersCatalog(players, availableTeams, currentTeam);
+
+  const handleChangeTeam = (team: string) => {
+    if (team === 'Todos los equipos' || !onNavigateTeam) {
+      onChangeTeam(team);
+      return;
+    }
+
+    onNavigateTeam(team);
+  };
 
   return (
     <section className="space-y-6">
@@ -36,7 +48,7 @@ const PlayersPanel = ({ players }: PlayersPanelProps) => {
         positions={positions}
         positionFilter={positionFilter}
         query={query}
-        onChangeTeam={onChangeTeam}
+        onChangeTeam={handleChangeTeam}
         onChangePosition={onChangePosition}
         onChangeQuery={onChangeQuery}
       />

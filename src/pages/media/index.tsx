@@ -17,7 +17,7 @@ const MediaPage = () => {
 
   return (
     <main className="bg-primary-50 min-h-screen">
-      <MediaHero title={activeSectionData.title} description={activeSectionData.description} />
+      <MediaHero section={activeSection} title={activeSectionData.title} description={activeSectionData.description} />
       <MediaTabs activeSection={activeSection} />
 
       <section className="mx-auto w-full max-w-6xl px-6 py-10">

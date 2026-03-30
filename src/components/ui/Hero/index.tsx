@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import { motion } from 'framer-motion';
 
 import { cn } from '@/utils/cn';
@@ -7,6 +7,7 @@ type HeroProps = {
   eyebrow?: string;
   title: string;
   description?: string;
+  sectionStyle?: CSSProperties;
   sectionClassName?: string;
   gradientClassName?: string;
   radialClassName?: string;
@@ -27,6 +28,7 @@ const Hero = ({
   eyebrow,
   title,
   description,
+  sectionStyle,
   sectionClassName,
   gradientClassName,
   radialClassName,
@@ -44,6 +46,7 @@ const Hero = ({
 }: HeroProps) => {
   return (
     <section
+      style={sectionStyle}
       className={cn(
         'relative overflow-hidden px-6 pt-34 text-white sm:pt-40',
         aside ? 'pb-14' : 'pb-12 sm:pb-14',

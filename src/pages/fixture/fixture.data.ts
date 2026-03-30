@@ -2,9 +2,9 @@ import type { FixtureFilterOption, FixtureItem } from './types';
 
 export const fixtureTeamOptions: FixtureFilterOption[] = [
   { id: 'all', label: 'Todos' },
-  { id: 'primera-division', label: 'Primera' },
-  { id: 'juveniles', label: 'Juveniles' },
-  { id: 'femenino', label: 'Femenino' },
+  { id: 'primera-division', label: 'Titanes' },
+  { id: 'juveniles', label: 'Titanides' },
+  { id: 'femenino', label: 'Titanes Juveniles' },
 ];
 
 export const fixtures: FixtureItem[] = [
