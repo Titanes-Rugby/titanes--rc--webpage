@@ -25,10 +25,10 @@ export const usePlayersCatalog = (
 		const sourceTeams = availableTeams?.length ? availableTeams : players.map((player) => player.team);
 		return ['Todos los equipos', ...new Set(sourceTeams.filter(hasValue))];
 	}, [availableTeams, players]);
-	const positions = useMemo(
-		() => ['Todas', ...new Set(players.map((player) => player.position).filter(hasValue))],
-		[players],
-	);
+	const positions = useMemo(() => {
+		const uniquePositions = new Set(players.flatMap((player) => player.position));
+		return ['Todas', ...uniquePositions];
+	}, [players]);
 
 	const filteredPlayers = useMemo(() => {
 		const normalizedQuery = query.trim().toLowerCase();

@@ -32,7 +32,7 @@ const PlayerGridCard = ({ player, onSelectPlayer }: PlayerGridCardProps) => {
           <button
             type="button"
             onClick={() => onSelectPlayer(player)}
-            aria-label={player.name}
+            aria-label={player.fullName}
             className="group block w-full text-left"
           >
             <motion.div className="relative" style={{ x: contentX, y: contentY, scale: contentScale }}>
@@ -45,7 +45,7 @@ const PlayerGridCard = ({ player, onSelectPlayer }: PlayerGridCardProps) => {
               ) : null}
               <PlayerPortrait
                 imageSrc={player.imageSrc}
-                alt={player.name}
+                alt={player.fullName}
                 number={player.number}
                 showFlag={Boolean(player.nationalCaps)}
                 className={cn(isPanamaTheme && 'bg-gradient-to-br from-[#0057b8] via-white to-[#d21034]')}
@@ -63,7 +63,7 @@ const PlayerGridCard = ({ player, onSelectPlayer }: PlayerGridCardProps) => {
               className="block w-full text-left"
             >
               <h3 className={cn('text-lg font-semibold', isPanamaTheme ? 'text-[#0057b8]' : 'text-primary-900')}>
-                {player.name}
+                {player.fullName}
               </h3>
             </button>
 
@@ -93,7 +93,7 @@ const PlayerGridCard = ({ player, onSelectPlayer }: PlayerGridCardProps) => {
                 Edad: {getAgeFromBirthDate(player.birthDate)}
               </p>
               <p className={cn('text-xs font-semibold', isPanamaTheme ? 'text-[#0057b8]' : 'text-primary-500')}>
-                Posicion · {player.position}
+                Posicion · {player.position.join(' / ')}
               </p>
               <p className={cn('text-xs font-semibold', isPanamaTheme ? 'text-[#0057b8]' : 'text-primary-500')}>
                 Estado: {(player.statuses ?? ['Player']).join(' / ')}
