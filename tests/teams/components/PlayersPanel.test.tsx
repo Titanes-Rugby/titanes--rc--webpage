@@ -6,8 +6,10 @@ import type { TeamPlayer } from '@/pages/teams/types';
 
 const mockPlayer: TeamPlayer = {
   id: 'p1',
-  name: 'Carlos Ruiz',
-  position: 'Fly Half',
+  fullName: 'Carlos Ruiz',
+  firstName: 'Carlos',
+  lastName: 'Ruiz',
+  position: ['Fly Half'],
   number: '10',
   imageSrc: '/images/p1.jpg',
 };

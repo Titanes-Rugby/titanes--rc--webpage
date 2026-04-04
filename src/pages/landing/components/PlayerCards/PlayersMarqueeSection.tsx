@@ -23,8 +23,7 @@ const pickPlayersBatch = (items: typeof basePlayers) => {
 };
 
 const sameBatch = (left: typeof basePlayers, right: typeof basePlayers) => {
-  if (left.length !== right.length) return false;
-  return left.every((player, index) => player.id === right[index]?.id);
+  return left.map((player) => player.id).join('|') === right.map((player) => player.id).join('|');
 };
 
 const rotateBatch = (items: typeof basePlayers) => {

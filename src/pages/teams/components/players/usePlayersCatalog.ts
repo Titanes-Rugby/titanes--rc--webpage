@@ -5,11 +5,6 @@ import type { TeamPlayer } from '../../types';
 const PAGE_SIZE = 9;
 
 const FIXED_POSITIONS = ['Prop', 'Hooker', 'Scrum-half', 'Fly Half', 'Center', 'Wing', 'Fullback'];
-const getPositions = (player: TeamPlayer) => (Array.isArray(player.position) ? player.position : [player.position]);
-const getPlayerName = (player: TeamPlayer) => {
-	const legacyName = (player as TeamPlayer & { name?: string }).name;
-	return player.fullName || legacyName || `${player.firstName} ${player.lastName}`.trim();
-};
 
 export const usePlayersCatalog = (players: TeamPlayer[]) => {
 	const [teamFilter, setTeamFilter] = useState('Todos los equipos');
@@ -24,12 +19,11 @@ export const usePlayersCatalog = (players: TeamPlayer[]) => {
 		const normalizedQuery = query.trim().toLowerCase();
 
 		return players.filter((player) => {
-			const positions = getPositions(player);
 			const inTeam = teamFilter === 'Todos los equipos' || player.team === teamFilter;
-			const inPosition = positionFilter === 'Todas' || positions.includes(positionFilter);
+			const inPosition = positionFilter === 'Todas' || player.position.includes(positionFilter);
 			if (!normalizedQuery) return inTeam && inPosition;
 
-			const content = `${getPlayerName(player)} ${positions.join(' ')} ${player.number}`.toLowerCase();
+			const content = `${player.fullName} ${player.position.join(' ')} ${player.number}`.toLowerCase();
 			return inTeam && inPosition && content.includes(normalizedQuery);
 		});
 	}, [players, teamFilter, positionFilter, query]);

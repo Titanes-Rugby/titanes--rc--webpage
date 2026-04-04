@@ -31,7 +31,7 @@ describe('<PlayersGrid />', () => {
 
 		render(
 			<PlayersGrid
-				players={[{ id: 'p1', name: 'Carlos Ruiz', position: 'Fly Half', number: '10', imageSrc: '/images/p.png' }]}
+				players={[{ id: 'p1', fullName: 'Carlos Ruiz', firstName: 'Carlos', lastName: 'Ruiz', position: ['Fly Half'], number: '10', imageSrc: '/images/p.png' }]}
 				page={1}
 				pages={2}
 				filteredCount={7}
@@ -58,8 +58,10 @@ describe('<PlayersGrid />', () => {
 				players={[
 					{
 						id: 'p2',
-						name: 'Mario Diaz',
-						position: 'Hooker',
+						fullName: 'Mario Diaz',
+						firstName: 'Mario',
+						lastName: 'Diaz',
+						position: ['Hooker'],
 						number: '2',
 						imageSrc: '/images/p2.jpg',
 						statuses: ['Capitán', 'Titular'],

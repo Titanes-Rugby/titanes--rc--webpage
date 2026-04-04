@@ -28,8 +28,10 @@ describe('<PlayerQuickView />', () => {
         onClose={onClose}
         player={{
           id: 'p1',
-          name: 'Carlos Ruiz',
-          position: 'Fly Half',
+          fullName: 'Carlos Ruiz',
+          firstName: 'Carlos',
+          lastName: 'Ruiz',
+          position: ['Fly Half'],
           number: '10',
           imageSrc: '/p.png',
           statuses: ['Capitan', 'Jugador'],
@@ -59,7 +61,7 @@ describe('<PlayerQuickView />', () => {
     render(
       <PlayerQuickView
         onClose={vi.fn()}
-        player={{ id: 'p2', name: 'Mateo Reyes', position: 'Wing', number: '11', imageSrc: '/p2.png', statuses: [] }}
+        player={{ id: 'p2', fullName: 'Mateo Reyes', firstName: 'Mateo', lastName: 'Reyes', position: ['Wing'], number: '11', imageSrc: '/p2.png', statuses: [] }}
       />,
     );
 

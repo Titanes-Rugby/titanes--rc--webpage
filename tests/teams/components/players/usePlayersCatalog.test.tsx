@@ -3,17 +3,30 @@ import { describe, expect, it } from 'vitest';
 
 import { usePlayersCatalog } from '@/pages/teams/components/players/usePlayersCatalog';
 
+const player = (id: string, fullName: string, position: string, number: string) => {
+  const [firstName = fullName, ...rest] = fullName.split(' ');
+  return {
+    id,
+    fullName,
+    firstName,
+    lastName: rest.join(' ') || firstName,
+    position: [position],
+    number,
+    imageSrc: `/${id}.png`,
+  };
+};
+
 const players = [
-  { id: 'p1', name: 'Carlos Ruiz', position: 'Fly Half', number: '10', imageSrc: '/p1.png' },
-  { id: 'p2', name: 'Mateo Reyes', position: 'Wing', number: '11', imageSrc: '/p2.png' },
-  { id: 'p3', name: 'Luis Navarro', position: 'Back Row', number: '07', imageSrc: '/p3.png' },
-  { id: 'p4', name: 'Victor Mendez', position: 'Hooker', number: '02', imageSrc: '/p4.png' },
-  { id: 'p5', name: 'Alberto Cortez', position: 'First Row', number: '01', imageSrc: '/p5.png' },
-  { id: 'p6', name: 'Christhoval Barba', position: 'Second Row', number: '04', imageSrc: '/p6.png' },
-  { id: 'p7', name: 'Leo Diaz', position: 'Wing', number: '14', imageSrc: '/p7.png' },
-  { id: 'p8', name: 'Diego Torres', position: 'Center', number: '12', imageSrc: '/p8.png' },
-  { id: 'p9', name: 'Bruno Campos', position: 'Scrum Half', number: '09', imageSrc: '/p9.png' },
-  { id: 'p10', name: 'Andres Smith', position: 'Full Back', number: '15', imageSrc: '/p10.png' },
+  player('p1', 'Carlos Ruiz', 'Fly Half', '10'),
+  player('p2', 'Mateo Reyes', 'Wing', '11'),
+  player('p3', 'Luis Navarro', 'Back Row', '07'),
+  player('p4', 'Victor Mendez', 'Hooker', '02'),
+  player('p5', 'Alberto Cortez', 'First Row', '01'),
+  player('p6', 'Christhoval Barba', 'Second Row', '04'),
+  player('p7', 'Leo Diaz', 'Wing', '14'),
+  player('p8', 'Diego Torres', 'Center', '12'),
+  player('p9', 'Bruno Campos', 'Scrum Half', '09'),
+  player('p10', 'Andres Smith', 'Full Back', '15'),
 ];
 
 describe('usePlayersCatalog', () => {

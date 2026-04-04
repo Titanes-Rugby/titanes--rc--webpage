@@ -9,8 +9,10 @@ describe('<CompactPlayerCard />', () => {
       <CompactPlayerCard
         player={{
           id: 'p-1',
-          name: 'Christhoval Barba',
-          position: 'Pilar izquierdo',
+          fullName: 'Christhoval Barba',
+          firstName: 'Christhoval',
+          lastName: 'Barba',
+          position: ['Pilar izquierdo'],
           number: '04',
           imageSrc: '/images/players/player_1.png',
           birthDate: '1994-08-12',
@@ -31,14 +33,17 @@ describe('<CompactPlayerCard />', () => {
       <CompactPlayerCard
         player={{
           id: 'p-2',
-          name: 'Jugador Nuevo',
-          position: 'Wing',
+          fullName: 'Jugador Nuevo',
+          firstName: 'Jugador',
+          lastName: 'Nuevo',
+          position: [],
           number: '11',
           imageSrc: '/images/players/player_1.png',
         }}
       />,
     );
 
+    expect(screen.getByText(/^--$/i)).toBeInTheDocument();
     expect(screen.getByText(/Edad: --/i)).toBeInTheDocument();
     expect(screen.getByText(/Estatus: Jugador/i)).toBeInTheDocument();
   });

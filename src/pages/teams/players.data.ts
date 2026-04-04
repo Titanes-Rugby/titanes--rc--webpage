@@ -168,7 +168,7 @@ const basePlayersSeed: TeamPlayer[] = [
 
 const splitFullName = (fullName: string) => {
 	const [firstName, ...rest] = fullName.trim().split(/\s+/);
-	return { firstName: firstName ?? fullName, lastName: rest.join(' ') || firstName || fullName };
+	return { firstName, lastName: rest.join(' ') };
 };
 
 export const basePlayers: TeamPlayer[] = basePlayersSeed.map((player) => {
