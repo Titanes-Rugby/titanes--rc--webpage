@@ -11,6 +11,12 @@ type PlayerQuickViewProps = {
 	onClose: () => void;
 };
 
+const getPositions = (player: TeamPlayer) => (Array.isArray(player.position) ? player.position : [player.position]);
+const getPlayerName = (player: TeamPlayer) => {
+	const legacyName = (player as TeamPlayer & { name?: string }).name;
+	return player.fullName || legacyName || `${player.firstName} ${player.lastName}`.trim();
+};
+
 const PlayerQuickView = ({ player, onClose }: PlayerQuickViewProps) => {
 	return (
 		<AnimatePresence>
@@ -33,12 +39,12 @@ const PlayerQuickView = ({ player, onClose }: PlayerQuickViewProps) => {
 					>
 						<PlayerPortrait
 							imageSrc={player.imageSrc}
-							alt={player.name}
+							alt={getPlayerName(player)}
 							className="w-full rounded-2xl"
 							imageClassName="rounded-2xl"
 						/>
 						<div className="mt-6 space-y-3">
-							<h3 className="text-3xl font-black text-primary-900">{player.name}</h3>
+							<h3 className="text-3xl font-black text-primary-900">{getPlayerName(player)}</h3>
 							{player.nationalCaps ? (
 								<p className="inline-flex items-center rounded-full bg-primary-900 px-3 py-1 text-[11px] font-semibold tracking-[0.08em] text-white uppercase">
 									Seleccion nacional · {player.nationalCaps} CAP
@@ -46,7 +52,7 @@ const PlayerQuickView = ({ player, onClose }: PlayerQuickViewProps) => {
 							) : null}
 							{player.bio ? <p className="text-sm leading-relaxed text-primary-700">{player.bio}</p> : null}
 							<div className="grid grid-cols-1 gap-3">
-								<InfoPill label="Posición" value={player.position} />
+								<InfoPill label="Posición" value={getPositions(player).join(' / ')} />
 								<InfoPill label="Edad" value={getAgeFromBirthDate(player.birthDate)} />
 								<InfoPill label="Altura" value={player.height ?? '--'} />
 								<InfoPill label="Peso" value={player.weight ?? '--'} />

@@ -19,9 +19,11 @@ describe('ui-components preview blocks', () => {
       default: ({ player }: { player: { name: string } }) => <div>{player.name}</div>,
     }));
 
+    const dataModule = await import('@/pages/landing/components/PlayerCards/playerCards.data');
+    const firstName = dataModule.playerCards[0]?.name;
     const module = await import('@/pages/ui-components/components/PlayerCardPreview');
     render(<module.default />);
-    expect(screen.getByText('Christhoval')).toBeInTheDocument();
+    expect(screen.getByText(firstName)).toBeInTheDocument();
   });
 
   it('returns null when player-card data is empty', async () => {
@@ -49,9 +51,15 @@ describe('ui-components preview blocks', () => {
       PlayerPortrait: ({ alt }: { alt: string }) => <div>{alt}</div>,
     }));
 
+    const dataModule = await import('@/pages/landing/components/PlayerCards/playerCards.data');
+    const [firstPlayer, secondPlayer] = dataModule.playerCards;
     const module = await import('@/pages/ui-components/components/PlayerPortraitPreview');
     render(<module.default />);
-    expect(screen.getByText('Christhoval')).toBeInTheDocument();
-    expect(screen.getByText('Alberto')).toBeInTheDocument();
+    if (firstPlayer.name === secondPlayer.name) {
+      expect(screen.getAllByText(firstPlayer.name).length).toBeGreaterThanOrEqual(2);
+    } else {
+      expect(screen.getByText(firstPlayer.name)).toBeInTheDocument();
+      expect(screen.getByText(secondPlayer.name)).toBeInTheDocument();
+    }
   });
 });

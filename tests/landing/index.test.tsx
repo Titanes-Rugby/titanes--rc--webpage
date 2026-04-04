@@ -19,6 +19,7 @@ describe('<LandingPage />', () => {
 		expect(
 			screen.getByRole('heading', { name: /Tarjetas de jugadores con presencia de nivel profesional/i }),
 		).toBeInTheDocument();
+		expect(screen.getByRole('heading', { name: /Jugadores en movimiento/i })).toBeInTheDocument();
 		expect(screen.getByRole('heading', { name: /Categorías competitivas del club/i })).toBeInTheDocument();
 		expect(screen.getByRole('heading', { name: /Próximos partidos/i })).toBeInTheDocument();
 		expect(screen.getByRole('heading', { name: /Actualidad del club/i })).toBeInTheDocument();

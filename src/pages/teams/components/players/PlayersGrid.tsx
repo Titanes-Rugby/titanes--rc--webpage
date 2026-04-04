@@ -16,6 +16,12 @@ type PlayersGridProps = {
   onPageChange: (page: number) => void;
 };
 
+const getPositions = (player: TeamPlayer) => (Array.isArray(player.position) ? player.position : [player.position]);
+const getPlayerName = (player: TeamPlayer) => {
+  const legacyName = (player as TeamPlayer & { name?: string }).name;
+  return player.fullName || legacyName || `${player.firstName} ${player.lastName}`.trim();
+};
+
 const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPageChange }: PlayersGridProps) => {
   return (
     <div className="space-y-5">
@@ -24,7 +30,10 @@ const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPa
       </p>
       {players.length ? (
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {players.map((player) => (
+          {players.map((player) => {
+            const displayName = getPlayerName(player);
+            const positions = getPositions(player);
+            return (
             <AnimatedTiltCard
               key={player.id}
               scrollTilt
@@ -35,20 +44,20 @@ const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPa
                   <motion.div className="relative" style={{ x: contentX, y: contentY, scale: contentScale }}>
                     <PlayerPortrait
                       imageSrc={player.imageSrc}
-                      alt={player.name}
+                      alt={displayName}
                       number={player.number}
                       imageClassName="transition-transform duration-300 group-hover:scale-105"
                     />
                   </motion.div>
                   <div className="space-y-1 p-4">
-                    <h3 className="text-lg font-semibold text-primary-900">{player.name}</h3>
+                    <h3 className="text-lg font-semibold text-primary-900">{displayName}</h3>
                     {player.nationalCaps ? (
                       <p className="inline-flex items-center rounded-full bg-primary-900 px-2.5 py-1 text-[11px] font-semibold tracking-[0.08em] text-white uppercase">
                         Selección nacional · {player.nationalCaps} CAP
                       </p>
                     ) : null}
                     <p className="text-sm text-primary-600">Edad: {getAgeFromBirthDate(player.birthDate)}</p>
-                    <p className="text-xs font-semibold text-primary-500">Posición · {player.position}</p>
+                    <p className="text-xs font-semibold text-primary-500">Posición · {positions.join(' / ')}</p>
                     <p className="text-xs font-semibold text-primary-500">
                       Estado: {(player.statuses ?? ['Player']).join(' / ')}
                     </p>
@@ -56,7 +65,8 @@ const PlayersGrid = ({ players, page, pages, filteredCount, onSelectPlayer, onPa
                 </button>
               )}
             </AnimatedTiltCard>
-          ))}
+            );
+          })}
         </div>
       ) : (
         <article className="rounded-2xl border border-primary-100 bg-white p-6 text-center text-sm text-primary-600">
