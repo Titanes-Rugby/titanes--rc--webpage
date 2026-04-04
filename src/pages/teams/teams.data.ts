@@ -12,6 +12,12 @@ const basePlayers = [
 	})),
 ];
 
+const withTeam = (players: typeof basePlayers, team: string) =>
+	players.map((player) => ({
+		...player,
+		team,
+	}));
+
 const coaches = [
 	{
 		id: 'c1',
@@ -47,7 +53,7 @@ export const teamProfiles: TeamProfile[] = [
 		season: '2026',
 		record: '8W - 2L',
 		ranking: '#2 Liga Nacional',
-		players: basePlayers,
+		players: withTeam(basePlayers, 'Titanes'),
 		coaches,
 		fixtures,
 		stats: [
@@ -64,8 +70,7 @@ export const teamProfiles: TeamProfile[] = [
 		season: '2026',
 		record: '7W - 1L',
 		ranking: '#1 Conferencia',
-
-		players: basePlayers,
+		players: withTeam(basePlayers, 'Titanides'),
 		coaches,
 		fixtures,
 		stats: [
@@ -82,7 +87,7 @@ export const teamProfiles: TeamProfile[] = [
 		season: '2026',
 		record: '6W - 3L',
 		ranking: '#3 Liga Juvenil',
-		players: basePlayers,
+		players: withTeam(basePlayers, 'Titanes Juveniles'),
 		coaches,
 		fixtures,
 		stats: [

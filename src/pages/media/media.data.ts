@@ -25,6 +25,16 @@ export const mediaSections: MediaSection[] = [
 // Mas reciente primero (5 noticias)
 export const newsItems: NewsItem[] = [
 	{
+		id: 'n6',
+		title: 'Sol + Rugby',
+		date: '28 Mar 2026',
+		excerpt:
+			'Te esperamos para la 3ra fecha de la Liga Nacional de Rugby con la Union Panameña de Rugby desde las 8:00 a.m. en Ciudad del Saber. ¡Nos vemos en la cancha!',
+		imageSrc:
+			'https://instagram.fpac1-4.fna.fbcdn.net/v/t51.82787-15/657731756_18574164982002934_57759069336688492_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mzg2MjQ2NTAxNDAxMTkxOTAzOQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM1MC5zZHIuQzMifQ%3D%3D&_nc_ohc=KPOTCtpWxG8Q7kNvwFqKLp4&_nc_oc=AdqtfEwOGXtQNc39L0FjYeIM3OmYDXf80MVZoDqfCUUgiM8OKEA69ARAj3_Uerm31vQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fpac1-4.fna&_nc_gid=x40HRUHeDmTTHlkb3u8ePw&_nc_ss=7a32e&oh=00_Afxb5PAqaRZ_-Emksr0Kpeems4CfSH2OVsBGEYjv5PNR9A&oe=69CF9C88',
+		imageLink: 'https://www.instagram.com/p/DWaO8xZjSFq/?img_index=1',
+	},
+	{
 		id: 'n5',
 		title: 'Titanes gana en casa y asegura liderato',
 		date: '10 Mar 2026',

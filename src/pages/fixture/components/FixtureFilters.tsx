@@ -2,6 +2,12 @@ import { cn } from '@/utils/cn';
 
 import type { FixtureFilterOption, FixtureStatus, FixtureTeam } from '../types';
 
+const LEGACY_LABELS: Partial<Record<FixtureTeam, string>> = {
+  'primera-division': 'Primera',
+  juveniles: 'Juveniles',
+  femenino: 'Femenino',
+};
+
 type FixtureFiltersProps = {
   team: FixtureTeam;
   status: FixtureStatus;
@@ -18,6 +24,7 @@ const FixtureFilters = ({ team, status, teamOptions, onTeamChange, onStatusChang
           key={option.id}
           type="button"
           onClick={() => onTeamChange(option.id)}
+          aria-label={LEGACY_LABELS[option.id] ? `${option.label} ${LEGACY_LABELS[option.id]}` : option.label}
           className={cn('rounded-full px-3 py-1.5 text-[11px] font-semibold tracking-[0.12em] uppercase', team === option.id ? 'bg-primary-700 text-white' : 'text-primary-700 hover:bg-primary-100')}
         >
           {option.label}

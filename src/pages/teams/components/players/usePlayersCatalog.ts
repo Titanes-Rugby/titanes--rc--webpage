@@ -1,19 +1,34 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import type { TeamPlayer } from '../../types';
 
 const PAGE_SIZE = 9;
 
-const FIXED_POSITIONS = ['Prop', 'Hooker', 'Scrum-half', 'Fly Half', 'Center', 'Wing', 'Fullback'];
+const hasValue = (value?: string): value is string => Boolean(value);
 
-export const usePlayersCatalog = (players: TeamPlayer[]) => {
-	const [teamFilter, setTeamFilter] = useState('Todos los equipos');
+export const usePlayersCatalog = (
+	players: TeamPlayer[],
+	availableTeams?: string[],
+	initialTeam: string = 'Todos los equipos',
+) => {
+	const [teamFilter, setTeamFilter] = useState(initialTeam);
 	const [positionFilter, setPositionFilter] = useState('Todas');
 	const [query, setQuery] = useState('');
 	const [page, setPage] = useState(1);
 
-	const teams = useMemo(() => ['Todos los equipos', ...new Set(players.map((player) => player.team ?? ''))], [players]);
-	const positions = useMemo(() => ['Todas', ...FIXED_POSITIONS], []);
+	useEffect(() => {
+		setTeamFilter(initialTeam);
+		setPage(1);
+	}, [initialTeam]);
+
+	const teams = useMemo(() => {
+		const sourceTeams = availableTeams?.length ? availableTeams : players.map((player) => player.team);
+		return ['Todos los equipos', ...new Set(sourceTeams.filter(hasValue))];
+	}, [availableTeams, players]);
+	const positions = useMemo(
+		() => ['Todas', ...new Set(players.map((player) => player.position).filter(hasValue))],
+		[players],
+	);
 
 	const filteredPlayers = useMemo(() => {
 		const normalizedQuery = query.trim().toLowerCase();

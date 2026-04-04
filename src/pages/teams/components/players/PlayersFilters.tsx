@@ -23,35 +23,26 @@ const PlayersFilters = ({
   onChangeQuery,
 }: PlayersFiltersProps) => {
   return (
-    <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-primary-100 bg-gradient-to-r from-white via-primary-50/70 to-white p-4 shadow-md">
+    <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-primary-100 bg-gradient-to-r from-white via-primary-50/70 to-white p-4 shadow-md lg:flex-nowrap">
       <div className="flex items-center gap-2 rounded-xl bg-white px-3 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-primary-600 shadow-sm">
         <Filter className="h-4 w-4 text-primary-500" />
         Filtros
       </div>
       <SelectPill label="Equipo" value={teamFilter} options={teams} onChange={onChangeTeam} ariaLabel="Cambiar equipo" />
-      <SelectPill label="Posición" value={positionFilter} options={positions} onChange={onChangePosition} ariaLabel="Cambiar posición" />
-      <div className="flex flex-wrap gap-2">
-        {positions.map((pos) => (
-          <button
-            key={pos}
-            type="button"
-            onClick={() => onChangePosition(pos)}
-            aria-pressed={positionFilter === pos}
-            className={`inline-flex items-center gap-2 rounded-lg border border-primary-200 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] transition ${
-              positionFilter === pos ? 'bg-primary-700 text-white' : 'bg-primary-50 text-primary-800 hover:border-primary-400'
-            }`}
-          >
-            {pos}
-          </button>
-        ))}
-      </div>
-      <label className="flex min-w-[14rem] flex-1 items-center gap-2 rounded-xl border border-primary-200 bg-white px-3 py-2 text-sm text-primary-700 shadow-sm focus-within:border-primary-400 focus-within:ring-2 focus-within:ring-primary-100">
-        <span className="sr-only">Buscar jugador</span>
+      <SelectPill
+        label="Posiciones"
+        value={positionFilter}
+        options={positions}
+        onChange={onChangePosition}
+        ariaLabel="Cambiar posición"
+      />
+      <label className="flex min-w-[14rem] flex-1 items-center gap-2 rounded-xl border border-primary-200 bg-white px-3 py-2 text-sm text-primary-700 shadow-sm focus-within:border-primary-400 focus-within:ring-2 focus-within:ring-primary-100 lg:min-w-[18rem]">
+        <span className="sr-only">Buscar jugador por nombre</span>
         <input
           type="search"
           value={query}
           onChange={(event) => onChangeQuery(event.target.value)}
-          placeholder="Buscar jugador..."
+          placeholder="Buscar jugador por nombre..."
           className="w-full border-0 bg-transparent p-0 text-sm outline-none placeholder:text-primary-400"
         />
       </label>
@@ -88,7 +79,7 @@ const SelectPill = ({ label, value, options, onChange, ariaLabel }: SelectPillPr
       <button
         type="button"
         onClick={() => setOpen((state) => !state)}
-        aria-label={ariaLabel}
+        aria-label={ariaLabel ? `${ariaLabel}: ${value}` : value}
         className="inline-flex items-center gap-2 rounded-lg border border-primary-200 bg-primary-50 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-primary-800 transition hover:border-primary-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-100"
       >
         {value}
