@@ -82,7 +82,7 @@ export const newsItems: NewsItem[] = [
 		excerpt:
 			'Este ha sido un año de muchos cambios y nuestro logo no se podía quedar atrás. Manteniendo la esencia y el espíritu que nos han definido por 18 años. Presentamos oficialmente nuestra nueva cara; una evolución que refuerza la hermandad, el honor y la disciplina que nos representan.',
 		imageSrc:
-			'https://instagram.fpac1-4.fna.fbcdn.net/v/t51.82787-15/607368965_18547725640002934_4102471504522400930_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=Mzc5Njk1NzE1ODA3Njk1OTAwMDE4NTQ3NzI1NjM0MDAyOTM0.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjYzMHgxMTIwLnNkci5DMyJ9&_nc_ohc=t3C7q6SJAKYQ7kNvwGm5PvF&_nc_oc=Adriys_RO1kv8ZPx3amu3EIznNRkTydA07WqAiZyhiWe4nxEfUKYJz2gL8QLNx6nSDI&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fpac1-4.fna&_nc_gid=BZujJ8kCyHBq56Zc1x5ORQ&_nc_ss=7a32e&oh=00_AfwS4EZjummVb3KMWDZtTk936-ui2nJTYZHhmKbK-Ycyyg&oe=69CA083D',
+			'https://instagram.fpty1-1.fna.fbcdn.net/v/t51.82787-15/607368965_18547725640002934_4102471504522400930_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=Mzc5Njk1NzE1ODA3Njk1OTAwMDE4NTQ3NzI1NjM0MDAyOTM0.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjYzMHgxMTIwLnNkci5DMiJ9&_nc_ohc=bwg7ByuDJMgQ7kNvwEwyM4s&_nc_oc=Ado6_ERTg5zX9XH9GzEkYewRCo8Xs6Fp8LHPIQZqG-SjhFI1ExaFvaDHWt0Qe77JEl4&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fpty1-1.fna&_nc_gid=M2vDUv_aC7Usi89Aue7cXQ&_nc_ss=7a32e&oh=00_Af1tb3pM2WLbeS-5N2aq3kqEQ0x_yfZsX12n_EDXYpX-BQ&oe=69D969BD',
 		imageLink: 'https://www.instagram.com/p/DSxgGsKjckY/',
 	},
 ];
