@@ -10,6 +10,7 @@ interface MarqueeProps<T> {
 	containerClassName?: string;
 	contentClassName?: string;
 	showEdgeFade?: boolean;
+	edgeFadeColorFrom?: string;
 }
 
 const Marquee = <T,>({
@@ -19,6 +20,7 @@ const Marquee = <T,>({
 	containerClassName,
 	contentClassName,
 	showEdgeFade = true,
+	edgeFadeColorFrom = 'from-white',
 }: MarqueeProps<T>) => {
 	const [isPaused, setIsPaused] = useState(false);
 	const [loopWidth, setLoopWidth] = useState(0);
@@ -69,8 +71,18 @@ const Marquee = <T,>({
 		>
 			{showEdgeFade ? (
 				<>
-					<div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-transparent" />
-					<div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-transparent" />
+					<div
+						className={cn(
+							'pointer-events-none absolute inset-y-0 left-0 z-10 w-20 md:w-40 bg-gradient-to-r from-white to-transparent',
+							edgeFadeColorFrom,
+						)}
+					/>
+					<div
+						className={cn(
+							'pointer-events-none absolute inset-y-0 right-0 z-10 w-20 md:w-40 bg-gradient-to-l from-white to-transparent',
+							edgeFadeColorFrom,
+						)}
+					/>
 				</>
 			) : null}
 			<motion.div className={cn('flex w-max', contentClassName)} style={{ x }}>
