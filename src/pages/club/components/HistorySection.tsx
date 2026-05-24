@@ -111,10 +111,10 @@ const HistorySection = () => {
 							<ShieldCheckIcon className="h-4 w-4 text-primary-600" /> Titánides
 						</a>
 						<a
-							href="/equipos/juveniles"
+							href="/equipos/desarrollo"
 							className="inline-flex items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-700 transition hover:border-primary-400 hover:bg-white"
 						>
-							<ShieldCheckIcon className="h-4 w-4 text-primary-600" /> Titanes Juveniles
+							<ShieldCheckIcon className="h-4 w-4 text-primary-600" /> Titanes Desarrollo
 						</a>
 						<a
 							href="/fixture"

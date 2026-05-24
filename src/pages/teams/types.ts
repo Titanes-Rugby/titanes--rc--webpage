@@ -23,7 +23,6 @@ export type TeamPlayer = {
 	height?: string;
 	weight?: string;
 	experienceYears?: string;
-	strongHand?: string;
 	statuses?: string[];
 	nationalCaps?: number;
 	team?: string;

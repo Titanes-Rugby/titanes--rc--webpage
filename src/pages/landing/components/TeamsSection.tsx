@@ -12,8 +12,8 @@ const TEAMS = [
 		description: 'Equipo femenino competitivo con calendario nacional y torneos regionales.',
 	},
 	{
-		title: 'Titanes Juveniles',
-		href: '/equipos/juveniles',
+		title: 'Titanes Desarrollo',
+		href: '/equipos/desarrollo',
 		description: 'Programa de desarrollo U18-U20 para formar talento y proyectarlo al plantel mayor.',
 	},
 ];

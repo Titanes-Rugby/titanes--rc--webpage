@@ -22,6 +22,18 @@ export default defineConfig({
 		},
 	},
 	plugins: [svgr(), react()],
+	build: {
+		rollupOptions: {
+			output: {
+				manualChunks: {
+					react: ['react', 'react-dom', 'react-router-dom'],
+					motion: ['framer-motion'],
+					forms: ['react-hook-form'],
+					icons: ['lucide-react', '@heroicons/react', '@icons-pack/react-simple-icons'],
+				},
+			},
+		},
+	},
 	test: {
 		globals: true,
 		environment: 'jsdom',

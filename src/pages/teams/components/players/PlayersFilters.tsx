@@ -42,7 +42,7 @@ const PlayersFilters = ({
           type="search"
           value={query}
           onChange={(event) => onChangeQuery(event.target.value)}
-          placeholder="Buscar jugador por nombre..."
+          placeholder="Buscar jugador por nombre, equipo, posicion, numero..."
           className="w-full border-0 bg-transparent p-0 text-sm outline-none placeholder:text-primary-400"
         />
       </label>

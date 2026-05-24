@@ -40,7 +40,7 @@ export const MENU_ENTRIES: MenuEntry[] = [
 		children: [
 			{ label: 'Titanes', href: '/equipos/primera-division', description: 'Equipo masculino, calendarios y resultados.' },
 			{ label: 'Titanides', href: '/equipos/femenino', description: 'Equipo femenino, staff y proximos partidos.' },
-			{ label: 'Titanes Juveniles', href: '/equipos/juveniles', description: 'Desarrollo competitivo y formativo por categorias.' },
+			{ label: 'Titanes Desarrollo', href: '/equipos/desarrollo', description: 'Desarrollo competitivo y formativo por categorias.' },
 		],
 	},
 	{

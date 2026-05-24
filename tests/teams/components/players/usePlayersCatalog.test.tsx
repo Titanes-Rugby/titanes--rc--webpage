@@ -72,4 +72,49 @@ describe('usePlayersCatalog', () => {
     act(() => result.current.onChangePosition('Hooker'));
     expect(result.current.filteredCount).toBe(1);
   });
+
+  it('shows all players under all teams and matches Titanes Desarrollo by exact label', () => {
+    const playersWithTeams = [
+      { ...players[0], team: 'Titanes' },
+      { ...players[1], team: 'Titanides' },
+      { ...players[2], team: 'Titanes Desarrollo' },
+    ];
+    const { result } = renderHook(() =>
+      usePlayersCatalog(playersWithTeams, ['Titanes', 'Titanides', 'Titanes Desarrollo'], 'Titanes'),
+    );
+
+    act(() => result.current.onChangeTeam('Todos los equipos'));
+    expect(result.current.filteredCount).toBe(3);
+
+    act(() => result.current.onChangeTeam('Titanes Desarrollo'));
+    expect(result.current.filteredCount).toBe(1);
+    expect(result.current.paginatedPlayers[0]?.team).toBe('Titanes Desarrollo');
+  });
+
+  it('keeps search results scoped to the selected team', () => {
+    const playersWithTeams = [
+      { ...players[0], fullName: 'Carlos Ruiz', team: 'Titanes' },
+      { ...players[1], fullName: 'Carlos Reyes', team: 'Titanides' },
+    ];
+    const { result } = renderHook(() => usePlayersCatalog(playersWithTeams, ['Titanes', 'Titanides'], 'Titanes'));
+
+    act(() => result.current.onChangeQuery('Carlos'));
+    expect(result.current.filteredCount).toBe(1);
+    expect(result.current.paginatedPlayers[0]?.team).toBe('Titanes');
+  });
+
+  it('deduplicates positions with casing variants', () => {
+    const playersWithPositions = [
+      { ...players[0], position: ['medio scrum'] },
+      { ...players[1], position: ['Medio scrum'] },
+      { ...players[2], position: ['wing'] },
+      { ...players[3], position: ['Wing'] },
+    ];
+    const { result } = renderHook(() => usePlayersCatalog(playersWithPositions));
+
+    expect(result.current.positions).toEqual(['Todas', 'medio scrum', 'wing']);
+
+    act(() => result.current.onChangePosition('medio scrum'));
+    expect(result.current.filteredCount).toBe(2);
+  });
 });

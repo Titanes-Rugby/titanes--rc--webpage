@@ -30,7 +30,7 @@ export const footerSections: FooterSection[] = [
 		links: [
 			{ label: 'Titanes', href: '/equipos/primera-division' },
 			{ label: 'Titanides', href: '/equipos/femenino' },
-			{ label: 'Titanes Juveniles', href: '/equipos/juveniles' },
+			{ label: 'Titanes Desarrollo', href: '/equipos/desarrollo' },
 		],
 	},
 	{

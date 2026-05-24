@@ -16,7 +16,7 @@ import PlayerQuickView from '@/pages/teams/components/players/PlayerQuickView';
 describe('<PlayerQuickView />', () => {
   it('does not render panel when player is null', () => {
     render(<PlayerQuickView player={null} onClose={vi.fn()} />);
-    expect(screen.queryByRole('button', { name: /Close/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /Cerrar/i })).not.toBeInTheDocument();
   });
 
   it('renders player data and handles close actions', async () => {
@@ -49,11 +49,11 @@ describe('<PlayerQuickView />', () => {
     expect(screen.getByText(/Seleccion nacional · 27 CAP/i)).toBeInTheDocument();
     expect(screen.getByText(/Conductor tactico del equipo y gran vision de juego/i)).toBeInTheDocument();
     expect(screen.getByAltText(/Carlos Ruiz/i).parentElement).toHaveClass('w-full');
-    expect(screen.getAllByText('--')).toHaveLength(5);
+    expect(screen.getAllByText('--')).toHaveLength(4);
 
     const closeButtons = screen.getAllByRole('button');
     await user.click(closeButtons[0]);
-    await user.click(screen.getByRole('button', { name: /Close/i }));
+    await user.click(screen.getByRole('button', { name: /Cerrar/i }));
     expect(onClose).toHaveBeenCalledTimes(2);
   });
 

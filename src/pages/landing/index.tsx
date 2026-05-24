@@ -1,3 +1,5 @@
+import DeferredSection from '@/components/DeferredSection';
+
 import AboutSection from './components/AboutSection';
 import FixtureSection from './components/FixtureSection';
 import HeroSection from './components/HeroSection';
@@ -12,13 +14,27 @@ const LandingPage = () => {
 		<main>
 			<HeroSection />
 			<AboutSection />
-			<PlayerCardsSection />
-			<PlayersMarqueeSection />
-			<TeamsSection />
-			<FixtureSection />
-			<NewsSection />
-			<SponsorsSection />
-			<JoinSection />
+			<DeferredSection>
+				<PlayerCardsSection />
+			</DeferredSection>
+			<DeferredSection>
+				<PlayersMarqueeSection />
+			</DeferredSection>
+			<DeferredSection>
+				<TeamsSection />
+			</DeferredSection>
+			<DeferredSection>
+				<FixtureSection />
+			</DeferredSection>
+			<DeferredSection>
+				<NewsSection />
+			</DeferredSection>
+			<DeferredSection>
+				<SponsorsSection />
+			</DeferredSection>
+			<DeferredSection size="420px">
+				<JoinSection />
+			</DeferredSection>
 		</main>
 	);
 };

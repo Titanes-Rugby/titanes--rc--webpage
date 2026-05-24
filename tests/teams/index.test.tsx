@@ -19,14 +19,14 @@ describe('<TeamsPage />', () => {
     renderTeamsRoute('/equipos/primera-division/players');
 
     expect(screen.getByRole('heading', { name: /^Titanes$/i })).toBeInTheDocument();
-    expect(screen.getByText(/20 jugadores encontrados/i)).toBeInTheDocument();
+    expect(screen.getByText(/4 jugadores encontrados/i)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Contactar al club/i })).toHaveAttribute('href', '/contacto');
   });
 
   it('renders coaches panel for coaches route', () => {
-    renderTeamsRoute('/equipos/juveniles/coaches');
+    renderTeamsRoute('/equipos/desarrollo/coaches');
 
-    expect(screen.getByRole('heading', { name: /Titanes Juveniles/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Titanes Desarrollo/i })).toBeInTheDocument();
     expect(screen.getByText(/Head Coach/i)).toBeInTheDocument();
     expect(screen.queryByText(/jugadores encontrados/i)).not.toBeInTheDocument();
   });
@@ -35,19 +35,19 @@ describe('<TeamsPage />', () => {
     renderTeamsRoute('/equipos/femenino/not-a-real-tab');
 
     expect(screen.getByRole('heading', { name: /Titanides/i })).toBeInTheDocument();
-    expect(screen.getByText(/20 jugadores encontrados/i)).toBeInTheDocument();
+    expect(screen.getByText(/2 jugadores encontrados/i)).toBeInTheDocument();
   });
 
   it('renders stats tab content', () => {
     renderTeamsRoute('/equipos/primera-division/stats');
 
-    expect(screen.getByText(/Éxito en tackles|Exito en tackles/i)).toBeInTheDocument();
+    expect(screen.getByText(/xito en tackles/i)).toBeInTheDocument();
     expect(screen.queryByText(/jugadores encontrados/i)).not.toBeInTheDocument();
   });
 
   it('falls back to players tab when route uses removed fixtures tab', () => {
-    renderTeamsRoute('/equipos/juveniles/fixtures');
+    renderTeamsRoute('/equipos/desarrollo/fixtures');
 
-    expect(screen.getByText(/20 jugadores encontrados/i)).toBeInTheDocument();
+    expect(screen.getByText(/2 jugadores encontrados/i)).toBeInTheDocument();
   });
 });

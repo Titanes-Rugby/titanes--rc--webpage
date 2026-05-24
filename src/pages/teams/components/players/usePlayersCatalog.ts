@@ -5,6 +5,25 @@ import type { TeamPlayer } from '../../types';
 const PAGE_SIZE = 9;
 
 const hasValue = (value?: string): value is string => Boolean(value);
+const normalizePosition = (value: string) => value.trim().toLowerCase();
+const buildSearchIndex = (player: TeamPlayer) =>
+	[
+		player.fullName,
+		player.firstName,
+		player.lastName,
+		player.number,
+		player.team,
+		player.position.join(' '),
+		player.statuses?.join(' '),
+		player.birthDate,
+		player.height,
+		player.weight,
+		player.experienceYears,
+		player.bio,
+	]
+		.filter(hasValue)
+		.join(' ')
+		.toLowerCase();
 
 export const usePlayersCatalog = (
 	players: TeamPlayer[],
@@ -26,22 +45,34 @@ export const usePlayersCatalog = (
 		return ['Todos los equipos', ...new Set(sourceTeams.filter(hasValue))];
 	}, [availableTeams, players]);
 	const positions = useMemo(() => {
-		const uniquePositions = new Set(players.flatMap((player) => player.position));
-		return ['Todas', ...uniquePositions];
+		const uniquePositions = new Map<string, string>();
+		players.flatMap((player) => player.position).forEach((position) => {
+			const normalized = normalizePosition(position);
+			if (!normalized || uniquePositions.has(normalized)) return;
+			uniquePositions.set(normalized, position);
+		});
+		return ['Todas', ...uniquePositions.values()];
 	}, [players]);
+	const indexedPlayers = useMemo(
+		() => players.map((player) => ({ player, searchIndex: buildSearchIndex(player) })),
+		[players],
+	);
 
 	const filteredPlayers = useMemo(() => {
 		const normalizedQuery = query.trim().toLowerCase();
 
-		return players.filter((player) => {
+		return indexedPlayers
+			.filter(({ player, searchIndex }) => {
 			const inTeam = teamFilter === 'Todos los equipos' || player.team === teamFilter;
-			const inPosition = positionFilter === 'Todas' || player.position.includes(positionFilter);
+			const inPosition =
+				positionFilter === 'Todas' ||
+				player.position.some((position) => normalizePosition(position) === normalizePosition(positionFilter));
 			if (!normalizedQuery) return inTeam && inPosition;
 
-			const content = `${player.fullName} ${player.position.join(' ')} ${player.number}`.toLowerCase();
-			return inTeam && inPosition && content.includes(normalizedQuery);
-		});
-	}, [players, teamFilter, positionFilter, query]);
+			return inTeam && inPosition && searchIndex.includes(normalizedQuery);
+			})
+			.map(({ player }) => player);
+	}, [indexedPlayers, teamFilter, positionFilter, query]);
 
 	const pages = Math.max(1, Math.ceil(filteredPlayers.length / PAGE_SIZE));
 	const safePage = Math.min(page, pages);

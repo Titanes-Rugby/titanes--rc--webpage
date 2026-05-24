@@ -1,22 +1,7 @@
-ï»¿import { basePlayers as basePlayersSeed } from './players.data';
+import { desarrolloPlayers } from './desarrollo.data';
+import { femeninoPlayers } from './femenino.data';
+import { titanesPlayers } from './titanes.data';
 import type { TeamProfile } from './types';
-
-const basePlayers = [
-	...basePlayersSeed,
-	...basePlayersSeed.map((player) => ({
-		...player,
-		id: `${player.id}-alt`,
-		fullName: `${player.fullName} Jr.`,
-		firstName: player.firstName,
-		lastName: `${player.lastName} Jr.`,
-	})),
-];
-
-const withTeam = (players: typeof basePlayers, team: string) =>
-	players.map((player) => ({
-		...player,
-		team,
-	}));
 
 const coaches = [
 	{
@@ -53,12 +38,12 @@ export const teamProfiles: TeamProfile[] = [
 		season: '2026',
 		record: '8W - 2L',
 		ranking: '#2 Liga Nacional',
-		players: withTeam(basePlayers, 'Titanes'),
+		players: titanesPlayers,
 		coaches,
 		fixtures,
 		stats: [
 			{ id: 's1', label: 'Tries', value: '31', change: '+14%' },
-			{ id: 's2', label: 'Ã‰xito en tackles', value: '89%', change: '+3.2%' },
+			{ id: 's2', label: 'Éxito en tackles', value: '89%', change: '+3.2%' },
 			{ id: 's3', label: 'Possession', value: '56%', change: '+2.1%' },
 			{ id: 's4', label: 'Penalties', value: '9.2', change: '-1.8' },
 		],
@@ -70,29 +55,29 @@ export const teamProfiles: TeamProfile[] = [
 		season: '2026',
 		record: '7W - 1L',
 		ranking: '#1 Conferencia',
-		players: withTeam(basePlayers, 'Titanides'),
+		players: femeninoPlayers,
 		coaches,
 		fixtures,
 		stats: [
 			{ id: 's1', label: 'Tries', value: '29', change: '+16%' },
-			{ id: 's2', label: 'Ã‰xito en tackles', value: '91%', change: '+4.1%' },
+			{ id: 's2', label: 'Éxito en tackles', value: '91%', change: '+4.1%' },
 			{ id: 's3', label: 'Possession', value: '58%', change: '+2.8%' },
 			{ id: 's4', label: 'Penalties', value: '8.4', change: '-2.2' },
 		],
 	},
 	{
-		slug: 'juveniles',
-		title: 'Titanes Juveniles',
-		subtitle: 'Desarrollo competitivo U18-U20',
+		slug: 'desarrollo',
+		title: 'Titanes Desarrollo',
+		subtitle: 'Equipo de desarrollo competitivo',
 		season: '2026',
 		record: '6W - 3L',
-		ranking: '#3 Liga Juvenil',
-		players: withTeam(basePlayers, 'Titanes Juveniles'),
+		ranking: '#3 Liga de Desarrollo',
+		players: desarrolloPlayers,
 		coaches,
 		fixtures,
 		stats: [
 			{ id: 's1', label: 'Tries', value: '24', change: '+9%' },
-			{ id: 's2', label: 'Ã‰xito en tackles', value: '84%', change: '+2.6%' },
+			{ id: 's2', label: 'Éxito en tackles', value: '84%', change: '+2.6%' },
 			{ id: 's3', label: 'Possession', value: '52%', change: '+1.4%' },
 			{ id: 's4', label: 'Penalties', value: '11.1', change: '-1.1' },
 		],

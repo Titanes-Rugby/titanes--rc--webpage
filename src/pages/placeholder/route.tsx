@@ -9,7 +9,7 @@ const labelByPath: Record<string, string> = {
 	'club/staff-tecnico': 'Staff Tecnico',
 	'club/instalaciones': 'Instalaciones',
 	'equipos/primera-division': 'Primera Division',
-	'equipos/juveniles': 'Juveniles',
+	'equipos/desarrollo': 'Desarrollo',
 	'equipos/femenino': 'Equipo Femenino',
 	'media/noticias': 'Noticias',
 	'media/galeria': 'Galeria',

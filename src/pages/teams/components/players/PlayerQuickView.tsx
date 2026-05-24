@@ -51,7 +51,6 @@ const PlayerQuickView = ({ player, onClose }: PlayerQuickViewProps) => {
 								<InfoPill label="Altura" value={player.height ?? '--'} />
 								<InfoPill label="Peso" value={player.weight ?? '--'} />
 								<InfoPill label="Años de experiencia" value={player.experienceYears ?? '--'} />
-								<InfoPill label="Mano fuerte" value={player.strongHand ?? '--'} />
 								<InfoPill
 									label="Estatus"
 									value={(player.statuses && player.statuses.length ? player.statuses : ['Jugador']).join(' / ')}
@@ -63,7 +62,7 @@ const PlayerQuickView = ({ player, onClose }: PlayerQuickViewProps) => {
 							onClick={onClose}
 							className="mt-8 inline-flex w-full justify-center rounded-xl bg-primary-700 px-4 py-3 text-xs font-semibold tracking-[0.12em] text-white uppercase"
 						>
-							Close
+							Cerrar
 						</button>
 					</motion.aside>
 				</>

@@ -92,7 +92,7 @@ const PlayerGridCard = ({ player, onSelectPlayer }: PlayerGridCardProps) => {
 								Posicion · {player.position.join(' / ')}
 							</p>
 							<p className={cn('text-xs font-semibold', isPanamaTheme ? 'text-[#0057b8]' : 'text-primary-500')}>
-								Estado: {(player.statuses ?? ['Player']).join(' / ')}
+								Estado: {(player.statuses ?? ['Jugador']).join(' / ')}
 							</p>
 						</button>
 					</div>
