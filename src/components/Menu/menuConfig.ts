@@ -31,7 +31,7 @@ export const MENU_ENTRIES: MenuEntry[] = [
 		children: [
 			{ label: '¿Quiénes somos?', href: '/club/quienes-somos', description: 'Identidad, misión y visión del club.' },
 			{ label: 'Historia', href: '/club/historia', description: 'Origen, valores y crecimiento del club.' },
-			{ label: 'Personal administrativo', href: '/club/staff-tecnico', description: 'Presidentes y Junta directiva.' },
+			{ label: 'Cuerpo técnico y administrativo', href: '/club/staff-tecnico', description: 'Presidentes, junta directiva y staff de apoyo.' },
 			{ label: 'Instalaciones', href: '/club/instalaciones', description: 'Canchas, gimnasio y espacios de entrenamiento.' },
 		],
 	},

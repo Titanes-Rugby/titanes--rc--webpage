@@ -6,9 +6,9 @@ const StaffSection = () => {
 	return (
 		<section className="space-y-6">
 			<div className="max-w-3xl">
-				<h2 className="text-3xl font-bold text-primary-900">Personal Administrativo</h2>
+				<h2 className="text-3xl font-bold text-primary-900">Cuerpo Técnico y Administrativo</h2>
 				<p className="mt-2 text-sm leading-relaxed text-primary-700">
-					Equipo directivo y administrativo que coordina operaciones, soporte y rendimiento integral del club.
+					Equipo técnico, directivo y administrativo que coordina operaciones, soporte y rendimiento integral del club.
 				</p>
 			</div>
 			<div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -25,6 +25,12 @@ const StaffSection = () => {
 							<p className="text-sm font-semibold tracking-[0.1em] text-primary-600 uppercase">{member.role}</p>
 							<h3 className="text-xl font-black text-primary-900">{member.name}</h3>
 							<p className="text-xs font-semibold text-primary-600">Edad: {getAgeFromBirthDate(member.birthDate)}</p>
+							{member.rugbySince ? (
+								<p className="text-xs font-semibold text-primary-600">Rugby desde: {member.rugbySince}</p>
+							) : null}
+							{member.position ? (
+								<p className="text-xs font-semibold text-primary-600">Posicion: {member.position}</p>
+							) : null}
 							<p className="text-sm leading-relaxed text-primary-700">{member.focus}</p>
 						</div>
 					</article>

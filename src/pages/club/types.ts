@@ -13,6 +13,8 @@ export type StaffMember = {
 	role: string;
 	imageSrc?: string;
 	birthDate?: string;
+	position?: string;
+	rugbySince?: string;
 	focus: string;
 };
 
