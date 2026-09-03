@@ -1,5 +1,5 @@
 function getEnvironment(): 'production' | 'staging' | 'dev' | 'local' {
-  const hostname = import.meta.env?.VITE_API_HOST ?? process.env.VITE_API_HOST;
+  const hostname = import.meta.env?.VITE_API_HOST ?? process.env.VITE_API_HOST ?? '';
 
   if (hostname.includes('dev')) {
     return 'dev';

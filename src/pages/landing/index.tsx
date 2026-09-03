@@ -7,16 +7,13 @@ import JoinSection from './components/JoinSection';
 import NewsSection from './components/NewsSection';
 import SponsorsSection from './components/SponsorsSection';
 import TeamsSection from './components/TeamsSection';
-import { PlayerCardsSection, PlayersMarqueeSection } from './components/PlayerCards';
+import { PlayersMarqueeSection } from './components/PlayerCards';
 
 const LandingPage = () => {
 	return (
 		<main>
 			<HeroSection />
 			<AboutSection />
-			<DeferredSection>
-				<PlayerCardsSection />
-			</DeferredSection>
 			<DeferredSection>
 				<PlayersMarqueeSection />
 			</DeferredSection>

@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
+import { fileURLToPath, URL } from 'node:url';
 
-const SRC = 'C:/Users/deept/titanes--rc--webpage/src';
+const SRC = fileURLToPath(new URL('./src', import.meta.url));
 
 export default defineConfig({
 	resolve: {
