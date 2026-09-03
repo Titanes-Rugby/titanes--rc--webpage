@@ -17,7 +17,9 @@ describe('<MenuHeader />', () => {
     const user = userEvent.setup();
     renderMenu();
 
-    expect(screen.getByRole('link', { name: 'Partidos' })).toHaveAttribute('href', '/fixture');
+    expect(screen.queryByRole('link', { name: 'Partidos' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: 'Patrocinadores' })).not.toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Contacto' })).toHaveAttribute('href', '/contacto');
 
     await user.hover(screen.getByRole('button', { name: /club/i }));
     expect(screen.getByRole('link', { name: /Historia/i })).toHaveAttribute('href', '/club/historia');
@@ -87,7 +89,7 @@ describe('<MenuHeader />', () => {
 
     await user.click(screen.getByRole('button', { name: /open main menu/i }));
     const dialog = screen.getByRole('dialog');
-    await user.click(within(dialog).getByRole('link', { name: 'Partidos' }));
+    await user.click(within(dialog).getByRole('link', { name: 'Contacto' }));
 
     await waitFor(() => {
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();

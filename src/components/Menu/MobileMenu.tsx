@@ -52,7 +52,7 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: MobileMenuProps) => {
 						</div>
 
 						<motion.div className="mt-6 space-y-2" variants={mobileGroupVariants} initial="hidden" animate="visible">
-							{MENU_ENTRIES.map((entry) => {
+							{MENU_ENTRIES.filter((entry) => !entry.hidden).map((entry) => {
 								const EntryIcon = getMenuIcon(entry.label);
 
 								if (!entry.children?.length) {

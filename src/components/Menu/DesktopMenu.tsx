@@ -15,7 +15,7 @@ const DesktopMenu = ({ openKey, setOpenKey }: DesktopMenuProps) => (
 		animate={{ opacity: 1, y: 0 }}
 		transition={{ duration: 0.32, ease: 'easeOut' }}
 	>
-		{MENU_ENTRIES.map((entry) => (
+		{MENU_ENTRIES.filter((entry) => !entry.hidden).map((entry) => (
 			<DesktopMenuItem
 				key={entry.label}
 				entry={entry}

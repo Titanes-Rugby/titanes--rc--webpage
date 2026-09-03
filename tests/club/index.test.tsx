@@ -19,20 +19,20 @@ const renderClubRoute = (path: string) => {
 describe('<ClubPage />', () => {
   it('uses quienes-somos as default section on /club route', () => {
     renderClubRoute('/club');
-    expect(screen.getByRole('heading', { name: /Nuestra Esencia y Visión/i, level: 2 })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /¿Quiénes Somos\?/i, level: 1 })).toBeInTheDocument();
   });
 
   it('falls back to quienes-somos for invalid section', () => {
     renderClubRoute('/club/academia/nope');
-    expect(screen.getByRole('heading', { name: /Nuestra Esencia y Visión/i, level: 2 })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /¿Quiénes Somos\?/i, level: 1 })).toBeInTheDocument();
     expect(screen.getByText(/Más que un equipo, somos una hermandad/i)).toBeInTheDocument();
   });
 
   it('renders staff section from route param', () => {
     renderClubRoute('/club/staff-tecnico');
-    expect(screen.getByRole('heading', { name: /Personal Administrativo/i, level: 2 })).toBeInTheDocument();
-    expect(screen.getByText(/Diego Alvarado/i)).toBeInTheDocument();
-    expect(screen.getByText(/Director Deportivo/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Cuerpo Técnico y Administrativo/i, level: 2 })).toBeInTheDocument();
+    expect(screen.getByText(/Pablo Galeano/i)).toBeInTheDocument();
+    expect(screen.getByText(/Head Coach/i)).toBeInTheDocument();
   });
 
   it('renders instalaciones section with contact CTA', () => {
@@ -45,7 +45,7 @@ describe('<ClubPage />', () => {
   it('builds section links from custom slug when section param is present', () => {
     renderClubRoute('/club/academia/historia');
 
-    expect(screen.getByRole('heading', { name: /Linea de tiempo/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Historia Del Club/i, level: 1 })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /¿Quiénes somos\?/i })).toHaveAttribute('href', '/club/academia/quienes-somos');
   });
 });

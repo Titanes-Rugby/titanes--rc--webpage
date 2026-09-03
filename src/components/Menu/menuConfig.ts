@@ -21,6 +21,7 @@ export type MenuEntry = {
 	href?: string;
 	description?: string;
 	children?: MenuEntry[];
+	hidden?: boolean;
 };
 
 export type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
@@ -53,10 +54,11 @@ export const MENU_ENTRIES: MenuEntry[] = [
 	},
 	{
 		label: 'Herramientas',
+		hidden: true,
 		children: [{ label: 'Tarjeta de jugador', href: '/tools/player-card', description: 'Crea y exporta tarjetas de jugadores en PNG.' }],
 	},
-	{ label: 'Partidos', href: '/fixture' },
-	{ label: 'Patrocinadores', href: '/patrocinadores' },
+	{ label: 'Partidos', href: '/fixture', hidden: true },
+	{ label: 'Patrocinadores', href: '/patrocinadores', hidden: true },
 	{ label: 'Contacto', href: '/contacto' },
 ];
 

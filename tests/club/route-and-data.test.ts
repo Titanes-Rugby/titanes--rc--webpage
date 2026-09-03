@@ -17,7 +17,7 @@ describe('club route and data', () => {
     expect(isClubSection('staff-tecnico')).toBe(true);
     expect(isClubSection('instalaciones')).toBe(true);
     expect(isClubSection('otro')).toBe(false);
-    expect(getClubSection('staff-tecnico').title).toBe('Personal Administrativo');
+    expect(getClubSection('staff-tecnico').title).toBe('Cuerpo Técnico y Administrativo');
     expect(getClubSection('invalid').id).toBe('quienes-somos');
   });
 });

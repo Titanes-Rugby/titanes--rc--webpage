@@ -16,7 +16,7 @@ describe('teams route module', () => {
   });
 
   it('resolves team by slug with fallback to first profile', () => {
-    expect(findTeamBySlug('juveniles').slug).toBe('juveniles');
+    expect(findTeamBySlug('desarrollo').slug).toBe('desarrollo');
     expect(findTeamBySlug('unknown').slug).toBe('primera-division');
   });
 });

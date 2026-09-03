@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "daisyui";
 @plugin "@tailwindcss/typography";
 
@@ -39,8 +39,8 @@
 	--color-accent-900: #654215;
 	--color-accent-950: #41290f;
 
-	--background-image-try: url("/images/background/1103840.jpg");
-	--background-image-rhino: url("/images/background/1103841.jpg");
+	--background-image-try: url('/images/background/1103840.jpg');
+	--background-image-rhino: url('/images/background/1103841.jpg');
 }
 
 :root {
@@ -68,8 +68,8 @@ h1 {
 html,
 body,
 #root {
-	-webkit-user-select: none;
-	user-select: none;
+	/*-webkit-user-select: none;
+	user-select: none;*/
 }
 
 input,

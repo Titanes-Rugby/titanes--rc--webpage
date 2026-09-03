@@ -23,13 +23,13 @@ const LandingPage = () => {
 			<DeferredSection>
 				<TeamsSection />
 			</DeferredSection>
-			<DeferredSection>
+			<DeferredSection className="hidden">
 				<FixtureSection />
 			</DeferredSection>
 			<DeferredSection>
 				<NewsSection />
 			</DeferredSection>
-			<DeferredSection>
+			<DeferredSection className="hidden">
 				<SponsorsSection />
 			</DeferredSection>
 			<DeferredSection size="420px">

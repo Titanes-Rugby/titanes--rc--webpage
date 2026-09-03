@@ -19,7 +19,7 @@ describe('<TeamsPage />', () => {
     renderTeamsRoute('/equipos/primera-division/players');
 
     expect(screen.getByRole('heading', { name: /^Titanes$/i })).toBeInTheDocument();
-    expect(screen.getByText(/4 jugadores encontrados/i)).toBeInTheDocument();
+    expect(screen.getByText(/10 jugadores encontrados/i)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Contactar al club/i })).toHaveAttribute('href', '/contacto');
   });
 
@@ -35,19 +35,19 @@ describe('<TeamsPage />', () => {
     renderTeamsRoute('/equipos/femenino/not-a-real-tab');
 
     expect(screen.getByRole('heading', { name: /Titanides/i })).toBeInTheDocument();
-    expect(screen.getByText(/2 jugadores encontrados/i)).toBeInTheDocument();
+    expect(screen.getByText(/11 jugadores encontrados/i)).toBeInTheDocument();
   });
 
   it('renders stats tab content', () => {
     renderTeamsRoute('/equipos/primera-division/stats');
 
-    expect(screen.getByText(/xito en tackles/i)).toBeInTheDocument();
+    expect(screen.getByText(/Éxito en tackles/i)).toBeInTheDocument();
     expect(screen.queryByText(/jugadores encontrados/i)).not.toBeInTheDocument();
   });
 
   it('falls back to players tab when route uses removed fixtures tab', () => {
     renderTeamsRoute('/equipos/desarrollo/fixtures');
 
-    expect(screen.getByText(/2 jugadores encontrados/i)).toBeInTheDocument();
+    expect(screen.getByText(/6 jugadores encontrados/i)).toBeInTheDocument();
   });
 });

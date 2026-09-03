@@ -1,4 +1,4 @@
-import { Filter, ChevronsUpDown } from 'lucide-react';
+import { ChevronsUpDown, Filter } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 type PlayersFiltersProps = {
@@ -26,7 +26,6 @@ const PlayersFilters = ({
     <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-primary-100 bg-gradient-to-r from-white via-primary-50/70 to-white p-4 shadow-md lg:flex-nowrap">
       <div className="flex items-center gap-2 rounded-xl bg-white px-3 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-primary-600 shadow-sm">
         <Filter className="h-4 w-4 text-primary-500" />
-        Filtros
       </div>
       <SelectPill label="Equipo" value={teamFilter} options={teams} onChange={onChangeTeam} ariaLabel="Cambiar equipo" />
       <SelectPill
@@ -42,7 +41,7 @@ const PlayersFilters = ({
           type="search"
           value={query}
           onChange={(event) => onChangeQuery(event.target.value)}
-          placeholder="Buscar jugador por nombre, equipo, posicion, numero..."
+          placeholder="Buscar jugador por nombre, equipo, posición, número..."
           className="w-full border-0 bg-transparent p-0 text-sm outline-none placeholder:text-primary-400"
         />
       </label>
